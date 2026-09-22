@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>India data centres: NETCONF go-to-market report</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF; --tint:#F4F6FB; --line:#E2E6EF; --ink:#131A35; --muted:#5B6480; --faint:#8C93AA;
+  --fac:#2F4BDB; --net:#0C9A8C; --ix:#7050D6; --nixi:#B3307C;
+  --hub:#E4502F; --mid:#F1A532; --small:#AAB6CB;
+  --display:"Bricolage Grotesque","Avenir Next","Segoe UI",Arial,sans-serif;
+  --body:"IBM Plex Sans","Segoe UI",Arial,sans-serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:120px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;font-variant-numeric:tabular-nums}
+a{color:var(--fac)}
+:focus-visible{outline:2px solid var(--fac);outline-offset:2px}
+button{font:inherit;color:inherit}
+
+/* ---------- header ---------- */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.head{display:flex;align-items:center;gap:28px;padding:16px 36px 10px;max-width:1360px;margin:0 auto}
+.title{font-family:var(--display);font-weight:750;font-size:24px;line-height:1.1;letter-spacing:-.01em}
+.title small{display:block;font-family:var(--body);font-weight:400;font-size:13px;color:var(--muted);letter-spacing:0;margin-top:3px}
+.search{position:relative;flex:1;max-width:520px;margin-left:auto}
+.search input{width:100%;font:inherit;padding:10px 14px 10px 38px;border-radius:10px;border:1px solid var(--line);background:var(--tint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%235B6480' stroke-width='2'%3E%3Ccircle cx='7' cy='7' r='5'/%3E%3Cpath d='m11 11 4 4'/%3E%3C/svg%3E") no-repeat 13px center;color:var(--ink)}
+.search input:focus{background-color:#fff;border-color:var(--fac)}
+.results{position:absolute;top:calc(100% + 6px);left:0;right:0;background:#fff;border:1px solid var(--line);border-radius:10px;max-height:70vh;overflow:auto;display:none;box-shadow:0 16px 40px rgba(19,26,53,.14)}
+.results.open{display:block}
+.results h4{margin:0;padding:12px 14px 4px;font-size:12.5px;color:var(--muted);font-weight:600}
+.results button{display:block;width:100%;text-align:left;border:0;background:none;padding:7px 14px;cursor:pointer}
+.results button:hover,.results button:focus{background:var(--tint)}
+.results .sub{color:var(--faint);font-size:13px;margin-left:6px}
+.results .none{padding:14px;color:var(--muted)}
+.results .more{padding:2px 14px 10px;font-size:12.5px;color:var(--faint)}
+.tabs{display:flex;gap:4px;padding:0 28px;max-width:1360px;margin:0 auto;overflow-x:auto}
+.tabs button{background:none;border:0;border-bottom:3px solid transparent;padding:10px 12px 11px;color:var(--muted);cursor:pointer;white-space:nowrap;font-weight:500}
+.tabs button:hover{color:var(--ink)}
+.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--c,var(--fac))}
+
+main{max-width:1360px;margin:0 auto;padding:30px 36px 90px}
+section.view{display:none}
+section.view.on{display:block}
+h1{font-family:var(--display);font-weight:760;font-size:46px;line-height:1.05;letter-spacing:-.02em;margin:0 0 14px;max-width:22ch}
+h2{font-family:var(--display);font-weight:700;font-size:25px;letter-spacing:-.01em;margin:48px 0 4px}
+h3{font-family:var(--display);font-weight:650;font-size:17px;margin:0 0 2px}
+.lede{color:var(--muted);max-width:74ch;margin:0 0 22px;font-size:16px}
+.q{color:var(--muted);font-size:14px;margin:0 0 16px;max-width:70ch}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 24px}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.mapgrid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:20px;align-items:stretch}
+.chead{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:6px}
+.info{display:inline-grid;place-items:center;width:17px;height:17px;border-radius:50%;border:1.5px solid var(--faint);color:var(--faint);font-size:11px;font-weight:700;font-style:normal;cursor:help;margin-left:6px;vertical-align:2px;font-family:var(--body)}
+.info:focus-visible{border-color:var(--fac);color:var(--fac)}
+.mini{font:inherit;font-size:13px;padding:5px 8px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}
+.term{border-bottom:1px dotted var(--faint);cursor:help}
+
+/* ---------- filter panel ---------- */
+.panel{background:var(--tint);border:1px solid var(--line);border-radius:14px;padding:18px 22px;display:flex;flex-wrap:wrap;gap:18px 28px;align-items:flex-end;margin:0 0 22px}
+.fgroup .flabel{display:block;font-size:12.5px;font-weight:600;color:var(--muted);margin-bottom:6px}
+.pick{min-width:190px;text-align:left;background:#fff;border:1px solid var(--line);border-radius:9px;padding:8px 32px 8px 12px;cursor:pointer;position:relative}
+.pick::after{content:"";position:absolute;right:12px;top:50%;width:7px;height:7px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:translateY(-70%) rotate(45deg)}
+.pick.active{border-color:var(--ink);font-weight:600}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:20px;padding:6px 13px;cursor:pointer;font-size:13.5px;font-weight:500}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.chip .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:7px;vertical-align:0}
+.toggle{display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14px;padding:8px 0;white-space:nowrap}
+.toggle input{flex:none;appearance:none;width:36px;height:20px;border-radius:12px;background:#CBD2E0;position:relative;cursor:pointer;margin:0;transition:background .15s}
+.toggle input::after{content:"";position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#fff;transition:left .15s}
+.toggle input:checked{background:var(--ink)}
+.toggle input:checked::after{left:18px}
+.reset{margin-left:auto;background:none;border:0;color:var(--fac);font-weight:600;cursor:pointer;padding:8px 0}
+
+/* picker popover */
+.picker{position:absolute;z-index:60;width:300px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 18px 44px rgba(19,26,53,.18);display:none}
+.picker.open{display:block}
+.picker .ph{padding:12px 12px 8px;border-bottom:1px solid var(--line)}
+.picker input[type=search]{width:100%;font:inherit;font-size:14px;padding:7px 10px;border:1px solid var(--line);border-radius:8px}
+.picker .acts{display:flex;gap:14px;margin-top:8px;font-size:13px}
+.picker .acts button{background:none;border:0;color:var(--fac);cursor:pointer;padding:0;font-weight:600}
+.picker ul{list-style:none;margin:0;padding:6px 0;max-height:300px;overflow:auto}
+.picker li label{display:flex;align-items:center;gap:9px;padding:5px 14px;cursor:pointer;font-size:14px}
+.picker li label:hover{background:var(--tint)}
+.picker li .n{margin-left:auto;color:var(--faint);font-size:12.5px}
+.picker .none{padding:10px 14px;color:var(--muted);font-size:13.5px}
+
+/* KPI cards */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin:0 0 22px}
+.kpi{border:1px solid var(--line);border-radius:14px;padding:16px 18px;border-top:4px solid var(--c,var(--fac))}
+.kpi b{display:block;font-family:var(--display);font-size:34px;font-weight:720;line-height:1.1;letter-spacing:-.01em}
+.kpi span{font-size:13.5px;color:var(--muted)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1fr);padding:10px 0 6px}
+.hero h1 em{font-style:normal;color:var(--hub)}
+.conc{display:flex;height:64px;border-radius:12px;overflow:hidden;margin:26px 0 0}
+.conc div{display:flex;align-items:center;padding:0 16px;color:#fff;font-family:var(--display);font-weight:700;font-size:20px;min-width:0;white-space:nowrap;cursor:help}
+.conc div:nth-child(2),.conc div:nth-child(3){color:var(--ink)}
+.tiercards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:14px}
+.tiercard{border:1px solid var(--line);border-radius:14px;padding:16px 18px;border-left:6px solid var(--c)}
+.tiercard h3{font-size:19px}
+.tiercard .rule{font-weight:600;margin:2px 0 8px}
+.tiercard dl{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;margin:0;font-size:14px}
+.tiercard dt{color:var(--muted)}.tiercard dd{margin:0;font-weight:600;text-align:right}
+
+.layers{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:14px}
+.layer{border:1px solid var(--line);border-radius:14px;padding:18px;text-align:left;background:#fff;cursor:pointer;position:relative;border-top:4px solid var(--c)}
+.layer:hover{background:var(--tint)}
+.layer b{display:block;font-family:var(--display);font-size:30px;font-weight:720;color:var(--c);line-height:1.1}
+.layer strong{display:block;font-family:var(--display);font-size:17px;margin:4px 0}
+.layer span{color:var(--muted);font-size:14px}
+.layer .open{display:block;margin-top:10px;font-size:13px;font-weight:600;color:var(--ink)}
+
+/* bars */
+.bars{display:grid;grid-template-columns:minmax(80px,max-content) minmax(60px,1fr) auto;gap:6px 12px;align-items:center;font-size:13.5px}
+.bars .lbl{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:270px;text-align:right}
+.bars .trk{display:flex;height:16px;background:var(--tint);border-radius:4px;overflow:hidden}
+.bars .trk span{display:block;height:100%}
+.bars .val{font-weight:600;text-align:right;min-width:32px}
+.bars .row{display:contents;cursor:pointer}
+.bars .row:hover .lbl{color:var(--fac);text-decoration:underline}
+.bars .dim > *{opacity:.3}
+.scroll{max-height:520px;overflow-y:auto;padding-right:6px}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin:10px 0 0}
+.sw{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+
+/* map + scatter */
+.mapbox svg{display:block;width:100%;height:auto;max-height:600px}
+.mapbox .st{fill:#E9EDF6;stroke:#fff;stroke-width:1.2}
+.mapbox circle,.scatter circle{cursor:pointer;stroke:#fff;stroke-width:1.5}
+.mapbox circle:hover,.scatter circle:hover{stroke:var(--ink);stroke-width:2}
+.mapbox text{font-size:21px;font-weight:600;fill:var(--ink);paint-order:stroke;stroke:#fff;stroke-width:5px;stroke-linejoin:round;pointer-events:none}
+.scatter svg{display:block;width:100%;height:auto}
+.scatter .ax{stroke:var(--line)}
+.scatter text{font-size:11.5px;fill:var(--muted)}
+.scatter .pl{fill:var(--ink);font-weight:600;font-size:11px;paint-order:stroke;stroke:#fff;stroke-width:4px;pointer-events:none}
+.note{font-size:12.5px;color:var(--faint);margin:10px 0 0}
+.offmap{font-size:12.5px;color:var(--muted);margin:8px 0 0;border-top:1px solid var(--line);padding-top:8px}
+
+/* status bar (NIXI) */
+.sbar{display:flex;height:48px;border-radius:10px;overflow:hidden;margin:6px 0 14px}
+.sbar div{display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-family:var(--display);font-size:17px;cursor:pointer;min-width:0}
+.sbar div.dim{opacity:.3}
+.slegend{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.slegend button{text-align:left;border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:#fff;cursor:pointer;border-left:5px solid var(--c)}
+.slegend button:hover{background:var(--tint)}
+.slegend button.dim{opacity:.45}
+.slegend b{display:block;font-family:var(--display);font-size:22px}
+.slegend strong{display:block;font-size:14px;margin:2px 0}
+.slegend span{font-size:13px;color:var(--muted)}
+
+/* tables */
+.tblwrap{margin-top:34px}
+.tbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:12px 0 10px}
+.tbar input[type=search]{font:inherit;font-size:14px;padding:8px 12px;border:1px solid var(--line);border-radius:9px;min-width:260px}
+.tbar .count{margin-left:auto;font-size:13.5px;color:var(--muted)}
+.tbl{overflow:auto;border:1px solid var(--line);border-radius:12px;max-height:620px}
+table{border-collapse:separate;border-spacing:0;width:100%;font-size:13.5px}
+th{position:sticky;top:0;z-index:2;background:#fff;text-align:left;font-weight:600;padding:10px 12px;border-bottom:2px solid var(--ink);white-space:nowrap;user-select:none}
+th .sort{background:none;border:0;padding:0;cursor:pointer;font-weight:600}
+th[data-dir="asc"] .sort::after{content:" \25B2";font-size:9px}
+th[data-dir="desc"] .sort::after{content:" \25BC";font-size:9px}
+th .fbtn{border:1px solid var(--line);background:#fff;border-radius:6px;padding:0 5px;margin-left:6px;cursor:pointer;font-size:11px;line-height:18px;color:var(--muted)}
+th .fbtn.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+td{padding:8px 12px;border-bottom:1px solid var(--line);white-space:nowrap;max-width:300px;overflow:hidden;text-overflow:ellipsis}
+td.num,th.num{text-align:right}
+tbody tr{cursor:pointer}
+tbody tr:hover td{background:var(--tint)}
+tbody tr.sel td{background:#E8FBF8}
+td.ck,th.ck{width:36px;text-align:center}
+.tag{display:inline-block;padding:1px 9px;border-radius:12px;font-size:12px;font-weight:600;border:1.5px solid var(--c);color:var(--ink);white-space:nowrap}
+.tag::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--c);margin-right:6px;vertical-align:1px}
+.selinfo{font-size:13.5px;color:var(--net);font-weight:600}
+.clear{background:none;border:0;color:var(--fac);cursor:pointer;font-weight:600;font-size:13.5px}
+
+/* tooltip */
+#tip{position:fixed;z-index:80;pointer-events:none;background:var(--ink);color:#fff;font-size:12.5px;line-height:1.45;padding:7px 10px;border-radius:8px;max-width:300px;display:none}
+
+/* drawer */
+.scrim{position:fixed;inset:0;background:rgba(19,26,53,.28);display:none;z-index:40}
+.scrim.open{display:block}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(540px,100%);background:#fff;z-index:50;transform:translateX(102%);visibility:hidden;transition:transform .22s ease,visibility .22s;overflow-y:auto;padding:calc(24px + env(safe-area-inset-top,0px)) 28px calc(40px + env(safe-area-inset-bottom,0px));box-shadow:-20px 0 50px rgba(19,26,53,.12)}
+.drawer.open{transform:none;visibility:visible}
+@media (prefers-reduced-motion:reduce){.drawer{transition:none}}
+.drawer .x{float:right;background:none;border:1px solid var(--line);border-radius:8px;padding:5px 12px;cursor:pointer}
+.drawer .kind{font-size:13px;font-weight:600;color:var(--c)}
+.drawer h2{margin:6px 0 16px;font-size:27px}
+.drawer h4{font-family:var(--display);font-size:15px;margin:24px 0 8px;padding-bottom:5px;border-bottom:1px solid var(--line)}
+.drawer dl{display:grid;grid-template-columns:150px 1fr;gap:6px 14px;margin:0;font-size:14px}
+.drawer dt{color:var(--muted)}.drawer dd{margin:0;word-break:break-word}
+.contact{background:var(--tint);border-radius:12px;padding:14px 16px}
+.links{list-style:none;margin:0;padding:0;font-size:14px;columns:2;column-gap:18px}
+.links li{break-inside:avoid;padding:2px 0}
+.links button{background:none;border:0;padding:0;color:var(--fac);cursor:pointer;text-align:left}
+.links button:hover{text-decoration:underline}
+.act{margin-top:12px;background:var(--ink);color:#fff;border:0;border-radius:9px;padding:8px 14px;cursor:pointer;font-weight:600}
+.empty{color:var(--faint);font-size:14px}
+
+/* sources */
+.srcs td,.srcs th{white-space:normal}
+.defs{display:grid;grid-template-columns:240px 1fr;gap:10px 20px;margin:0}
+.defs dt{font-weight:600}.defs dd{margin:0;color:var(--muted)}
+.rules{margin:0;padding-left:22px;color:var(--muted);font-size:14px}
+.rules li{margin-bottom:7px}
+.rules b{color:var(--ink)}
+
+@media (max-width:980px){
+  .g2,.mapgrid,.tiercards{grid-template-columns:1fr}
+  .layers,.slegend{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .defs{grid-template-columns:1fr;gap:2px 0}
+  .defs dd{margin-bottom:10px}
+}
+@media (max-width:640px){
+  .head{flex-wrap:wrap;padding:12px 16px 6px;gap:10px}
+  .search{max-width:none;flex-basis:100%}
+  .tabs{padding:0 8px}
+  main{padding:22px 16px 70px}
+  h1{font-size:34px}
+  .layers,.slegend{grid-template-columns:1fr}
+  .conc div{font-size:14px;padding:0 8px}
+  .links{columns:1}
+  .drawer dl{grid-template-columns:1fr}
+  .panel{padding:14px 16px;gap:14px 18px}
+  .pick{min-width:150px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="head">
+    <div class="title">India data centres<small>Go-to-market research for network configuration (NETCONF) tooling</small></div>
+    <div class="search" role="search">
+      <input id="q" type="search" placeholder="Search any facility, operator, network, ASN, exchange or NIXI location" aria-label="Search all records" autocomplete="off">
+      <div class="results" id="results"></div>
+    </div>
+  </div>
+  <nav class="tabs" role="tablist" aria-label="Report sections">
+    <button role="tab" data-v="overview" aria-selected="true" style="--c:var(--ink)">Overview</button>
+    <button role="tab" data-v="facilities" style="--c:var(--fac)">Facilities</button>
+    <button role="tab" data-v="operators" style="--c:var(--fac)">Operators</button>
+    <button role="tab" data-v="networks" style="--c:var(--net)">Tenant networks</button>
+    <button role="tab" data-v="exchanges" style="--c:var(--ix)">Internet exchanges</button>
+    <button role="tab" data-v="nixi" style="--c:var(--nixi)">NIXI</button>
+    <button role="tab" data-v="sources" style="--c:var(--ink)">Sources and method</button>
+  </nav>
+</header>
+
+<main>
+<!-- ================= OVERVIEW ================= -->
+<section class="view on" id="v-overview" role="tabpanel" aria-label="Overview">
+  <div class="hero">
+    <h1 id="heroLine"></h1>
+    <p class="lede">A facility is a data centre building where companies rent space for their routers and switches. The more networks installed in a facility, the more equipment there is to configure, which makes it a stronger prospect for NETCONF tooling. NETCONF is the standard protocol for configuring that equipment automatically instead of by hand. The bar below splits every installed network across the three facility sizes used in this report.</p>
+  </div>
+  <div class="conc" id="conc"></div>
+  <div class="tiercards" id="tierCards"></div>
+
+  <h2>How the data fits together</h2>
+  <p class="q">The report has four linked datasets. Open any of them to filter, sort and see every record, including contact details.</p>
+  <div class="layers" id="layers"></div>
+
+  <h2>Where the facilities are</h2>
+  <p class="q">Each bubble is a city, sized by the number of facilities there. The bars beside it show the same cities, split by facility size. Use the size filter to see where the major hubs cluster, and click a city to open the Facilities tab filtered to it.</p>
+  <div class="panel" id="p-overview"></div>
+  <div class="mapgrid">
+    <div class="card mapbox"><div id="ov-map"></div></div>
+    <div class="card"><div class="chead"><h3>Facilities by city</h3><select class="mini" data-topn="ov-cities" aria-label="How many cities to show"></select></div><div class="legend" id="ov-cityLegend"></div><div class="scroll" style="margin-top:12px"><div class="bars" id="ov-cities"></div></div></div>
+  </div>
+
+  <h2>Largest operators</h2>
+  <p class="q">An operator is the company that runs a facility. This ranks operators by the number of networks installed across all their facilities, with each bar split by facility size. Click an operator to see its facilities and contacts.</p>
+  <div class="card"><div class="chead"><div class="legend" id="ov-opsLegend"></div><select class="mini" data-topn="ov-ops" aria-label="How many operators to show"></select></div><div class="scroll"><div class="bars" id="ov-ops"></div></div></div>
+</section>
+
+<!-- ================= FACILITIES ================= -->
+<section class="view" id="v-facilities" role="tabpanel" aria-label="Facilities">
+  <h1>Facilities</h1>
+  <p class="lede">All data centre buildings in India listed on PeeringDB, the public directory that networks and data centres use to record where their equipment is. Filter by city, operator or size to build a target list, then open any facility for its address, contacts, the networks inside and the exchanges it hosts.</p>
+  <div class="panel" id="p-facilities"></div>
+  <div class="kpis" id="k-facilities"></div>
+  <div class="mapgrid">
+    <div class="card mapbox"><div id="fac-map"></div></div>
+    <div class="card"><div class="chead"><h3>Facilities by city</h3><select class="mini" data-topn="fac-cities" aria-label="How many cities to show"></select></div><p class="q" style="margin:4px 0 0">Each bar is one city, split by the size of the facilities in it. Click a city to filter the page.</p><div class="legend" id="fac-cityLegend"></div><div class="scroll" style="margin-top:12px"><div class="bars" id="fac-cities"></div></div></div>
+  </div>
+  <div class="tblwrap"><h3>Facility list</h3><p class="q">Every facility matching the filters. Click any row for full details and contacts.</p><div id="t-facilities"></div></div>
+</section>
+
+<!-- ================= OPERATORS ================= -->
+<section class="view" id="v-operators" role="tabpanel" aria-label="Operators">
+  <h1>Operators</h1>
+  <p class="lede">Facilities grouped by the company that runs them, taken from the operator name on each facility record. An operator makes one buying decision for all of its facilities, so an operator with many busy facilities is a larger single deal.</p>
+  <div class="panel" id="p-operators"></div>
+  <div class="kpis" id="k-operators"></div>
+  <div class="g2">
+    <div class="card scatter"><h3>Size of each operator's estate<i class="info" tabindex="0" data-tip="Across: number of facilities the operator runs. Up: total networks installed across those facilities. Bubble size: number of cities. Colour: the largest facility size the operator runs.">i</i></h3><p class="q">Each bubble is one operator. Top right means many facilities with many networks inside. Click a bubble to open the operator.</p><div id="op-scatter"></div><div class="legend" id="op-scatterLegend"></div></div>
+    <div class="card"><div class="chead"><div><h3>Networks installed, by facility size</h3><p class="q" style="margin:4px 0 0">Each bar is one operator, split by the size of the facilities those networks sit in.</p><div class="legend" id="op-legend"></div></div><select class="mini" data-topn="op-bars" aria-label="How many operators to show"></select></div><div class="scroll" style="margin-top:10px"><div class="bars" id="op-bars"></div></div></div>
+  </div>
+  <div class="tblwrap"><h3>Operator list</h3><p class="q">Click any row to open the operator, with a button to jump to its facilities.</p><div id="t-operators"></div></div>
+</section>
+
+<!-- ================= NETWORKS ================= -->
+<section class="view" id="v-networks" role="tabpanel" aria-label="Tenant networks">
+  <h1>Tenant networks</h1>
+  <p class="lede">A tenant network is a company, such as an internet service provider, a content provider or a carrier, that has its own routers and switches installed inside a facility. Each one is a potential buyer in its own right, separate from the facility operator. Every network has an ASN, the unique number it uses to identify itself on the internet. <span id="net-lede2"></span></p>
+  <div class="panel" id="p-networks"></div>
+  <div class="kpis" id="k-networks"></div>
+  <div class="g2">
+    <div class="card"><div class="chead"><div><h3>What kind of networks are they?</h3><p class="q" style="margin:4px 0 0">The number of networks of each kind, as recorded on PeeringDB. Click a type to filter everything on this page.</p></div><select class="mini" data-topn="net-types" aria-label="How many network types to show"></select></div><div class="scroll" style="margin-top:12px"><div class="bars" id="net-types"></div></div></div>
+    <div class="card"><div class="chead"><div><h3>Which networks are in the most facilities?<i class="info" tabindex="0" data-tip="A network installed in 20 facilities runs equipment in 20 separate locations, so it has more devices to configure and keep consistent. These are the tenants worth approaching directly.">i</i></h3><p class="q">Networks ranked by how many Indian facilities they are installed in. More facilities means more locations with equipment to configure.</p></div><select class="mini" data-topn="net-wide" aria-label="How many networks to show"></select></div><div class="scroll"><div class="bars" id="net-wide"></div></div></div>
+  </div>
+  <h2>Where these networks are installed</h2>
+  <p class="q" id="net-whereQ"></p>
+  <div class="mapgrid">
+    <div class="card mapbox"><div id="net-map"></div></div>
+    <div class="card"><div class="chead"><h3>Facilities hosting them</h3><select class="mini" data-topn="net-facs" aria-label="How many facilities to show"></select></div><p class="q" style="margin:4px 0 12px">Each bar counts how many of the selected networks are installed in that facility.</p><div class="scroll"><div class="bars" id="net-facs"></div></div></div>
+  </div>
+  <div class="tblwrap"><h3>Network list</h3><p class="q">Tick the box on any row to focus the map and the bars above on those networks. Click elsewhere on a row to open its details.</p><div id="t-networks"></div></div>
+</section>
+
+<!-- ================= EXCHANGES ================= -->
+<section class="view" id="v-exchanges" role="tabpanel" aria-label="Internet exchanges">
+  <h1>Internet exchanges</h1>
+  <p class="lede">An internet exchange is a shared switch where many networks connect directly to swap traffic with each other, an arrangement called peering. Each connected network plugs into a port on that switch, and port speed is measured in megabits or gigabits per second. Exchange operators set up and change those connections constantly, so they carry a heavy configuration workload.</p>
+  <div class="panel" id="p-exchanges"></div>
+  <div class="kpis" id="k-exchanges"></div>
+  <div class="g2">
+    <div class="card scatter"><h3>Which exchanges are largest?<i class="info" tabindex="0" data-tip="Across: how many different networks have a port on the exchange. Up: the speeds of all its ports added together, in gigabits per second. Colour shows the exchange operator.">i</i></h3><p class="q">Each bubble is one exchange: networks connected against total port capacity. Click a bubble to open the exchange.</p><div id="ix-scatter"></div><div class="legend" id="ix-legend"></div></div>
+    <div class="card"><div class="chead"><div><h3>What port speeds do networks buy?</h3><p class="q" style="margin:4px 0 0">The number of ports at each speed. 10G means 10 gigabits per second. Ports listed at speed 0 are left out of this chart.</p></div><select class="mini" data-topn="ix-speed" aria-label="How many port speeds to show"></select></div><div class="scroll" style="margin-top:12px"><div class="bars" id="ix-speed"></div></div>
+      <div class="chead" style="margin-top:26px"><div><h3>Exchanges by city</h3><p class="q" style="margin:4px 0 0">The number of exchanges in each city. Click a city to filter the page.</p></div><select class="mini" data-topn="ix-city" aria-label="How many cities to show"></select></div><div class="scroll" style="margin-top:12px"><div class="bars" id="ix-city"></div></div></div>
+  </div>
+  <div class="tblwrap"><h3>Exchange list</h3><p class="q">Click any row for the exchange's contacts, the facilities it sits in and the networks with ports on it.</p><div id="t-exchanges"></div></div>
+</section>
+
+<!-- ================= NIXI ================= -->
+<section class="view" id="v-nixi" role="tabpanel" aria-label="NIXI">
+  <h1>NIXI</h1>
+  <p class="lede">The National Internet Exchange of India (NIXI) is the government-backed internet exchange. It runs connection points, called NOCs (network operations centres), in cities across the country where local internet service providers plug in. It matters here for two reasons: NIXI is one organisation running many sites, so one conversation covers all of them, and its ISP lists include regional ISPs that do not appear anywhere in the facility data.</p>
+  <div class="panel" id="p-nixi"></div>
+  <div class="kpis" id="k-nixi"></div>
+  <div class="card"><h3>How many of NIXI's ISPs are new to us?<i class="info" tabindex="0" data-tip="Each ISP is matched to PeeringDB by its ASN, the unique number every network uses on the internet.">i</i></h3>
+    <p class="q">Every ISP connected at NIXI, checked against the facility and exchange data by ASN. Each ISP falls into the first group it fits. Anything outside the first group would be missed by the facility list alone. Click a group to filter the page.</p>
+    <div class="sbar" id="nx-sbar"></div><div class="slegend" id="nx-slegend"></div></div>
+  <div class="g2" style="margin-top:20px">
+    <div class="card"><div class="chead"><h3>Which NIXI locations have the most ISPs?</h3><select class="mini" data-topn="nx-locs" aria-label="How many locations to show"></select></div><p class="q">The number of ISPs listed at each NIXI location. Click a location to filter.</p><div class="scroll"><div class="bars" id="nx-locs"></div></div></div>
+    <div class="card"><div class="chead"><h3>Which ISPs connect at several locations?</h3><select class="mini" data-topn="nx-multi" aria-label="How many ISPs to show"></select></div><p class="q">The number of NIXI locations each ISP connects at. An ISP present in several cities runs a wider network.</p><div class="scroll"><div class="bars" id="nx-multi"></div></div></div>
+  </div>
+  <div class="tblwrap"><h3>ISPs connected at NIXI</h3><p class="q">One row per ASN. Click a row for the ISP's locations, other name spellings and its PeeringDB record where one exists.</p><div id="t-nixiIsps"></div></div>
+  <div class="tblwrap"><h3>NIXI locations and contacts</h3><p class="q">All NIXI locations, including those with no ISP list. Click a row for the full contact details and the ISPs there.</p><div id="t-nixiNocs"></div></div>
+</section>
+
+<!-- ================= SOURCES ================= -->
+<section class="view" id="v-sources" role="tabpanel" aria-label="Sources and method">
+  <h1>Sources and method</h1>
+  <p class="lede">Where each dataset comes from, how they connect, and every rule used to tidy them. Row counts are counted from the files themselves.</p>
+  <div class="card"><h3>Datasets</h3><p class="q">Eight files, one per sheet of the source workbook.</p><div class="tbl"><table class="srcs" id="srcTable"></table></div></div>
+  <div class="card" style="margin-top:20px"><h3>How the datasets link</h3><p class="q">Each link is a shared ID column. Following them is what lets any record open its related records.</p><div class="tbl"><table class="srcs" id="keyTable"></table></div></div>
+  <div class="card" style="margin-top:20px"><h3>Definitions</h3><p class="q">Every term this report defines for itself.</p><dl class="defs" id="defs" style="margin-top:12px"></dl></div>
+  <div class="card" style="margin-top:20px"><h3>Tidying rules</h3><p class="q">The only changes made to the source data. Nothing is added or removed, and the original value stays visible in each record's detail panel.</p><ol class="rules" id="tidy"></ol></div>
+  <div class="card" style="margin-top:20px"><h3>A note on the map</h3><p class="q" style="margin:0">The state boundaries on the maps are simplified public data, drawn for visual reference only. They are not survey-grade and should not be used to read a border. A city bubble sits at the average position of that city's facilities that have coordinates in the data; facilities in a city where no facility has coordinates stay in every chart, table and count, and are listed under each map.</p></div>
+</section>
+</main>
+
+<div class="picker" id="picker" role="dialog" aria-label="Filter options"></div>
+<div id="tip" role="tooltip"></div>
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-hidden="true" aria-label="Record details"></aside>
+
+<script type="application/json" id="data">/*__DATA__*/</script>
+<script>
+"use strict";
+/* =========================================================
+   India data centre report.
+   All values come from the JSON above, which build/build.py
+   computes from the CSVs in data/. Nothing is typed in here.
+   ========================================================= */
+const D = JSON.parse(document.getElementById('data').textContent);
+const G = D.geo, M = D.meta;
+const $ = s => document.querySelector(s);
+const esc = v => String(v ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const num = v => Number(v) || 0;
+const fmt = v => Number(v).toLocaleString('en-IN');
+const pct = (a,b) => b ? (a/b*100).toFixed(1)+'%' : '0.0%';
+const V = n => `var(${n})`;
+const push = (o,k,v) => { (o[k] = o[k] || []).push(v); };
+const EMPTY = 'Nothing matches the current filters. Widen them with "Select all" in a dropdown, turn off a toggle, or use "Reset filters" above.';
+
+/* =========================================================
+   1. DERIVED DATA  (all joins happen here)
+   ========================================================= */
+const TIER = {
+  1:{name:M.tiers['1'].name, rule:M.tiers['1'].rule, c:'--hub'},
+  2:{name:M.tiers['2'].name, rule:M.tiers['2'].rule, c:'--mid'},
+  3:{name:M.tiers['3'].name, rule:M.tiers['3'].rule, c:'--small'}
+};
+const tierRule = t => TIER[t].rule.charAt(0).toLowerCase() + TIER[t].rule.slice(1);
+const SIZE_TIP = `${TIER[1].name}: ${tierRule(1)}. ${TIER[2].name}: ${tierRule(2)}. ${TIER[3].name}: ${tierRule(3)}. The count is the networks actually listed in that facility.`;
+
+const FAC = D.facilities;
+const facById = {};
+FAC.forEach(f => { facById[f.id] = f; });
+
+const facNets = {}, netFacs = {};
+D.netfac.forEach(p => { push(facNets, p[0], p[1]); push(netFacs, p[1], p[0]); });
+
+const ixFacs = {}, facIxs = {};
+D.ixfac.forEach(p => { push(ixFacs, p[0], p[1]); push(facIxs, p[1], p[0]); });
+
+const PORTS = D.ports.map(p => ({net_id:p[0], ix_id:p[1], mbps:p[2], operational:p[3], asn:p[4]}));
+const portsByNet = {}, portsByIx = {};
+PORTS.forEach(p => { push(portsByNet, p.net_id, p); push(portsByIx, p.ix_id, p); });
+
+const NET = D.networks.map(n => Object.assign({}, n, {
+  typeL: n.type || 'Not stated',
+  scopeL: n.scope || 'Not stated',
+  policyL: n.policy || 'Not stated',
+  nf: n.facs.length,
+  ports: portsByNet[n.id] || [],
+  cities: [...new Set(n.facs.map(f => facById[f].city))]
+}));
+const netById = {};
+NET.forEach(n => { netById[n.id] = n; });
+const TENANTS = NET.filter(n => n.nf > 0);
+const EXCHANGE_ONLY = NET.filter(n => n.india && n.nf === 0);
+const INDIA_NETS = NET.filter(n => n.india);
+NET.forEach(n => { n.peers = n.ports.length > 0; });
+
+const IXS = D.exchanges.map(x => Object.assign({}, x, {gbps:Math.round(x.mbps/1000)}));
+const ixById = {};
+IXS.forEach(x => { ixById[x.id] = x; });
+/* one colour per exchange operator that runs more than one exchange */
+const OPC = ['--ix','--fac','--net','--hub','--mid','--nixi'];
+const ixOpCount = {};
+IXS.forEach(x => { ixOpCount[x.operator] = (ixOpCount[x.operator]||0) + 1; });
+const ixOpList = Object.entries(ixOpCount).sort((a,b) => b[1]-a[1] || a[0].localeCompare(b[0]));
+const ixOpMulti = ixOpList.filter(e => e[1] > 1);
+const opColor = o => { const i = ixOpMulti.findIndex(e => e[0] === o); return i > -1 && i < OPC.length ? V(OPC[i]) : V('--small'); };
+
+const GROUPS = {};
+M.groups.forEach((g,i) => { GROUPS[g.k] = {name:g.name, desc:g.desc, c:['--net','--ix','--mid','--nixi'][i]}; });
+const GORDER = M.groups.map(g => g.k);
+
+const ISPS = D.nixi_isps;
+const ispById = {};
+ISPS.forEach(r => { ispById[r.id] = r; });
+const NOCS = D.nixi_locs;
+const nocById = {}, nocLabel = {};
+NOCS.forEach(n => { nocById[n.id] = n; nocLabel[n.id] = n.name; });
+
+/* operator roll-up from any list of facilities */
+function rollup(facs){
+  const o = {};
+  facs.forEach(f => {
+    const r = o[f.org] = o[f.org] || {id:f.org, org:f.org, facilities:0, n:0, cities:new Set(), ix:0, t:{1:0,2:0,3:0}, tf:{1:0,2:0,3:0}, contacts:0};
+    r.facilities++; r.n += f.n; r.cities.add(f.city);
+    if (f.nix > 0) r.ix++;
+    r.t[f.tier] += f.n; r.tf[f.tier]++;
+    if (f.contact) r.contacts++;
+  });
+  return Object.values(o).map(r => Object.assign(r, {ncities:r.cities.size, cityList:[...r.cities].sort()})).sort((a,b) => b.n - a.n || a.org.localeCompare(b.org));
+}
+const OPS_ALL = rollup(FAC);
+const opById = {};
+OPS_ALL.forEach(o => { opById[o.id] = o; });
+
+/* =========================================================
+   2. FILTER STATE  (one set per page; panel, charts and
+      table headers all read and write the same state)
+   ========================================================= */
+const S = {}, OPT = {}, RENDER = {};
+function optionsFrom(values, labelFn){
+  const counts = {};
+  values.flat().forEach(v => { if (v !== '' && v != null) counts[v] = (counts[v] || 0) + 1; });
+  return Object.keys(counts).sort((a,b) => counts[b] - counts[a] || a.localeCompare(b)).map(v => ({v, label:labelFn ? labelFn(v) : v, n:counts[v]}));
+}
+function defineFilter(view, key, label, options){
+  (OPT[view] = OPT[view] || {})[key] = {label, options};
+  (S[view] = S[view] || {})[key] = new Set(options.map(o => o.v));
+}
+const isAll = (view,key) => S[view][key].size === OPT[view][key].options.length;
+const pass = (view,key,val) => isAll(view,key) || S[view][key].has(String(val));
+const passAny = (view,key,vals) => isAll(view,key) || vals.some(v => S[view][key].has(String(v)));
+function setOnly(view, key, val){
+  const s = S[view][key];
+  if (s.size === 1 && s.has(String(val))) OPT[view][key].options.forEach(o => s.add(o.v));
+  else { s.clear(); s.add(String(val)); }
+  refresh(view);
+}
+function pickLabel(view,key){
+  const s = S[view][key], all = OPT[view][key].options;
+  if (s.size === all.length) return 'All';
+  if (s.size === 0) return 'None';
+  if (s.size <= 2) return all.filter(o => s.has(o.v)).map(o => o.label).join(', ');
+  return `${s.size} of ${all.length} selected`;
+}
+function refresh(view){
+  document.querySelectorAll(`[data-view="${view}"][data-key]`).forEach(b => {
+    const k = b.dataset.key;
+    if (b.classList.contains('pick')){ b.textContent = pickLabel(view,k); b.classList.toggle('active', !isAll(view,k)); }
+    if (b.classList.contains('fbtn')) b.classList.toggle('active', !isAll(view,k));
+    if (b.classList.contains('chip')) b.setAttribute('aria-pressed', S[view][k].has(b.dataset.val));
+  });
+  RENDER[view]();
+}
+
+/* picker popover with search, select all and select none */
+const picker = $('#picker'); let pickCtx = null;
+function openPicker(anchor, view, key){
+  pickCtx = {view, key};
+  const o = OPT[view][key];
+  picker.innerHTML = `<div class="ph"><input type="search" placeholder="Search ${esc(o.label.toLowerCase())}" aria-label="Search options">
+    <div class="acts"><button data-a="all">Select all</button><button data-a="none">Select none</button><button data-a="only" hidden>Only matches</button></div></div>
+    <ul>${o.options.map(x => `<li data-t="${esc(x.label.toLowerCase())}"><label><input type="checkbox" value="${esc(x.v)}" ${S[view][key].has(x.v) ? 'checked' : ''}>${esc(x.label)}<span class="n">${fmt(x.n)}</span></label></li>`).join('')}</ul>
+    <div class="none" hidden>No option matches that word.</div>`;
+  const r = anchor.getBoundingClientRect();
+  picker.style.left = Math.max(8, Math.min(r.left + scrollX, scrollX + innerWidth - 316)) + 'px';
+  picker.style.top = (r.bottom + scrollY + 6) + 'px';
+  picker.classList.add('open');
+  const input = picker.querySelector('input[type=search]');
+  input.focus();
+  input.oninput = () => {
+    const q = input.value.toLowerCase();
+    let shown = 0;
+    picker.querySelectorAll('li').forEach(li => { li.hidden = !li.dataset.t.includes(q); if (!li.hidden) shown++; });
+    picker.querySelector('[data-a=only]').hidden = !q;
+    picker.querySelector('.none').hidden = shown > 0;
+  };
+}
+picker.addEventListener('change', e => {
+  const s = S[pickCtx.view][pickCtx.key];
+  if (e.target.checked) s.add(e.target.value); else s.delete(e.target.value);
+  refresh(pickCtx.view);
+});
+picker.addEventListener('click', e => {
+  const a = e.target.dataset.a; if (!a) return;
+  const s = S[pickCtx.view][pickCtx.key], opts = OPT[pickCtx.view][pickCtx.key].options;
+  if (a === 'all') opts.forEach(o => s.add(o.v));
+  if (a === 'none') s.clear();
+  if (a === 'only'){ s.clear(); picker.querySelectorAll('li:not([hidden]) input').forEach(i => s.add(i.value)); }
+  picker.querySelectorAll('li input').forEach(i => { i.checked = s.has(i.value); });
+  refresh(pickCtx.view);
+});
+document.addEventListener('click', e => {
+  const b = e.target.closest('.pick, .fbtn');
+  if (b){ e.stopPropagation(); openPicker(b, b.dataset.view, b.dataset.key); return; }
+  if (!e.target.closest('.picker')) picker.classList.remove('open');
+  if (!e.target.closest('.search')) $('#results').classList.remove('open');
+});
+
+/* filter panel builder */
+const TOGGLES = {};
+function panel(view, items){
+  const host = $('#p-'+view);
+  host.innerHTML = items.map(it => {
+    const lab = it.key && OPT[view][it.key] ? OPT[view][it.key].label : '';
+    const tip = it.tip ? `<i class="info" tabindex="0" data-tip="${esc(it.tip)}">i</i>` : '';
+    if (it.type === 'pick') return `<div class="fgroup"><span class="flabel">${esc(lab)}${tip}</span><button class="pick" data-view="${view}" data-key="${it.key}" aria-label="Filter by ${esc(lab)}">All</button></div>`;
+    if (it.type === 'chips') return `<div class="fgroup"><span class="flabel">${esc(lab)}${tip}</span><div class="chips">${OPT[view][it.key].options.map(o => `<button class="chip" data-view="${view}" data-key="${it.key}" data-val="${esc(o.v)}" aria-pressed="true">${it.dot ? `<span class="dot" style="background:${it.dot(o.v)}"></span>` : ''}${esc(o.label)}</button>`).join('')}</div></div>`;
+    (TOGGLES[view] = TOGGLES[view] || {})[it.key] = !!it.on;
+    return `<div class="fgroup"><span class="flabel">&nbsp;</span><label class="toggle"><input type="checkbox" data-tview="${view}" data-tkey="${it.key}" ${it.on ? 'checked' : ''}>${esc(it.label)}${tip}</label></div>`;
+  }).join('') + `<button class="reset" data-reset="${view}">Reset filters</button>`;
+  host.onclick = e => {
+    const c = e.target.closest('.chip');
+    if (c){ const s = S[view][c.dataset.key]; if (s.has(c.dataset.val)) s.delete(c.dataset.val); else s.add(c.dataset.val); refresh(view); }
+    if (e.target.dataset.reset !== undefined && e.target.matches('[data-reset]')){
+      Object.keys(OPT[view]).forEach(k => OPT[view][k].options.forEach(o => S[view][k].add(o.v)));
+      items.filter(i => i.type === 'toggle').forEach(i => { TOGGLES[view][i.key] = !!i.on; });
+      host.querySelectorAll('[data-tview]').forEach(i => { i.checked = TOGGLES[view][i.dataset.tkey]; });
+      if (view === 'networks') SEL.clear();
+      refresh(view);
+    }
+  };
+  host.onchange = e => { const t = e.target; if (t.dataset.tview){ TOGGLES[view][t.dataset.tkey] = t.checked; refresh(view); } };
+}
+const tog = (view,key) => TOGGLES[view] && TOGGLES[view][key];
+
+/* Top N selectors for charts */
+const TOPN = {};
+document.querySelectorAll('[data-topn]').forEach(s => {
+  const k = s.dataset.topn, def = 15;
+  s.innerHTML = [10,15,25,50].map(n => `<option value="${n}" ${n===def?'selected':''}>Top ${n}</option>`).join('') + `<option value="0">Show all</option>`;
+  TOPN[k] = def;
+  s.onchange = () => { TOPN[k] = +s.value; RENDER[s.closest('section').id.slice(2)](); };
+});
+const topN = (k, arr) => TOPN[k] ? arr.slice(0, TOPN[k]) : arr;
+
+/* =========================================================
+   3. CHART COMPONENTS  (hand-built SVG and HTML, no libraries)
+   ========================================================= */
+/* --- label placement: try four positions, skip rather than overlap --- */
+const hits = (a,b) => a.x1 < b.x2 && b.x1 < a.x2 && a.y1 < b.y2 && b.y1 < a.y2;
+function rectFor(x, y, w, h, anchor){
+  const x1 = anchor === 'start' ? x : anchor === 'end' ? x - w : x - w/2;
+  return {x1, x2:x1 + w, y1:y - h*0.80, y2:y + h*0.26};
+}
+function placeLabels(items, taken, bounds, fs){
+  const out = [];
+  items.forEach(it => {
+    const w = it.text.length * fs * 0.55, h = fs, r = it.r + 5;
+    const d = r * 0.72;
+    const cands = [
+      {x:it.x + r, y:it.y + fs*0.34, anchor:'start'},
+      {x:it.x - r, y:it.y + fs*0.34, anchor:'end'},
+      {x:it.x, y:it.y - r - fs*0.1, anchor:'middle'},
+      {x:it.x, y:it.y + r + fs*0.9, anchor:'middle'},
+      {x:it.x + d, y:it.y - d, anchor:'start'},
+      {x:it.x - d, y:it.y - d, anchor:'end'},
+      {x:it.x + d, y:it.y + d + fs*0.6, anchor:'start'},
+      {x:it.x - d, y:it.y + d + fs*0.6, anchor:'end'}
+    ];
+    for (const c of cands){
+      const box = rectFor(c.x, c.y, w, h, c.anchor);
+      if (box.x1 < bounds.x1 || box.x2 > bounds.x2 || box.y1 < bounds.y1 || box.y2 > bounds.y2) continue;
+      if (taken.some(t => hits(box, t))) continue;
+      taken.push(box);
+      out.push(Object.assign({}, c, {text:it.text}));
+      break;
+    }
+  });
+  return out;
+}
+
+/* horizontal bars; items: {label, v, id, segs:[{v,c}], c, tip} */
+function bars(sel, items, opts){
+  opts = opts || {};
+  const el = $(sel), max = opts.max || Math.max(1, ...items.map(i => i.v));
+  if (!items.length){ el.innerHTML = `<span class="empty" style="grid-column:1/-1">${EMPTY}</span>`; el.onclick = null; return; }
+  el.innerHTML = items.map((it,i) => {
+    const segs = it.segs || [{v:it.v, c:it.c || V('--fac')}];
+    const row = `<span class="lbl">${esc(it.label)}</span><span class="trk">${segs.map(s => `<span style="width:${s.v/max*100}%;background:${s.c}"></span>`).join('')}</span><span class="val">${fmt(it.v)}</span>`;
+    return `<div class="row ${opts.dimFn && opts.dimFn(it) ? 'dim' : ''}" data-i="${i}" data-tip="${esc(it.tip || `${it.label}: ${fmt(it.v)}`)}">${row}</div>`;
+  }).join('');
+  el.onclick = e => { const r = e.target.closest('.row'); if (r && opts.onClick) opts.onClick(items[+r.dataset.i]); };
+}
+
+/* India map with one bubble per city */
+const cityXY = c => {
+  const ll = D.cities[c];
+  return ll ? [(ll[0]-G.minx)*G.k*G.s, (G.maxy-ll[1])*G.s] : null;
+};
+const STATE_PATHS = Object.values(G.states).map(d => `<path class="st" d="${d}"/>`).join('');
+function indiaMap(sel, pts, opts){
+  opts = opts || {};
+  const el = $(sel);
+  const placed = pts.map(p => Object.assign({}, p, {xy:cityXY(p.city)})).filter(p => p.xy && p.v > 0).sort((a,b) => b.v - a.v);
+  const off = (opts.off || []).filter(o => o.n > 0);
+  const offNote = off.length
+    ? `<p class="offmap">Not on the map: ${off.map(o => `${esc(o.city)} (${fmt(o.n)})`).join(', ')}. ${off.length === 1 ? 'This city has' : 'These cities have'} no coordinates in the data, so ${off.length === 1 ? 'it has' : 'they have'} no bubble. ${opts.offUnit || 'Those facilities'} are still counted in every chart, table and total on this page.</p>`
+    : '';
+  if (!placed.length){
+    el.innerHTML = `<p class="empty">${EMPTY}</p>${offNote}`;
+    return;
+  }
+  const max = Math.max(1, ...placed.map(p => p.v)), R = v => 7 + Math.sqrt(v/max) * 44;
+  const FS = 21, bounds = {x1:44, x2:G.w-24, y1:8, y2:G.h-8};
+  const taken = placed.map(p => { const r = R(p.v)*0.82; return {x1:p.xy[0]-r, x2:p.xy[0]+r, y1:p.xy[1]-r, y2:p.xy[1]+r}; });
+  const labels = placeLabels(placed.slice(0,18).map(p => ({x:p.xy[0], y:p.xy[1], r:R(p.v), text:p.city})), taken, bounds, FS);
+  el.innerHTML = `<svg viewBox="40 0 ${G.w-60} ${G.h}" role="img" aria-label="Map of India with one bubble per city, sized by ${esc(opts.unit)}">${STATE_PATHS}
+    ${placed.slice().reverse().map(p => `<circle cx="${p.xy[0].toFixed(1)}" cy="${p.xy[1].toFixed(1)}" r="${R(p.v).toFixed(1)}" fill="${p.c || opts.color}" fill-opacity=".82" data-city="${esc(p.city)}" data-tip="${esc(p.tip || `${p.city}: ${fmt(p.v)} ${opts.unit}`)}"><title>${esc(p.city)}</title></circle>`).join('')}
+    ${labels.map(l => `<text x="${l.x.toFixed(1)}" y="${l.y.toFixed(1)}" text-anchor="${l.anchor}">${esc(l.text)}</text>`).join('')}
+  </svg><p class="note">Bubble size shows ${esc(opts.unit)} per city. Click a bubble to filter by that city. A city is labelled only where its name fits without covering another label.</p>${offNote}`;
+  el.querySelector('svg').onclick = e => { const c = e.target.closest('circle'); if (c && opts.onClick) opts.onClick(c.dataset.city); };
+}
+
+/* scatter; pts: {x, y, r, label, c, kind, id, tip} */
+function niceMax(v){
+  const raw = Math.max(v,1)/4, p = Math.pow(10, Math.floor(Math.log10(raw)));
+  return ([1,1.5,2,2.5,3,4,5,10].map(m => m*p).find(s => s >= raw)) * 4;
+}
+function scatter(sel, pts, opts){
+  const el = $(sel), W = 660, H = 420, L = 62, B = 46, T = 16, Rt = 18;
+  if (!pts.length){ el.innerHTML = `<p class="empty">${EMPTY}</p>`; return; }
+  const mx = niceMax(Math.max(...pts.map(p => p.x))), my = niceMax(Math.max(...pts.map(p => p.y)));
+  const X = v => L + v/mx*(W-L-Rt), Y = v => H-B - v/my*(H-B-T);
+  const ticks = m => [0,.25,.5,.75,1].map(f => Math.round(m*f));
+  const FS = 11;
+  const taken = pts.map(p => { const r = (p.r||6)*0.9; return {x1:X(p.x)-r, x2:X(p.x)+r, y1:Y(p.y)-r, y2:Y(p.y)+r}; });
+  ticks(my).forEach(t => taken.push({x1:0, x2:L-2, y1:Y(t)-7, y2:Y(t)+7}));
+  const ranked = [...pts].sort((a,b) => (b.y - a.y) || (b.x - a.x)).slice(0, opts.labels || 14);
+  const labels = placeLabels(ranked.map(p => ({x:X(p.x), y:Y(p.y), r:p.r||6, text:p.label})), taken, {x1:L-50, x2:W-2, y1:4, y2:H-B-2}, FS);
+  el.innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(opts.yl)} against ${esc(opts.xl)}, one bubble per record">
+    ${ticks(my).map(t => `<line class="ax" x1="${L}" x2="${W-Rt}" y1="${Y(t)}" y2="${Y(t)}"/><text x="${L-8}" y="${Y(t)+4}" text-anchor="end">${fmt(t)}</text>`).join('')}
+    ${ticks(mx).map(t => `<text x="${X(t)}" y="${H-B+18}" text-anchor="middle">${fmt(t)}</text>`).join('')}
+    <text x="${(L+W)/2}" y="${H-8}" text-anchor="middle">${esc(opts.xl)}</text>
+    <text transform="translate(16 ${(H-B)/2}) rotate(-90)" text-anchor="middle">${esc(opts.yl)}</text>
+    ${[...pts].sort((a,b) => (b.r||6)-(a.r||6)).map(p => `<circle cx="${X(p.x).toFixed(1)}" cy="${Y(p.y).toFixed(1)}" r="${p.r||6}" fill="${p.c}" fill-opacity=".78" data-k="${p.kind}" data-id="${esc(p.id)}" data-tip="${esc(p.tip)}"><title>${esc(p.label)}</title></circle>`).join('')}
+    ${labels.map(l => `<text class="pl" x="${l.x.toFixed(1)}" y="${l.y.toFixed(1)}" text-anchor="${l.anchor}">${esc(l.text)}</text>`).join('')}
+  </svg><p class="note">Labelled where the full name fits without covering another label. Hover or click any bubble for the rest.</p>`;
+  el.querySelector('svg').onclick = e => { const c = e.target.closest('circle'); if (c) openRec(c.dataset.k, c.dataset.id); };
+}
+
+const kpis = (sel, items) => { $(sel).innerHTML = items.map(it => `<div class="kpi" style="--c:${it[2]}"><b>${typeof it[0] === 'number' ? fmt(it[0]) : esc(it[0])}</b><span>${esc(it[1])}${it[3] ? `<i class="info" tabindex="0" data-tip="${esc(it[3])}">i</i>` : ''}</span></div>`).join(''); };
+const tierLegend = () => [1,2,3].map(t => `<span><i class="sw" style="background:${V(TIER[t].c)}"></i>${TIER[t].name} (${tierRule(t)})</span>`).join('');
+const tierSegs = r => [1,2,3].map(t => ({v:r.t[t], c:V(TIER[t].c)}));
+const tag = t => `<span class="tag" style="--c:${V(TIER[t].c)}">${TIER[t].name}</span>`;
+const INSTALLED_TIP = 'The sum of the networks listed in each facility. A network installed in three facilities counts three times.';
+
+/* =========================================================
+   4. TABLE COMPONENT  (search, sort, Top N by current sort,
+      header filters, row click opens the detail panel)
+   ========================================================= */
+const TABLES = {}, SEL = new Set();
+function makeTable(key, cfg){
+  const T = TABLES[key] = Object.assign({q:'', topn:0, sort:cfg.sort == null ? null : cfg.sort, dir:cfg.dir || -1}, cfg);
+  const host = $('#t-'+key);
+  host.innerHTML = `<div class="tbar"><input type="search" placeholder="Search this list" aria-label="Search this list">
+    <label class="mini" style="display:flex;align-items:center;gap:6px;padding:0 8px">Show<select style="border:0;background:none;font:inherit;padding:5px 0" aria-label="How many rows to show, by current sort"><option value="0">All rows</option>${[10,25,50,100].map(n => `<option value="${n}">Top ${n}</option>`).join('')}</select>by current sort</label>
+    <span class="selinfo"></span><span class="count"></span></div>
+    <div class="tbl"><table><thead><tr>${cfg.select ? '<th class="ck"><input type="checkbox" aria-label="Tick every row shown"></th>' : ''}${cfg.cols.map((c,i) => `<th class="${c.num?'num':''}" ${T.sort===i ? `data-dir="${T.dir>0?'asc':'desc'}"` : ''}><button class="sort" data-i="${i}">${esc(c.h)}</button>${c.tip ? `<i class="info" tabindex="0" data-tip="${esc(c.tip)}">i</i>` : ''}${c.fkey ? `<button class="fbtn" data-view="${cfg.view}" data-key="${c.fkey}" aria-label="Filter by ${esc(c.h)}">&#9662;</button>` : ''}</th>`).join('')}</tr></thead><tbody></tbody></table></div>`;
+  const search = host.querySelector('.tbar input[type=search]'), top = host.querySelector('.tbar select');
+  search.oninput = () => { T.q = search.value.trim().toLowerCase(); renderTable(key); };
+  top.onchange = () => { T.topn = +top.value; renderTable(key); };
+  host.querySelector('thead').addEventListener('click', e => {
+    const b = e.target.closest('.sort');
+    if (b){
+      const i = +b.dataset.i;
+      T.dir = T.sort === i ? -T.dir : (cfg.cols[i].num ? -1 : 1);
+      T.sort = i;
+      host.querySelectorAll('th').forEach(th => th.removeAttribute('data-dir'));
+      b.parentElement.dataset.dir = T.dir > 0 ? 'asc' : 'desc';
+      renderTable(key);
+    }
+    if (e.target.matches('.ck input')){
+      const on = e.target.checked;
+      T.shown.forEach(r => on ? SEL.add(r.id) : SEL.delete(r.id));
+      refresh(cfg.view);
+    }
+  });
+  host.querySelector('tbody').addEventListener('click', e => {
+    const tr = e.target.closest('tr'); if (!tr || !tr.dataset.id) return;
+    if (e.target.matches('.ck input')){ if (e.target.checked) SEL.add(tr.dataset.id); else SEL.delete(tr.dataset.id); refresh(cfg.view); return; }
+    if (!e.target.closest('.ck')) openRec(cfg.kind, tr.dataset.id);
+  });
+}
+function renderTable(key){
+  const T = TABLES[key];
+  let rows = T.rows();
+  const total = rows.length;
+  if (T.q) rows = rows.filter(r => T.text(r).includes(T.q));
+  const matched = rows.length;
+  if (T.sort !== null){
+    const c = T.cols[T.sort];
+    rows = [...rows].sort((a,b) => { const x = c.v(a), y = c.v(b); return (c.num ? x - y : String(x).localeCompare(String(y))) * T.dir; });
+  }
+  if (T.topn) rows = rows.slice(0, T.topn);
+  T.shown = rows;
+  const host = $('#t-'+key);
+  const cols = T.cols.length + (T.select ? 1 : 0);
+  host.querySelector('tbody').innerHTML = rows.map(r => `<tr data-id="${esc(r.id)}" class="${T.select && SEL.has(r.id) ? 'sel' : ''}">${T.select ? `<td class="ck"><input type="checkbox" ${SEL.has(r.id) ? 'checked' : ''} aria-label="Tick ${esc(T.tick ? T.tick(r) : r.id)}"></td>` : ''}${T.cols.map(c => `<td class="${c.num?'num':''}">${c.html ? c.html(r) : (c.num ? fmt(c.v(r)) : esc(c.v(r)))}</td>`).join('')}</tr>`).join('')
+    || `<tr><td colspan="${cols}" class="empty" style="padding:18px;white-space:normal">${T.q ? 'Nothing in this list matches that search. Clear the search box, or widen the filters above.' : EMPTY}</td></tr>`;
+  host.querySelector('.count').textContent = `Showing ${fmt(rows.length)} of ${fmt(total)}` + (T.q ? ` (${fmt(matched)} match the search)` : '');
+  if (T.select) host.querySelector('.selinfo').innerHTML = SEL.size ? `${fmt(SEL.size)} ticked <button class="clear" data-clearsel>Clear ticks</button>` : '';
+}
+document.addEventListener('click', e => { if (e.target.matches('[data-clearsel]')){ SEL.clear(); refresh('networks'); } });
+
+/* =========================================================
+   5. PAGES
+   ========================================================= */
+const TOTAL_N = M.headline.installed;
+const cityOpts = optionsFrom(FAC.map(f => f.city));
+const orgOpts = optionsFrom(FAC.map(f => f.org));
+const tierOpts = [1,2,3].map(t => ({v:String(t), label:TIER[t].name, n:FAC.filter(f => f.tier === t).length}));
+const tierDot = v => V(TIER[v].c);
+const offMapFor = facs => {
+  const o = {};
+  facs.forEach(f => { if (!D.cities[f.city]) o[f.city] = (o[f.city]||0) + 1; });
+  return M.off_map.filter(x => o[x.city]).map(x => ({city:x.city, n:o[x.city]}));
+};
+
+/* ---------- Overview ---------- */
+(function(){
+  const t = [1,2,3].map(k => M.tiers[String(k)]);
+  const h = M.headline;
+  $('#heroLine').innerHTML = `${fmt(h.hubs)} of India’s ${fmt(h.facilities)} data centre facilities hold <em>${h.share}</em> of all installed networks.`;
+  $('#conc').innerHTML = [1,2,3].map(k => {
+    const r = M.tiers[String(k)];
+    return `<div style="flex:${r.installed};background:${V(TIER[k].c)}" data-tip="${esc(`${r.name}: ${fmt(r.facilities)} facilities hold ${fmt(r.installed)} of ${fmt(TOTAL_N)} installed networks`)}">${r.share}</div>`;
+  }).join('');
+  $('#tierCards').innerHTML = [1,2,3].map(k => {
+    const r = M.tiers[String(k)];
+    return `<div class="tiercard" style="--c:${V(TIER[k].c)}"><h3>${esc(r.name)}</h3><div class="rule">${esc(r.rule)}</div>
+      <dl><dt>Facilities</dt><dd>${fmt(r.facilities)}</dd><dt>Networks installed<i class="info" tabindex="0" data-tip="${esc(INSTALLED_TIP)}">i</i></dt><dd>${fmt(r.installed)}</dd><dt>Share of all installed networks</dt><dd>${r.share}</dd><dt>Facilities hosting an exchange</dt><dd>${fmt(r.with_ix)} of ${fmt(r.facilities)}</dd></dl></div>`;
+  }).join('');
+  const T = M.totals;
+  $('#layers').innerHTML = [
+    ['facilities','--fac', T.facilities, 'Facilities', `Data centre buildings, run by ${fmt(T.operators)} operators in ${fmt(T.cities)} cities.`, 'facilities'],
+    ['networks','--net', T.tenants, 'Tenant networks', 'Companies with their own equipment installed inside those facilities.', 'tenant networks'],
+    ['exchanges','--ix', T.exchanges, 'Internet exchanges', `Shared switches where networks connect to each other, with ${fmt(T.ports)} ports in use.`, 'internet exchanges'],
+    ['nixi','--nixi', T.nixi_locs, 'NIXI locations', `Government exchange points, with ${fmt(T.nixi_isps)} ISPs connected across them.`, 'NIXI locations']
+  ].map(r => `<button class="layer" style="--c:${V(r[1])}" data-go="${r[0]}"><b>${fmt(r[2])}</b><strong>${esc(r[3])}</strong><span>${esc(r[4])}</span><span class="open">Open ${esc(r[5])}</span></button>`).join('');
+  $('#layers').onclick = e => { const b = e.target.closest('[data-go]'); if (b) show(b.dataset.go); };
+  $('#ov-opsLegend').innerHTML = tierLegend();
+  $('#ov-cityLegend').innerHTML = tierLegend();
+  defineFilter('overview','tier','Facility size', tierOpts);
+  panel('overview', [{type:'chips', key:'tier', dot:tierDot, tip:SIZE_TIP}]);
+  RENDER.overview = () => {
+    const fs = FAC.filter(f => pass('overview','tier',f.tier));
+    const byCity = {};
+    fs.forEach(f => { const r = byCity[f.city] = byCity[f.city] || {city:f.city, v:0, t:{1:0,2:0,3:0}}; r.v++; r.t[f.tier]++; });
+    const cities = Object.values(byCity).sort((a,b) => b.v - a.v || a.city.localeCompare(b.city));
+    indiaMap('#ov-map', cities, {color:V('--fac'), unit:'facilities', off:offMapFor(fs), offUnit:'Those facilities', onClick:c => { show('facilities'); setOnly('facilities','city',c); }});
+    bars('#ov-cities', topN('ov-cities', cities).map(c => ({label:c.city, v:c.v, id:c.city, segs:[1,2,3].map(t => ({v:c.t[t], c:V(TIER[t].c)})), tip:`${c.city}: ${fmt(c.v)} facilities (${c.t[1]} major hub, ${c.t[2]} mid-size, ${c.t[3]} small)`})),
+      {onClick:it => { show('facilities'); setOnly('facilities','city',it.id); }});
+    bars('#ov-ops', topN('ov-ops', rollup(fs)).map(o => ({label:o.org, v:o.n, id:o.org, segs:tierSegs(o), tip:`${o.org}: ${fmt(o.n)} networks installed across ${fmt(o.facilities)} facilities`})),
+      {onClick:it => openRec('op', it.id)});
+  };
+})();
+
+/* ---------- Facilities ---------- */
+defineFilter('facilities','city','City', cityOpts);
+defineFilter('facilities','org','Operator', orgOpts);
+defineFilter('facilities','tier','Facility size', tierOpts);
+panel('facilities', [{type:'pick', key:'city'}, {type:'pick', key:'org'}, {type:'chips', key:'tier', dot:tierDot, tip:SIZE_TIP},
+  {type:'toggle', key:'ix', label:'Hosts an internet exchange', tip:'An internet exchange is a shared switch where many networks connect directly to swap traffic.'},
+  {type:'toggle', key:'contact', label:'Has contact details', tip:'A sales or technical email address or phone number is listed for the facility.'}]);
+const facFiltered = () => FAC.filter(f => pass('facilities','city',f.city) && pass('facilities','org',f.org) && pass('facilities','tier',f.tier)
+  && (!tog('facilities','ix') || f.nix > 0) && (!tog('facilities','contact') || f.contact));
+$('#fac-cityLegend').innerHTML = tierLegend();
+makeTable('facilities', {view:'facilities', kind:'fac', sort:3, rows:facFiltered,
+  text:f => [f.name, f.org, f.city, f.aka, f.address1, f.address2, f.state, f.zip, f.sales_email, f.tech_email].join(' ').toLowerCase(),
+  cols:[
+    {h:'Facility', v:f => f.name},
+    {h:'Operator', v:f => f.org, fkey:'org'},
+    {h:'City', v:f => f.city, fkey:'city'},
+    {h:'Networks inside', v:f => f.n, num:1, tip:'Networks listed in this facility in the source data. Open the facility to see all of them.'},
+    {h:'Exchanges', v:f => f.nix, num:1, tip:'Internet exchanges listed as present in this facility.'},
+    {h:'Carriers', v:f => f.carriers, num:1, tip:'The number of carriers PeeringDB records for this facility. A carrier is a network that sells connectivity into the building.'},
+    {h:'Size', v:f => f.tier, html:f => tag(f.tier), fkey:'tier'},
+    {h:'Sales email', v:f => f.sales_email || '—'},
+    {h:'Tech email', v:f => f.tech_email || '—'},
+    {h:'Phone', v:f => f.sales_phone || f.tech_phone || '—'}
+  ]});
+RENDER.facilities = () => {
+  const fs = facFiltered();
+  kpis('#k-facilities', [
+    [fs.length, 'facilities match', V('--fac')],
+    [new Set(fs.map(f => f.org)).size, 'operators run them', V('--fac')],
+    [fs.reduce((s,f) => s + f.n, 0), 'networks installed', V('--net'), INSTALLED_TIP],
+    [fs.filter(f => f.nix > 0).length, 'host an internet exchange', V('--ix')],
+    [fs.filter(f => f.contact).length, 'have contact details', V('--ink')]
+  ]);
+  const byCity = {};
+  fs.forEach(f => { const r = byCity[f.city] = byCity[f.city] || {city:f.city, v:0, t:{1:0,2:0,3:0}}; r.v++; r.t[f.tier]++; });
+  const cities = Object.values(byCity).sort((a,b) => b.v - a.v || a.city.localeCompare(b.city));
+  indiaMap('#fac-map', cities, {color:V('--fac'), unit:'facilities', off:offMapFor(fs), offUnit:'Those facilities', onClick:c => setOnly('facilities','city',c)});
+  bars('#fac-cities', topN('fac-cities', cities).map(c => ({label:c.city, v:c.v, id:c.city, segs:[1,2,3].map(t => ({v:c.t[t], c:V(TIER[t].c)})), tip:`${c.city}: ${fmt(c.v)} facilities (${c.t[1]} major hub, ${c.t[2]} mid-size, ${c.t[3]} small)`})),
+    {onClick:it => setOnly('facilities','city',it.id)});
+  renderTable('facilities');
+};
+
+/* ---------- Operators ---------- */
+defineFilter('operators','city','City', cityOpts);
+defineFilter('operators','org','Operator', orgOpts);
+defineFilter('operators','tier','Facility size', tierOpts);
+panel('operators', [{type:'pick', key:'city', tip:'Counts only each operator’s facilities in the chosen cities.'}, {type:'pick', key:'org'},
+  {type:'chips', key:'tier', dot:tierDot, tip:SIZE_TIP}, {type:'toggle', key:'multi', label:'Runs more than one facility'}]);
+const opFiltered = () => rollup(FAC.filter(f => pass('operators','city',f.city) && pass('operators','org',f.org) && pass('operators','tier',f.tier)))
+  .filter(o => !tog('operators','multi') || o.facilities > 1);
+$('#op-legend').innerHTML = tierLegend();
+$('#op-scatterLegend').innerHTML = [1,2,3].map(t => `<span><i class="sw" style="background:${V(TIER[t].c)}"></i>Largest facility is ${TIER[t].name.toLowerCase()}</span>`).join('');
+makeTable('operators', {view:'operators', kind:'op', sort:2, rows:opFiltered, text:o => o.org.toLowerCase(),
+  cols:[
+    {h:'Operator', v:o => o.org, fkey:'org'},
+    {h:'Facilities', v:o => o.facilities, num:1},
+    {h:'Networks installed', v:o => o.n, num:1, tip:INSTALLED_TIP},
+    {h:'In major hubs', v:o => o.t[1], num:1, tip:`Networks installed in this operator’s facilities with ${tierRule(1)}.`},
+    {h:'Cities', v:o => o.ncities, num:1},
+    {h:'Facilities with an exchange', v:o => o.ix, num:1},
+    {h:'Facilities with contacts', v:o => o.contacts, num:1}
+  ]});
+RENDER.operators = () => {
+  const ops = opFiltered();
+  kpis('#k-operators', [
+    [ops.length, 'operators match', V('--fac')],
+    [ops.filter(o => o.facilities > 1).length, 'run more than one facility', V('--fac')],
+    [ops.filter(o => o.tf[1] > 0).length, 'run at least one major hub', V('--hub')],
+    [ops.reduce((s,o) => s + o.n, 0), 'networks installed', V('--net'), INSTALLED_TIP]
+  ]);
+  const mc = Math.max(1, ...ops.map(o => o.ncities));
+  scatter('#op-scatter', ops.map(o => ({x:o.facilities, y:o.n, r:5 + Math.sqrt(o.ncities/mc)*14, label:o.org,
+    c:o.tf[1] ? V('--hub') : o.tf[2] ? V('--mid') : V('--small'), kind:'op', id:o.org,
+    tip:`${o.org}: ${fmt(o.facilities)} facilities, ${fmt(o.n)} networks installed, ${fmt(o.ncities)} cities`})),
+    {xl:'Facilities run', yl:'Networks installed'});
+  bars('#op-bars', topN('op-bars', ops).map(o => ({label:o.org, v:o.n, id:o.org, segs:tierSegs(o),
+    tip:`${o.org}: ${fmt(o.t[1])} in major hubs, ${fmt(o.t[2])} in mid-size, ${fmt(o.t[3])} in small facilities`})),
+    {onClick:it => openRec('op', it.id)});
+  renderTable('operators');
+};
+
+/* ---------- Tenant networks ---------- */
+$('#net-lede2').textContent = `${fmt(M.totals.india_networks)} networks are linked to India: ${fmt(M.totals.tenants)} are installed in a facility, and the other ${fmt(M.totals.exchange_only)} are seen only at an exchange, which the last filter below adds in.`;
+defineFilter('networks','type','Network type', optionsFrom(INDIA_NETS.map(n => n.typeL)));
+defineFilter('networks','city','Installed in city', optionsFrom(TENANTS.map(n => n.cities)));
+defineFilter('networks','scope','Geographic scope', optionsFrom(INDIA_NETS.map(n => n.scopeL)));
+defineFilter('networks','policy','Peering policy', optionsFrom(INDIA_NETS.map(n => n.policyL)));
+panel('networks', [{type:'pick', key:'type', tip:'The kind of network, as recorded on PeeringDB. Networks with nothing recorded are shown as Not stated.'},
+  {type:'pick', key:'city', tip:'Keeps networks installed in at least one facility in the chosen cities. Networks seen only at exchanges have no facility, so narrowing this drops them.'},
+  {type:'pick', key:'scope', tip:'How far the network reaches, as recorded on PeeringDB.'},
+  {type:'pick', key:'policy', tip:'Peering is the arrangement where two networks connect directly to swap traffic. The policy is how openly the network agrees to do that, as stated on PeeringDB.'},
+  {type:'toggle', key:'peers', label:'Also connects at an Indian exchange'},
+  {type:'toggle', key:'exonly', label:'Include networks seen only at exchanges', tip:`${fmt(M.totals.exchange_only)} networks have a port on an Indian exchange but no facility listing. Turn this on to add them to the table, the cards and the type chart, making ${fmt(M.totals.india_networks)} networks linked to India in all. They have no facility, so they never appear on the map or in the facility bars.`}]);
+const netPool = () => tog('networks','exonly') ? INDIA_NETS : TENANTS;
+const netFiltered = () => netPool().filter(n => pass('networks','type',n.typeL) && pass('networks','scope',n.scopeL) && pass('networks','policy',n.policyL)
+  && (n.nf === 0 ? isAll('networks','city') : passAny('networks','city',n.cities)) && (!tog('networks','peers') || n.peers));
+makeTable('networks', {view:'networks', kind:'net', sort:4, select:true, rows:netFiltered, tick:n => n.name,
+  text:n => [n.name, n.aka, n.long, n.asn, 'as'+n.asn].join(' ').toLowerCase(),
+  cols:[
+    {h:'Network', v:n => n.name},
+    {h:'ASN', v:n => num(n.asn), num:1, html:n => esc(n.asn), tip:'The autonomous system number: the unique number this network uses to identify itself on the internet.'},
+    {h:'Type', v:n => n.typeL, fkey:'type'},
+    {h:'Scope', v:n => n.scopeL, fkey:'scope'},
+    {h:'Indian facilities', v:n => n.nf, num:1, tip:'How many Indian facilities this network is listed in.'},
+    {h:'Indian exchange ports', v:n => n.ports.length, num:1, tip:'How many ports this network has on Indian internet exchanges.'},
+    {h:'Peering policy', v:n => n.policyL, fkey:'policy'},
+    {h:'Traffic', v:n => n.traffic || '—'}
+  ]});
+RENDER.networks = () => {
+  const ns = netFiltered();
+  kpis('#k-networks', [
+    [ns.length, 'networks match', V('--net')],
+    [ns.filter(n => n.nf >= 5).length, 'installed in 5 or more facilities', V('--net')],
+    [ns.filter(n => n.peers).length, 'also connect at an exchange', V('--ix')],
+    [new Set(ns.flatMap(n => n.facs)).size, 'facilities host them', V('--fac')]
+  ]);
+  bars('#net-types', topN('net-types', optionsFrom(ns.map(n => n.typeL))).map(o => ({label:o.label, v:o.n, id:o.v, c:V('--net'), tip:`${o.label}: ${fmt(o.n)} networks`})),
+    {onClick:it => setOnly('networks','type',it.id), dimFn:it => !isAll('networks','type') && !S.networks.type.has(it.id)});
+  bars('#net-wide', topN('net-wide', [...ns].sort((a,b) => b.nf - a.nf || a.name.localeCompare(b.name))).map(n => ({label:n.name, v:n.nf, id:n.id, c:V('--net'),
+    tip:`${n.name} (AS${n.asn}): installed in ${fmt(n.nf)} Indian facilities`})), {onClick:it => openRec('net', it.id)});
+  const focus = (SEL.size ? ns.filter(n => SEL.has(n.id)) : ns).filter(n => n.nf > 0);
+  $('#net-whereQ').innerHTML = SEL.size
+    ? `Showing where the <b>${fmt(SEL.size)} ticked network${SEL.size > 1 ? 's are' : ' is'}</b> installed. <button class="clear" data-clearsel>Clear ticks</button>`
+    : 'Each bubble is a city, sized by how many of the matching networks are installed there. Tick rows in the table below to narrow this to those networks. Networks seen only at exchanges are never shown here, because they have no facility.';
+  const perFac = {};
+  focus.forEach(n => n.facs.forEach(f => { perFac[f] = (perFac[f]||0) + 1; }));
+  const perCity = {};
+  Object.entries(perFac).forEach(e => { const c = facById[e[0]].city; perCity[c] = (perCity[c]||0) + e[1]; });
+  indiaMap('#net-map', Object.entries(perCity).map(e => ({city:e[0], v:e[1], c:V('--net')})),
+    {unit:'installed networks', off:offMapFor(Object.keys(perFac).map(f => facById[f])), offUnit:'Their networks', onClick:c => setOnly('networks','city',c)});
+  bars('#net-facs', topN('net-facs', Object.entries(perFac).sort((a,b) => b[1]-a[1] || facById[a[0]].name.localeCompare(facById[b[0]].name))).map(e => ({
+    label:facById[e[0]].name, v:e[1], id:e[0], c:V('--fac'), tip:`${facById[e[0]].name}, ${facById[e[0]].city}: ${fmt(e[1])} of the selected networks`})),
+    {onClick:it => openRec('fac', it.id)});
+  renderTable('networks');
+};
+
+/* ---------- Internet exchanges ---------- */
+defineFilter('exchanges','city','City', optionsFrom(IXS.map(x => x.city)));
+defineFilter('exchanges','operator','Exchange operator', optionsFrom(IXS.map(x => x.operator)));
+panel('exchanges', [{type:'pick', key:'city'},
+  {type:'pick', key:'operator', tip:'Exchanges run by the same company, grouped by the company ID in the data and labelled with the first word of the exchange name, for example all DE-CIX exchanges together.'},
+  {type:'toggle', key:'active', label:'Has ports listed'}]);
+const ixFiltered = () => IXS.filter(x => pass('exchanges','city',x.city) && pass('exchanges','operator',x.operator) && (!tog('exchanges','active') || x.ports > 0));
+const speedLabel = v => v >= 1000 && v % 1000 === 0 ? (v/1000)+'G' : v+'M';
+makeTable('exchanges', {view:'exchanges', kind:'ix', sort:3, rows:ixFiltered,
+  text:x => [x.name, x.long, x.aka, x.city, x.tech_email].join(' ').toLowerCase(),
+  cols:[
+    {h:'Exchange', v:x => x.name},
+    {h:'Operator', v:x => x.operator, fkey:'operator'},
+    {h:'City', v:x => x.city, fkey:'city'},
+    {h:'Networks connected', v:x => x.nets, num:1, tip:'Different networks with at least one port on this exchange. A network with two ports here counts once.'},
+    {h:'Facilities', v:x => x.facs.length, num:1, tip:'Facilities this exchange is listed as present in.'},
+    {h:'Ports', v:x => x.ports, num:1, tip:'Every port listed on this exchange, including the ones listed at speed 0.'},
+    {h:'Capacity (Gbps)', v:x => x.gbps, num:1, tip:'The speeds of all its ports added together, in gigabits per second. Ports listed at speed 0 add nothing.'},
+    {h:'Tech email', v:x => x.tech_email || '—'}
+  ]});
+RENDER.exchanges = () => {
+  const xs = ixFiltered(), ids = new Set(xs.map(x => x.id)), ps = PORTS.filter(p => ids.has(p.ix_id));
+  kpis('#k-exchanges', [
+    [xs.length, 'exchanges match', V('--ix')],
+    [new Set(ps.map(p => p.net_id)).size, 'networks connected', V('--ix'), 'Counted once each, however many of these exchanges they connect at.'],
+    [ps.length, 'ports in use', V('--ix'), `Every listed port, including the ${fmt(M.totals.ports_zero)} across all exchanges listed at speed 0.`],
+    [(ps.reduce((s,p) => s + (p.mbps > 0 ? p.mbps : 0), 0) / 1e6).toFixed(1), 'Tbps of port capacity', V('--ix'), 'Port speeds added together. One Tbps is a thousand gigabits per second. Ports listed at speed 0 add nothing.']
+  ]);
+  scatter('#ix-scatter', xs.map(x => ({x:x.nets, y:x.gbps, r:7, label:x.name, c:opColor(x.operator), kind:'ix', id:x.id,
+    tip:`${x.name}: ${fmt(x.nets)} networks connected, ${fmt(x.gbps)} Gbps across ${fmt(x.ports)} ports`})),
+    {xl:'Networks connected', yl:'Total port capacity (Gbps)'});
+  $('#ix-legend').innerHTML = ixOpMulti.map(e => `<span><i class="sw" style="background:${opColor(e[0])}"></i>${esc(e[0])}</span>`).join('')
+    + `<span><i class="sw" style="background:${V('--small')}"></i>Operators with one exchange</span>`;
+  const sp = {};
+  ps.filter(p => p.mbps > 0).forEach(p => { sp[p.mbps] = (sp[p.mbps]||0) + 1; });
+  bars('#ix-speed', topN('ix-speed', Object.entries(sp).sort((a,b) => b[1]-a[1] || b[0]-a[0])).map(e => ({label:speedLabel(+e[0]), v:e[1], c:V('--ix'), tip:`${fmt(e[1])} ports at ${speedLabel(+e[0])}`})));
+  bars('#ix-city', topN('ix-city', optionsFrom(xs.map(x => x.city))).map(o => ({label:o.label, v:o.n, id:o.v, c:V('--ix'), tip:`${o.label}: ${fmt(o.n)} exchanges`})),
+    {onClick:it => setOnly('exchanges','city',it.id), dimFn:it => !isAll('exchanges','city') && !S.exchanges.city.has(it.id)});
+  renderTable('exchanges');
+};
+
+/* ---------- NIXI ---------- */
+defineFilter('nixi','group','Match against our data', GORDER.map(k => ({v:k, label:GROUPS[k].name, n:ISPS.filter(r => r.group === k).length})));
+defineFilter('nixi','loc','NIXI location', optionsFrom(ISPS.map(r => r.locs), v => nocLabel[v] || v));
+panel('nixi', [{type:'pick', key:'group', tip:'Each ISP is matched by its ASN and falls into the first group it fits.'},
+  {type:'pick', key:'loc'}, {type:'toggle', key:'multi', label:'Connected at more than one location'}]);
+const ispFiltered = () => ISPS.filter(r => pass('nixi','group',r.group) && passAny('nixi','loc',r.locs) && (!tog('nixi','multi') || r.nlocs > 1));
+makeTable('nixiIsps', {view:'nixi', kind:'isp', sort:3, rows:ispFiltered,
+  text:r => [r.name, r.asn, 'as'+r.asn, r.also.join(' '), r.locs.map(l => nocLabel[l] || l).join(' ')].join(' ').toLowerCase(),
+  cols:[
+    {h:'ISP', v:r => r.name},
+    {h:'ASN', v:r => num(r.asn), num:1, html:r => esc(r.asn), tip:'The autonomous system number: the unique number this network uses on the internet. It is what the match below is based on.'},
+    {h:'Match against our data', v:r => GROUPS[r.group].name, html:r => `<span class="tag" style="--c:${V(GROUPS[r.group].c)}">${esc(GROUPS[r.group].name)}</span>`, fkey:'group'},
+    {h:'NIXI locations', v:r => r.nlocs, num:1},
+    {h:'Where', v:r => r.locs.map(l => nocLabel[l] || l).join(', '), fkey:'loc'}
+  ]});
+makeTable('nixiNocs', {view:'nixi', kind:'noc', sort:6, rows:() => NOCS.filter(n => isAll('nixi','loc') || S.nixi.loc.has(n.id)),
+  text:n => [n.name, n.contact, n.email, n.address, n.phone, n.mobile].join(' ').toLowerCase(),
+  cols:[
+    {h:'Location', v:n => n.name, fkey:'loc'},
+    {h:'Contact', v:n => n.contact || '—'},
+    {h:'Mobile', v:n => n.mobile || '—'},
+    {h:'Email', v:n => n.email || '—'},
+    {h:'Phone', v:n => n.phone || '—'},
+    {h:'Address', v:n => n.address || '—'},
+    {h:'ISPs listed', v:n => n.isps.length, num:1}
+  ]});
+RENDER.nixi = () => {
+  const rs = ispFiltered();
+  kpis('#k-nixi', [
+    [M.totals.nixi_locs, 'NIXI locations', V('--nixi')],
+    [M.totals.nixi_locs_with_isps, 'locations with an ISP list', V('--nixi'), `The other ${fmt(M.totals.nixi_locs - M.totals.nixi_locs_with_isps)} are listed by NIXI with a phone number and address but no ISPs.`],
+    [M.totals.nixi_isps, 'unique ISPs connected', V('--nixi'), 'Counted by ASN, so an ISP at several locations counts once.'],
+    [M.totals.nixi_new, 'ISPs not in the facility data', V('--hub'), 'Every ISP outside the first match group.']
+  ]);
+  const byG = GORDER.map(k => ({k, n:ISPS.filter(r => r.group === k && passAny('nixi','loc',r.locs) && (!tog('nixi','multi') || r.nlocs > 1)).length}));
+  const tot = byG.reduce((s,x) => s + x.n, 0) || 1;
+  const dim = k => !isAll('nixi','group') && !S.nixi.group.has(k);
+  $('#nx-sbar').innerHTML = byG.map(x => `<div class="${dim(x.k)?'dim':''}" style="flex:${x.n || 0.0001};background:${V(GROUPS[x.k].c)}" data-s="${x.k}" data-tip="${esc(`${GROUPS[x.k].name}: ${fmt(x.n)} ISPs`)}">${x.n / tot > .06 ? fmt(x.n) : ''}</div>`).join('');
+  $('#nx-slegend').innerHTML = byG.map(x => `<button class="${dim(x.k)?'dim':''}" style="--c:${V(GROUPS[x.k].c)}" data-s="${x.k}"><b>${fmt(x.n)}</b><strong>${esc(GROUPS[x.k].name)}</strong><span>${esc(GROUPS[x.k].desc)}</span></button>`).join('');
+  const locs = {};
+  rs.forEach(r => r.locs.forEach(l => { locs[l] = (locs[l]||0) + 1; }));
+  bars('#nx-locs', topN('nx-locs', Object.entries(locs).sort((a,b) => b[1]-a[1] || a[0].localeCompare(b[0]))).map(e => ({
+    label:nocLabel[e[0]] || e[0], v:e[1], id:e[0], c:V('--nixi'), tip:`${nocLabel[e[0]] || e[0]}: ${fmt(e[1])} ISPs listed`})),
+    {onClick:it => setOnly('nixi','loc',it.id)});
+  bars('#nx-multi', topN('nx-multi', rs.filter(r => r.nlocs > 1).sort((a,b) => b.nlocs - a.nlocs || a.name.localeCompare(b.name))).map(r => ({
+    label:r.name, v:r.nlocs, id:r.id, c:V('--nixi'), tip:`${r.name} (AS${r.asn}): ${r.locs.map(l => nocLabel[l] || l).join(', ')}`})),
+    {onClick:it => openRec('isp', it.id)});
+  renderTable('nixiIsps'); renderTable('nixiNocs');
+};
+['#nx-sbar','#nx-slegend'].forEach(s => { $(s).onclick = e => { const b = e.target.closest('[data-s]'); if (b) setOnly('nixi','group',b.dataset.s); }; });
+
+/* ---------- Sources and method ---------- */
+(function(){
+  $('#srcTable').innerHTML = `<thead><tr><th>Dataset</th><th>What one row is</th><th>Source</th><th>Workbook sheet</th><th class="num">Rows</th></tr></thead><tbody>${
+    M.sheets.map(s => `<tr><td><b>${esc(s.name)}</b><br><span style="color:var(--faint)">${esc(s.file)}</span></td><td>${esc(s.row)}</td><td>${esc(s.source)}</td><td>${esc(s.sheet)}</td><td class="num">${fmt(s.rows)}</td></tr>`).join('')}</tbody>`;
+  $('#keyTable').innerHTML = `<thead><tr><th>Shared ID</th><th>What it connects</th></tr></thead><tbody>${[
+    ['fac_id','A facility to the networks installed in it, and to the exchanges present in it.'],
+    ['net_id','A network to the facilities it is installed in, and to its ports on exchanges.'],
+    ['ix_id','An exchange to the facilities it sits in, and to the ports networks have on it.'],
+    ['ASN','A NIXI ISP to its PeeringDB network record and to its exchange ports. Every network has one.'],
+    ['org_name','Facilities run by the same company, which is what this report calls an operator.'],
+    ['ix_org_id','Exchanges run by the same company, which is what this report calls an exchange operator.'],
+    ['NIXI location name','A NIXI location to the ISPs listed there. The two NIXI files share the location name, not an ID.']
+  ].map(r => `<tr><td><b>${esc(r[0])}</b></td><td>${esc(r[1])}</td></tr>`).join('')}</tbody>`;
+  $('#defs').innerHTML = [
+    ['Facility', 'One data centre building. Every facility in this report is in India and listed on PeeringDB.'],
+    ['Operator', 'All facilities sharing an operator name in the data.'],
+    ['Facility size', `Set by the number of networks listed inside: ${TIER[1].name.toLowerCase()} is ${tierRule(1)}, ${TIER[2].name.toLowerCase()} is ${tierRule(2)}, ${TIER[3].name.toLowerCase()} is ${tierRule(3)}.`],
+    ['Networks installed', INSTALLED_TIP],
+    ['Tenant network', 'A network listed as installed in at least one Indian facility.'],
+    ['Network seen only at exchanges', 'A network with a port on an Indian exchange but no facility listing.'],
+    ['Internet exchange', 'A shared switch where many networks connect directly to swap traffic with each other.'],
+    ['Exchange operator', 'All exchanges sharing a company ID in the data. The data has no operator name, so each group is labelled with the first word of its exchanges’ names.'],
+    ['Port', 'One connection a network has to an exchange. Its speed is given in megabits or gigabits per second.'],
+    ['Peering', 'Two networks connecting directly to swap traffic. A peering policy says how openly a network agrees to do this.'],
+    ['ASN', 'Autonomous system number: the unique number a network uses to identify itself on the internet.'],
+    ['NOC', 'Network operations centre. NIXI calls each of its connection points a NOC.'],
+    ...M.groups.map(g => [g.name, `NIXI match group. ${g.desc}`])
+  ].map(d => `<dt>${esc(d[0])}</dt><dd>${esc(d[1])}</dd>`).join('');
+  $('#tidy').innerHTML = [
+    `<b>City names.</b> ${M.city_replacements.map(r => `${esc(r.from)} to ${esc(r.to)}`).join('; ')}. Leading and trailing spaces and commas are then removed, and a name written entirely in capitals is put into title case. No other names are merged, on facilities or on exchanges. Each record still shows the city exactly as the data writes it.`,
+    '<b>NIXI ISP names.</b> Spaces and line breaks are trimmed. Where one ASN is listed under several names, the most common spelling is shown and the others appear under "Also listed as" in the ISP panel.',
+    '<b>NIXI location and zone names.</b> A name written entirely in capitals is put into title case, which merges the one zone written in two cases. Spellings are not corrected.',
+    '<b>Counts come from linked rows.</b> How many networks are in a facility, how many exchanges a facility hosts and how many networks are on an exchange are all counted from the linked records themselves, so every number opens to exactly that many records. Where the source data carries its own summary count and it differs, the panel shows it as the PeeringDB count.',
+    `<b>Ports listed at speed 0.</b> ${fmt(M.totals.ports_zero)} ports are listed at speed 0. They are counted as ports, and left out of the speed chart and the capacity totals.`,
+    `<b>Ports marked not operational.</b> ${fmt(M.totals.ports_down)} ports are marked as not operational. They are counted like any other port, and the status is shown in the detail panels.`,
+    `<b>Map positions.</b> A city bubble sits at the average position of that city’s facilities that have coordinates. ${fmt(M.totals.with_coords)} of ${fmt(M.totals.facilities)} facilities have coordinates. The ${fmt(M.totals.off_map)} facilities in cities with none stay in every chart, table and count, and are listed under each map.`,
+    '<b>Contact details.</b> Shown exactly as the data writes them. No email address or phone number is corrected.'
+  ].map(t => `<li>${t}</li>`).join('');
+  RENDER.sources = () => {};
+})();
+
+/* =========================================================
+   6. DETAIL PANEL  (contacts first, then every filled-in
+      column, then the linked records)
+   ========================================================= */
+const drawer = $('#drawer'), scrim = $('#scrim');
+let lastFocus = null;
+function closeDrawer(){
+  drawer.classList.remove('open'); scrim.classList.remove('open'); drawer.setAttribute('aria-hidden','true');
+  if (lastFocus && document.contains(lastFocus)) lastFocus.focus();
+  lastFocus = null;
+}
+scrim.onclick = closeDrawer;
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape'){ closeDrawer(); picker.classList.remove('open'); $('#results').classList.remove('open'); }
+});
+const linkify = v => {
+  const s = esc(v);
+  if (/^https?:\/\//i.test(s)) return `<a href="${s}" target="_blank" rel="noopener">${s}</a>`;
+  if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s)) return `<a href="mailto:${s}">${s}</a>`;
+  return s;
+};
+const dl = pairs => {
+  const p = pairs.filter(x => x[1] !== '' && x[1] != null);
+  return p.length ? `<dl>${p.map(x => `<dt>${esc(x[0])}</dt><dd>${linkify(x[1])}</dd>`).join('')}</dl>` : '<p class="empty">Nothing listed in the data</p>';
+};
+const links = items => items.length
+  ? `<ul class="links">${items.map(x => `<li><button data-k="${x[0]}" data-id="${esc(x[1])}">${esc(x[2])}</button></li>`).join('')}</ul>`
+  : '<p class="empty">None listed in the data</p>';
+const portLabel = p => `${p.mbps >= 1000 ? (p.mbps/1000) + ' Gbps' : p.mbps + ' Mbps'}${p.operational === 'False' ? ', marked not operational' : ''}`;
+drawer.onclick = e => {
+  const b = e.target.closest('button[data-k]'); if (b) openRec(b.dataset.k, b.dataset.id);
+  if (e.target.closest('.x')) closeDrawer();
+  const a = e.target.closest('[data-showfacs]');
+  if (a){ const org = a.dataset.showfacs; closeDrawer(); show('facilities'); S.facilities.org.clear(); S.facilities.org.add(org); refresh('facilities'); }
+};
+function openRec(kind, id){
+  id = String(id);
+  let h = '', c = '--fac', label = '';
+  if (kind === 'fac'){
+    const f = facById[id]; if (!f) return;
+    label = 'Facility';
+    const nets = (facNets[id] || []).map(n => netById[n]).filter(Boolean).sort((a,b) => a.name.localeCompare(b.name));
+    const ixs = (facIxs[id] || []).map(i => ixById[i]).filter(Boolean).sort((a,b) => a.name.localeCompare(b.name));
+    h = `<h2>${esc(f.name)}</h2>${tag(f.tier)}
+      <h4>Contacts</h4><div class="contact">${dl([['Sales email',f.sales_email],['Sales phone',f.sales_phone],['Tech email',f.tech_email],['Tech phone',f.tech_phone],['Website',f.web]])}</div>
+      <h4>Details</h4>${dl([
+        ['Operator',f.org],['Also known as',f.aka],
+        ['Address',[f.address1,f.address2].filter(Boolean).join(', ')],
+        ['City',f.city],['City in the data', f.city !== f.city_raw ? f.city_raw : ''],
+        ['State in the data',f.state],['PIN code',f.zip],
+        ['Networks inside',fmt(f.n)],['PeeringDB count', f.pdb_n !== f.n ? `${fmt(f.pdb_n)} networks` : ''],
+        ['Exchanges hosted',fmt(f.nix)],['PeeringDB count', f.pdb_nix !== f.nix ? `${fmt(f.pdb_nix)} exchanges` : ''],
+        ['Carriers listed',fmt(f.carriers)],
+        ['Property type',f.property],['Power',f.voltage],
+        ['Coordinates', f.lat != null ? `${f.lat}, ${f.lon}` : 'Not in the data, so this facility has no map bubble'],
+        ['Last updated',f.updated],['Notes',f.notes],['PeeringDB facility ID',f.id]])}
+      <h4>Operator</h4>${links([['op',f.org,f.org]])}
+      <h4>Exchanges hosted here (${fmt(ixs.length)})</h4>${links(ixs.map(x => ['ix',x.id,x.name]))}
+      <h4>Networks inside (${fmt(nets.length)})</h4>${links(nets.map(n => ['net',n.id,n.name]))}`;
+  }
+  if (kind === 'op'){
+    const o = opById[id]; if (!o) return;
+    label = 'Operator';
+    const fs = FAC.filter(f => f.org === id).sort((a,b) => b.n - a.n || a.name.localeCompare(b.name));
+    h = `<h2>${esc(id)}</h2>
+      <h4>Summary</h4>${dl([['Facilities',fmt(o.facilities)],['Networks installed',fmt(o.n)],['In major hubs',fmt(o.t[1])],['Cities',o.cityList.join(', ')],
+        ['Facilities with an exchange',fmt(o.ix)],['Facilities with contacts',fmt(o.contacts)]])}
+      <button class="act" data-showfacs="${esc(id)}">Show these facilities on the Facilities tab</button>
+      <h4>Facilities (${fmt(fs.length)})</h4>${links(fs.map(f => ['fac',f.id,`${f.name} (${fmt(f.n)})`]))}`;
+  }
+  if (kind === 'net'){
+    const n = netById[id]; if (!n) return;
+    c = '--net'; label = n.nf > 0 ? 'Tenant network' : n.india ? 'Network seen only at exchanges' : 'PeeringDB network, not linked to India';
+    h = `<h2>${esc(n.name)}</h2>
+      <h4>Details</h4>${dl([['ASN',n.asn],['Also known as',n.aka],['Full name',n.long],['Type',n.type],['Geographic scope',n.scope],
+        ['Traffic',n.traffic],['Traffic ratio',n.ratio],['IPv4 prefixes',n.p4],['IPv6 prefixes',n.p6],['IPv6 enabled',n.ipv6],
+        ['Peering policy',n.policy],['Facilities worldwide',fmt(n.ww_fac)],['Exchanges worldwide',fmt(n.ww_ix)],
+        ['Website',n.web],['Notes',n.notes],['Last updated',n.updated],['PeeringDB network ID',n.id]])}
+      <h4>Indian facilities (${fmt(n.facs.length)})</h4>${links(n.facs.map(f => ['fac',f,`${facById[f].name}, ${facById[f].city}`]))}
+      <h4>Indian exchange ports (${fmt(n.ports.length)})</h4>${links(n.ports.map(p => ['ix',p.ix_id,`${(ixById[p.ix_id]||{}).name || p.ix_id}, ${portLabel(p)}`]))}`;
+  }
+  if (kind === 'ix'){
+    const x = ixById[id]; if (!x) return;
+    c = '--ix'; label = 'Internet exchange';
+    const xp = portsByIx[id] || [];
+    const mem = [...new Set(xp.map(p => p.net_id))].map(n => netById[n]).filter(Boolean).sort((a,b) => a.name.localeCompare(b.name));
+    h = `<h2>${esc(x.name)}</h2>
+      <h4>Contacts</h4><div class="contact">${dl([['Tech email',x.tech_email],['Tech phone',x.tech_phone],['Policy email',x.policy_email],['Policy phone',x.policy_phone],
+        ['Sales email',x.sales_email],['Sales phone',x.sales_phone],['Website',x.web]])}</div>
+      <h4>Details</h4>${dl([['Full name',x.long],['Also known as',x.aka],['Exchange operator',x.operator],
+        ['City',x.city],['City in the data', x.city !== x.city_raw ? x.city_raw : ''],
+        ['Networks connected',fmt(x.nets)],['PeeringDB member count', x.pdb_nets !== x.nets ? fmt(x.pdb_nets) : ''],
+        ['Ports listed',fmt(x.ports)],['Port capacity',`${fmt(x.gbps)} Gbps`],
+        ['Facilities hosting it',fmt(x.facs.length)],['PeeringDB facility count', x.pdb_facs !== x.facs.length ? fmt(x.pdb_facs) : ''],
+        ['Service level',x.service],['Terms',x.terms],['Traffic statistics',x.stats],['Notes',x.notes],
+        ['Last updated',x.updated],['PeeringDB exchange ID',x.id],['Company ID in the data',x.org_id]])}
+      <h4>Facilities hosting it (${fmt(x.facs.length)})</h4>${links(x.facs.map(f => ['fac',f,`${facById[f].name}, ${facById[f].city}`]))}
+      <h4>Networks with ports here (${fmt(mem.length)})</h4>${links(mem.map(n => ['net',n.id,n.name]))}`;
+  }
+  if (kind === 'noc'){
+    const n = nocById[id]; if (!n) return;
+    c = '--nixi'; label = 'NIXI location';
+    const rs = n.isps.map(i => ispById[i]).filter(Boolean).sort((a,b) => a.name.localeCompare(b.name));
+    h = `<h2>${esc(n.name)}</h2>
+      <h4>Contacts</h4><div class="contact">${dl([['Contact name',n.contact],['Mobile',n.mobile],['Phone',n.phone],['Email',n.email],['Address',n.address]])}</div>
+      <h4>Details</h4>${dl([['Location in the data', n.name !== n.name_raw ? n.name_raw : ''],['NIXI NOC ID',n.noc_id],
+        ['ISPs listed here', n.isps.length ? fmt(n.isps.length) : 'None. NIXI lists this location with a phone number and address but no ISPs.']])}
+      <h4>ISPs connected here (${fmt(rs.length)})</h4>${links(rs.map(r => ['isp',r.id,`${r.name} (AS${r.asn})`]))}`;
+  }
+  if (kind === 'isp'){
+    const r = ispById[id]; if (!r) return;
+    c = '--nixi'; label = 'ISP connected at NIXI';
+    h = `<h2>${esc(r.name)}</h2><span class="tag" style="--c:${V(GROUPS[r.group].c)}">${esc(GROUPS[r.group].name)}</span>
+      <p class="q" style="margin:10px 0 0">${esc(GROUPS[r.group].desc)}</p>
+      <h4>Details</h4>${dl([['ASN',r.asn],['Also listed as', r.also.join('; ')],['NIXI locations',fmt(r.nlocs)],
+        ['Zones',r.zones.join(', ')],['NIXI network ID',r.nixi_ids.join(', ')],['First listed by NIXI',r.created],['Last updated by NIXI',r.updated]])}
+      <h4>NIXI locations (${fmt(r.locs.length)})</h4>${links(r.locs.filter(l => nocById[l]).map(l => ['noc',l,nocLabel[l]]))}
+      <h4>PeeringDB record</h4>${r.net && netById[r.net] ? links([['net',r.net,`${netById[r.net].name} (AS${netById[r.net].asn})`]]) : '<p class="empty">This ASN has no PeeringDB network record in the data.</p>'}`;
+  }
+  if (!h) return;
+  if (!drawer.classList.contains('open')) lastFocus = document.activeElement;
+  drawer.innerHTML = `<button class="x" aria-label="Close details">Close</button><div class="kind" style="--c:${V(c)}">${esc(label)}</div>` + h;
+  drawer.classList.add('open'); scrim.classList.add('open'); drawer.setAttribute('aria-hidden','false');
+  drawer.scrollTop = 0;
+  drawer.querySelector('.x').focus();
+  $('#results').classList.remove('open');
+}
+
+/* =========================================================
+   7. GLOBAL SEARCH
+   ========================================================= */
+const IDX = [
+  ...FAC.map(f => ({k:'fac', id:f.id, t:f.name, s:`${f.org}, ${f.city}`, x:[f.name,f.org,f.city,f.city_raw,f.aka,f.zip,f.address1].join(' ')})),
+  ...OPS_ALL.map(o => ({k:'op', id:o.org, t:o.org, s:`${fmt(o.facilities)} ${o.facilities === 1 ? 'facility' : 'facilities'}`, x:o.org})),
+  ...INDIA_NETS.map(n => ({k:'net', id:n.id, t:n.name, s:`AS${n.asn}, ${n.typeL}`, x:[n.name,n.aka,n.long,n.asn,'as'+n.asn].join(' ')})),
+  ...IXS.map(x => ({k:'ix', id:x.id, t:x.name, s:`${x.city}, ${fmt(x.nets)} networks connected`, x:[x.name,x.long,x.aka,x.city].join(' ')})),
+  ...NOCS.map(n => ({k:'noc', id:n.id, t:n.name, s:[n.contact, n.phone].filter(Boolean).join(', ') || 'NIXI location', x:[n.name,n.name_raw,n.contact,n.email,n.address,n.phone,n.mobile].join(' ')})),
+  ...ISPS.map(r => ({k:'isp', id:r.id, t:r.name, s:`AS${r.asn}, ${GROUPS[r.group].name}`, x:[r.name,r.also.join(' '),r.asn,'as'+r.asn,r.locs.map(l => nocLabel[l]||l).join(' ')].join(' ')}))
+].map(r => Object.assign(r, {x:r.x.toLowerCase()}));
+const GROUP_NAMES = {fac:'Facilities', op:'Operators', net:'Networks linked to India', ix:'Internet exchanges', noc:'NIXI locations', isp:'ISPs at NIXI'};
+const res = $('#results');
+$('#q').oninput = e => {
+  const q = e.target.value.trim().toLowerCase();
+  if (q.length < 2){ res.classList.remove('open'); return; }
+  const terms = q.split(/\s+/), hits = IDX.filter(r => terms.every(t => r.x.includes(t)));
+  res.innerHTML = hits.length
+    ? Object.keys(GROUP_NAMES).map(k => {
+        const g = hits.filter(h => h.k === k);
+        if (!g.length) return '';
+        return `<h4>${GROUP_NAMES[k]} (${fmt(g.length)})</h4>` + g.slice(0,6).map(h => `<button data-k="${h.k}" data-id="${esc(h.id)}">${esc(h.t)}<span class="sub">${esc(h.s)}</span></button>`).join('')
+          + (g.length > 6 ? `<div class="more">and ${fmt(g.length - 6)} more. Add another word to narrow this.</div>` : '');
+      }).join('')
+    : `<div class="none">No record matches “${esc(q)}”. Try part of a name, a city, a contact name, or an ASN with or without AS in front.</div>`;
+  res.classList.add('open');
+};
+$('#q').onfocus = () => { if ($('#q').value.trim().length >= 2) res.classList.add('open'); };
+res.onclick = e => { const b = e.target.closest('button'); if (b) openRec(b.dataset.k, b.dataset.id); };
+
+/* =========================================================
+   8. TABS, TOOLTIP, START
+   ========================================================= */
+function show(v){
+  document.querySelectorAll('section.view').forEach(s => s.classList.toggle('on', s.id === 'v-'+v));
+  document.querySelectorAll('.tabs button').forEach(b => b.setAttribute('aria-selected', String(b.dataset.v === v)));
+  RENDER[v]();
+  window.scrollTo(0,0);
+}
+document.querySelectorAll('.tabs button').forEach(b => { b.onclick = () => show(b.dataset.v); });
+const tip = $('#tip');
+const showTip = (t, x, y) => {
+  tip.textContent = t.dataset.tip;
+  tip.style.display = 'block';
+  tip.style.left = Math.min(x + 14, innerWidth - 320) + 'px';
+  tip.style.top = (y + 16) + 'px';
+};
+document.addEventListener('mouseover', e => { const t = e.target.closest('[data-tip]'); if (t) showTip(t, e.clientX, e.clientY); });
+document.addEventListener('mousemove', e => { if (tip.style.display === 'block'){ tip.style.left = Math.min(e.clientX + 14, innerWidth - 320) + 'px'; tip.style.top = (e.clientY + 16) + 'px'; } });
+document.addEventListener('mouseout', e => { if (e.target.closest('[data-tip]')) tip.style.display = 'none'; });
+document.addEventListener('focusin', e => {
+  const t = e.target.closest('[data-tip]');
+  if (t){ const r = t.getBoundingClientRect(); showTip(t, r.left, r.bottom); } else tip.style.display = 'none';
+});
+
+Object.keys(RENDER).forEach(v => refresh(v));
+show('overview');
+</script>
+</body>
+</html>
