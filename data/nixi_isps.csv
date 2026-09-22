@@ -1,0 +1,517 @@
+noc_id,noc_location,contact_name,mobileNo,contact_email,createdAt,updatedAt,address,networkMasterId,companyName,asNumber,zoneName
+1,Ludhina,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-01-20 20:16:53,2023-11-29 16:53:43,"RETICULE INFOTECH PVT.LTD SCO-18, FEROZGANDHI MARKET, LUDHIANA",917,Reticule Infotech Private Limited,134943,Ludhiana
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",5,Blazenet Limited,17625,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",16,Airnet Cable and Datacom Pvt. Ltd.,133001,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",20,Power Grid Corporation of India,132215,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",23,City Online services Limited,17483,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",24,Five Network Solution India Ltd.,24554,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",26,Gazon Communications India Ltd.,132770,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",27,Dwan Supports Private Limited,133301,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",57,Auspice Infratel Private Limited,59165,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",79,ESDS Internet Services Pvt.Ltd.,45815,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",80,Microscan Infocommtech Pvt. Ltd,55352,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",91,Excitel Broadband Pvt. Ltd.,133982,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",93,BALAJI TELEWORKS DEVELOPMENT PRIVATE LIMITED,141014,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",136,DIGITAL NETWORK ASSOCIATES PRIVATE LIMITED,131442,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",192,SIFY LTD.,9583,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",194,Citycom Networks Private Limited (formar Shyam Spectra Pvt. Ltd.),10029,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",227,Telstra Telecommunications Pvt. Ltd.,4637,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",230,ISHAN Netsol Pvt Ltd,45117,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",274,Skylink Fibrenet Private Limited,135139,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",316,WEBLINK SYSTEMS PRIVATE LIMITED,146872,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",388,Bharti Airtel Ltd.,9498,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",391,Bharat Sanchar Nigam Limited,9829,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",400,TATA Communications Ltd.,4755,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",413,Vodafone Idea Ltd.,55410,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",416,Rail Tel Corporation of India Ltd.,24186,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",428,Reliance Jio Infocomm Limited,55836,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",456,Wan and Lan Internet Pvt. Ltd.,55862,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",458,Intech Online Pvt. Ltd.,58678,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",460,Wizbyte Networks Private Limited,133968,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",503,ONEOTT iNTERTAINMENT LIMITED,17665,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",504,DE CIX Interwire Internet Services Pvt. Ltd,33480,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",773,JPR DIGITAL PRIVATE LIMITED,132220,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",919,Juweriyah Networks Private Limited,138296,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",920,Pegasuswave Private Limited,140148,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",921,"
+Smartlink Solutions Pvt. Ltd",134331,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",922,Reisnet Broadband Pvt Ltd,140171,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",923,TTML,17762,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",924,Yota,140641,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",925,SOIPL,132137,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",926,Dataexpress,150593,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",927,Navyug Networks Info Pvt Ltd,135686,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",928,SEVEN STAR DIGITAL NETWORKS PVT LTD,132296,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",929,Vortex,136334,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",930,ALLCONNECT NETWORK SERVICES PVT LTD,137172,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",931,"Fastcablenet 
+",141329,Mumbai (GPX)
+2,Mumbai-Equinix,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:02:43,2023-07-05 13:01:49,"NIXI C/o Equinix Data center (GPX-1)., Unit A - 001, Boomerang, Chandivali Farm Road, Near Oberoi Garden, Andheri East, Mumbai – 400 072",1215,Limerick Technologies Pvt Ltd,138311,Mumbai (GPX)
+3,Belgaum,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-01-20 21:04:47,2024-12-31 12:23:43,"OUTOFBOX NETWORKS PRIVATE LIMITED Fifth Floor, Oneness, 1st Cross, 1st Main, Sadashiv Nagar, Belagavi, Karnataka: 590001",1030,OUT OF BOX NETWORKS PVT LTD,141815,Belgaum
+4,Kolkata,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:08:31,2023-12-13 11:21:23,"NIXI C/O STT, 1, Videsh Sanchar Bhavan, 18, CIT Rd, Ultadanga, Kolkata, West Bengal 700054",1102,"GTPL Kolkata Cable & Broadband Pvt Ltd
+",135872,Kolkata
+4,Kolkata,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:08:31,2023-12-13 11:21:23,"NIXI C/O STT, 1, Videsh Sanchar Bhavan, 18, CIT Rd, Ultadanga, Kolkata, West Bengal 700054",1103,"Indinet Service Pvt. Ltd.
+",132115,Kolkata
+4,Kolkata,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:08:31,2023-12-13 11:21:23,"NIXI C/O STT, 1, Videsh Sanchar Bhavan, 18, CIT Rd, Ultadanga, Kolkata, West Bengal 700054",1104,Railtel Corporation of India Ltd.,24186,Kolkata
+4,Kolkata,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:08:31,2023-12-13 11:21:23,"NIXI C/O STT, 1, Videsh Sanchar Bhavan, 18, CIT Rd, Ultadanga, Kolkata, West Bengal 700054",1105,"Sify Technologies Limited
+",9583,Kolkata
+4,Kolkata,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:08:31,2023-12-13 11:21:23,"NIXI C/O STT, 1, Videsh Sanchar Bhavan, 18, CIT Rd, Ultadanga, Kolkata, West Bengal 700054",1106,"Tata Communications Limited.
+",4755,Kolkata
+4,Kolkata,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:08:31,2023-12-13 11:21:23,"NIXI C/O STT, 1, Videsh Sanchar Bhavan, 18, CIT Rd, Ultadanga, Kolkata, West Bengal 700054",1107,"TATA Teleservices Limited
+",45820,Kolkata
+4,Kolkata,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:08:31,2023-12-13 11:21:23,"NIXI C/O STT, 1, Videsh Sanchar Bhavan, 18, CIT Rd, Ultadanga, Kolkata, West Bengal 700054",1108,"Balaji Teleworkers Development Private Limited
+",141014,Kolkata
+4,Kolkata,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:08:31,2023-12-13 11:21:23,"NIXI C/O STT, 1, Videsh Sanchar Bhavan, 18, CIT Rd, Ultadanga, Kolkata, West Bengal 700054",1109,"Meghbela Cable And Broadband services Pvt. Ltd.
+",45804,Kolkata
+4,Kolkata,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:08:31,2023-12-13 11:21:23,"NIXI C/O STT, 1, Videsh Sanchar Bhavan, 18, CIT Rd, Ultadanga, Kolkata, West Bengal 700054",1110,"BHORER ALO CABLE & BROADBAND PRIVATE LIMITED
+",141490,Kolkata
+4,Kolkata,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:08:31,2023-12-13 11:21:23,"NIXI C/O STT, 1, Videsh Sanchar Bhavan, 18, CIT Rd, Ultadanga, Kolkata, West Bengal 700054",1111,"OXYNET TELECOMMUNICATIONS PVT LTD
+",134302,Kolkata
+4,Kolkata,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:08:31,2023-12-13 11:21:23,"NIXI C/O STT, 1, Videsh Sanchar Bhavan, 18, CIT Rd, Ultadanga, Kolkata, West Bengal 700054",1112,"ONEOTT iNTERTAINMENT LIMITED
+",17665,Kolkata
+4,Kolkata,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:08:31,2023-12-13 11:21:23,"NIXI C/O STT, 1, Videsh Sanchar Bhavan, 18, CIT Rd, Ultadanga, Kolkata, West Bengal 700054",1113,"SPEEDNET UNIQUE NETWORK PRIVATE LIMITED
+",135760,Kolkata
+4,Kolkata,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:08:31,2023-12-13 11:21:23,"NIXI C/O STT, 1, Videsh Sanchar Bhavan, 18, CIT Rd, Ultadanga, Kolkata, West Bengal 700054",1114,"PSNET SOLUTIONS PVT LTD
+",146942,Kolkata
+4,Kolkata,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:08:31,2023-12-13 11:21:23,"NIXI C/O STT, 1, Videsh Sanchar Bhavan, 18, CIT Rd, Ultadanga, Kolkata, West Bengal 700054",1115,"Hyosec Solutions Private Limited
+",141253,Kolkata
+4,Kolkata,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:08:31,2023-12-13 11:21:23,"NIXI C/O STT, 1, Videsh Sanchar Bhavan, 18, CIT Rd, Ultadanga, Kolkata, West Bengal 700054",1116,"AKD Network Pvt Ltd
+",142451,Kolkata
+4,Kolkata,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:08:31,2023-12-13 11:21:23,"NIXI C/O STT, 1, Videsh Sanchar Bhavan, 18, CIT Rd, Ultadanga, Kolkata, West Bengal 700054",1117,"FUTURE NETSANCHAR LIMITED
+",133283,Kolkata
+4,Kolkata,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:08:31,2023-12-13 11:21:23,"NIXI C/O STT, 1, Videsh Sanchar Bhavan, 18, CIT Rd, Ultadanga, Kolkata, West Bengal 700054",1118,"MULTIREACH BROADBAND SERVICES PVT LTD
+",151712,Kolkata
+4,Kolkata,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:08:31,2023-12-13 11:21:23,"NIXI C/O STT, 1, Videsh Sanchar Bhavan, 18, CIT Rd, Ultadanga, Kolkata, West Bengal 700054",1119,"ZITA TELECOM PVT LTD 
+",139515,Kolkata
+4,Kolkata,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:08:31,2023-12-13 11:21:23,"NIXI C/O STT, 1, Videsh Sanchar Bhavan, 18, CIT Rd, Ultadanga, Kolkata, West Bengal 700054",1211,"SUNDARAM BROADBAND PVT LTD
+",142485,Kolkata
+5,Bangalore-SIFY,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-01-20 21:10:11,2023-12-13 11:28:48,"NIXI C/O SIFY, 3rd Floor, Cyber Park, 3rd Cross Rd, Electronics City Phase 1, Electronic City, Bengaluru, Karnataka 560100 India",385,NURON NETWORKS INDIA PRIVATE LIMITED,138225,Bangalore-SIFY
+5,Bangalore-SIFY,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-01-20 21:10:11,2023-12-13 11:28:48,"NIXI C/O SIFY, 3rd Floor, Cyber Park, 3rd Cross Rd, Electronics City Phase 1, Electronic City, Bengaluru, Karnataka 560100 India",568,JIFFY CABLE DATACOM PRIVATE LIMITED,134944,Bangalore-SIFY
+5,Bangalore-SIFY,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-01-20 21:10:11,2023-12-13 11:28:48,"NIXI C/O SIFY, 3rd Floor, Cyber Park, 3rd Cross Rd, Electronics City Phase 1, Electronic City, Bengaluru, Karnataka 560100 India",1003,Airfiber Networks Private Limited,135780,Bangalore-SIFY
+5,Bangalore-SIFY,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-01-20 21:10:11,2023-12-13 11:28:48,"NIXI C/O SIFY, 3rd Floor, Cyber Park, 3rd Cross Rd, Electronics City Phase 1, Electronic City, Bengaluru, Karnataka 560100 India",1046,EXCITEL BROADBAND PVT LTD,133982,Bangalore-SIFY
+6,Hyderabad-CTRLS,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-01-20 21:11:45,2023-12-13 11:30:13,"NIXI C/O CtrlS Datacenters Ltd,16 Software Units Layout, Madhapur (Hitech-City),Hyderabad – 500081, Telangana",1031,AERONET ONLINE SERVICES PRIVATE LIMITED,139490,Hyderabad-CTRLS
+6,Hyderabad-CTRLS,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-01-20 21:11:45,2023-12-13 11:30:13,"NIXI C/O CtrlS Datacenters Ltd,16 Software Units Layout, Madhapur (Hitech-City),Hyderabad – 500081, Telangana",1032,ATRIA CONVERGENCE TECHNOLOGIES LIMITED,18209,Hyderabad-CTRLS
+6,Hyderabad-CTRLS,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-01-20 21:11:45,2023-12-13 11:30:13,"NIXI C/O CtrlS Datacenters Ltd,16 Software Units Layout, Madhapur (Hitech-City),Hyderabad – 500081, Telangana",1033,City Online Services Limited,17483,Hyderabad-CTRLS
+6,Hyderabad-CTRLS,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-01-20 21:11:45,2023-12-13 11:30:13,"NIXI C/O CtrlS Datacenters Ltd,16 Software Units Layout, Madhapur (Hitech-City),Hyderabad – 500081, Telangana",1034," COUNTRY ONLINE SERVICES PRIVATE LIMITED 
+",136290,Hyderabad-CTRLS
+6,Hyderabad-CTRLS,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-01-20 21:11:45,2023-12-13 11:30:13,"NIXI C/O CtrlS Datacenters Ltd,16 Software Units Layout, Madhapur (Hitech-City),Hyderabad – 500081, Telangana",1035,Lotus Broadband Private Limited,134334,Hyderabad-CTRLS
+6,Hyderabad-CTRLS,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-01-20 21:11:45,2023-12-13 11:30:13,"NIXI C/O CtrlS Datacenters Ltd,16 Software Units Layout, Madhapur (Hitech-City),Hyderabad – 500081, Telangana",1036," Mithril Telecommunications Private Limited 
+",140174,Hyderabad-CTRLS
+6,Hyderabad-CTRLS,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-01-20 21:11:45,2023-12-13 11:30:13,"NIXI C/O CtrlS Datacenters Ltd,16 Software Units Layout, Madhapur (Hitech-City),Hyderabad – 500081, Telangana",1037," NEOLOG ONLINE SERVICES PRIVATE LIMITED 
+",141834,Hyderabad-CTRLS
+6,Hyderabad-CTRLS,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-01-20 21:11:45,2023-12-13 11:30:13,"NIXI C/O CtrlS Datacenters Ltd,16 Software Units Layout, Madhapur (Hitech-City),Hyderabad – 500081, Telangana",1038," Netrun Technologies Private Limited 
+",59185,Hyderabad-CTRLS
+6,Hyderabad-CTRLS,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-01-20 21:11:45,2023-12-13 11:30:13,"NIXI C/O CtrlS Datacenters Ltd,16 Software Units Layout, Madhapur (Hitech-City),Hyderabad – 500081, Telangana",1039," R.V.R  Digital .Infrastructures Ltd.  
+",45884,Hyderabad-CTRLS
+6,Hyderabad-CTRLS,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-01-20 21:11:45,2023-12-13 11:30:13,"NIXI C/O CtrlS Datacenters Ltd,16 Software Units Layout, Madhapur (Hitech-City),Hyderabad – 500081, Telangana",1040," ROHAN MEDIA PRIVATE LIMITED 
+",137097,Hyderabad-CTRLS
+6,Hyderabad-CTRLS,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-01-20 21:11:45,2023-12-13 11:30:13,"NIXI C/O CtrlS Datacenters Ltd,16 Software Units Layout, Madhapur (Hitech-City),Hyderabad – 500081, Telangana",1041," SAMPATH VENKATESHWARA COMMUNICATIONS PVT LTD 
+",134305,Hyderabad-CTRLS
+6,Hyderabad-CTRLS,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-01-20 21:11:45,2023-12-13 11:30:13,"NIXI C/O CtrlS Datacenters Ltd,16 Software Units Layout, Madhapur (Hitech-City),Hyderabad – 500081, Telangana",1042," Vainavi Industries Limited 
+",45582,Hyderabad-CTRLS
+6,Hyderabad-CTRLS,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-01-20 21:11:45,2023-12-13 11:30:13,"NIXI C/O CtrlS Datacenters Ltd,16 Software Units Layout, Madhapur (Hitech-City),Hyderabad – 500081, Telangana",1043," ZYE TELECOM 
+",58725,Hyderabad-CTRLS
+6,Hyderabad-CTRLS,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-01-20 21:11:45,2023-12-13 11:30:13,"NIXI C/O CtrlS Datacenters Ltd,16 Software Units Layout, Madhapur (Hitech-City),Hyderabad – 500081, Telangana",1044," ZYETEK TELECOM PVT LTD 
+",150576,Hyderabad-CTRLS
+6,Hyderabad-CTRLS,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-01-20 21:11:45,2023-12-13 11:30:13,"NIXI C/O CtrlS Datacenters Ltd,16 Software Units Layout, Madhapur (Hitech-City),Hyderabad – 500081, Telangana",1045,EXCITEL BROADBAND PVT LTD,133982,Hyderabad-CTRLS
+7,Ahmedabad,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:14:26,2023-12-13 11:31:52,"NIXI C/O GNFC- Code Solutions -A Division of GNFC Limited 301, GNFC Info Tower, Nr. Grand Bhagwati, S G Highway , Bodakdev, Ahmedabad - 380054 Gujarat India",332,ISHAN Netsol Pvt Ltd,45117,Ahmedabad
+7,Ahmedabad,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:14:26,2023-12-13 11:31:52,"NIXI C/O GNFC- Code Solutions -A Division of GNFC Limited 301, GNFC Info Tower, Nr. Grand Bhagwati, S G Highway , Bodakdev, Ahmedabad - 380054 Gujarat India",351,JTM INTERNET PRIVATE LIMITED,137107,Ahmedabad
+7,Ahmedabad,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:14:26,2023-12-13 11:31:52,"NIXI C/O GNFC- Code Solutions -A Division of GNFC Limited 301, GNFC Info Tower, Nr. Grand Bhagwati, S G Highway , Bodakdev, Ahmedabad - 380054 Gujarat India",352,SIFY LTD.,9583,Ahmedabad
+7,Ahmedabad,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:14:26,2023-12-13 11:31:52,"NIXI C/O GNFC- Code Solutions -A Division of GNFC Limited 301, GNFC Info Tower, Nr. Grand Bhagwati, S G Highway , Bodakdev, Ahmedabad - 380054 Gujarat India",386,Ncode  Solutions (A GNFC Division),58702,Ahmedabad
+7,Ahmedabad,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:14:26,2023-12-13 11:31:52,"NIXI C/O GNFC- Code Solutions -A Division of GNFC Limited 301, GNFC Info Tower, Nr. Grand Bhagwati, S G Highway , Bodakdev, Ahmedabad - 380054 Gujarat India",801,Blazenet Limited,17625,Ahmedabad
+7,Ahmedabad,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:14:26,2023-12-13 11:31:52,"NIXI C/O GNFC- Code Solutions -A Division of GNFC Limited 301, GNFC Info Tower, Nr. Grand Bhagwati, S G Highway , Bodakdev, Ahmedabad - 380054 Gujarat India",802,BALAJI INFRA RAY PRIVATE LIMITED,135171,Ahmedabad
+7,Ahmedabad,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:14:26,2023-12-13 11:31:52,"NIXI C/O GNFC- Code Solutions -A Division of GNFC Limited 301, GNFC Info Tower, Nr. Grand Bhagwati, S G Highway , Bodakdev, Ahmedabad - 380054 Gujarat India",803,VIHAAN TELECOMMUNICATION PVT LTD,132923,Ahmedabad
+7,Ahmedabad,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:14:26,2023-12-13 11:31:52,"NIXI C/O GNFC- Code Solutions -A Division of GNFC Limited 301, GNFC Info Tower, Nr. Grand Bhagwati, S G Highway , Bodakdev, Ahmedabad - 380054 Gujarat India",1069,"Fiberpipe Communications Pvt Ltd
+",133269,Ahmedabad
+7,Ahmedabad,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:14:26,2023-12-13 11:31:52,"NIXI C/O GNFC- Code Solutions -A Division of GNFC Limited 301, GNFC Info Tower, Nr. Grand Bhagwati, S G Highway , Bodakdev, Ahmedabad - 380054 Gujarat India",1070,"Charotar Telelink Private Limited 
+",132933,Ahmedabad
+7,Ahmedabad,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:14:26,2023-12-13 11:31:52,"NIXI C/O GNFC- Code Solutions -A Division of GNFC Limited 301, GNFC Info Tower, Nr. Grand Bhagwati, S G Highway , Bodakdev, Ahmedabad - 380054 Gujarat India",1071,"Kalpavruksha communication services Pvt Ltd
+",135806,Ahmedabad
+7,Ahmedabad,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:14:26,2023-12-13 11:31:52,"NIXI C/O GNFC- Code Solutions -A Division of GNFC Limited 301, GNFC Info Tower, Nr. Grand Bhagwati, S G Highway , Bodakdev, Ahmedabad - 380054 Gujarat India",1072,"KING NETSOLE PRIVATE LIMITED
+",141262,Ahmedabad
+7,Ahmedabad,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:14:26,2023-12-13 11:31:52,"NIXI C/O GNFC- Code Solutions -A Division of GNFC Limited 301, GNFC Info Tower, Nr. Grand Bhagwati, S G Highway , Bodakdev, Ahmedabad - 380054 Gujarat India",1073,"MAHALAXMI NET PVT LTD
+",151112,Ahmedabad
+7,Ahmedabad,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:14:26,2023-12-13 11:31:52,"NIXI C/O GNFC- Code Solutions -A Division of GNFC Limited 301, GNFC Info Tower, Nr. Grand Bhagwati, S G Highway , Bodakdev, Ahmedabad - 380054 Gujarat India",1074,GTPL Broadband,45916,Ahmedabad
+7,Ahmedabad,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:14:26,2023-12-13 11:31:52,"NIXI C/O GNFC- Code Solutions -A Division of GNFC Limited 301, GNFC Info Tower, Nr. Grand Bhagwati, S G Highway , Bodakdev, Ahmedabad - 380054 Gujarat India",1075,"North Point Services pvt. ltd. 
+",142520,Ahmedabad
+7,Ahmedabad,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:14:26,2023-12-13 11:31:52,"NIXI C/O GNFC- Code Solutions -A Division of GNFC Limited 301, GNFC Info Tower, Nr. Grand Bhagwati, S G Highway , Bodakdev, Ahmedabad - 380054 Gujarat India",1076,"SPD Broadband Private Limited     
+",136327,Ahmedabad
+7,Ahmedabad,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:14:26,2023-12-13 11:31:52,"NIXI C/O GNFC- Code Solutions -A Division of GNFC Limited 301, GNFC Info Tower, Nr. Grand Bhagwati, S G Highway , Bodakdev, Ahmedabad - 380054 Gujarat India",1217,PLUSNET COMMUNICATION PRIVATE LIMITED,133234,Ahmedabad
+8,Guwahati,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:18:06,2023-12-13 11:38:32,"NIXI C/O AMTRON, Assam Electronics Development Corporation Ltd. Industrial Estate, Bamunimaidan, Guwahati-21, Assam",1094,Railtel Corporation of India Ltd.,24186,Guwahati
+8,Guwahati,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:18:06,2023-12-13 11:38:32,"NIXI C/O AMTRON, Assam Electronics Development Corporation Ltd. Industrial Estate, Bamunimaidan, Guwahati-21, Assam",1095,"NIC
+",4578,Guwahati
+8,Guwahati,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:18:06,2023-12-13 11:38:32,"NIXI C/O AMTRON, Assam Electronics Development Corporation Ltd. Industrial Estate, Bamunimaidan, Guwahati-21, Assam",1096,"Powergrid Corporation of India Ltd.
+",132215,Guwahati
+8,Guwahati,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:18:06,2023-12-13 11:38:32,"NIXI C/O AMTRON, Assam Electronics Development Corporation Ltd. Industrial Estate, Bamunimaidan, Guwahati-21, Assam",1097,"Bharat Sanchar Nigam Limited
+",9829,Guwahati
+8,Guwahati,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:18:06,2023-12-13 11:38:32,"NIXI C/O AMTRON, Assam Electronics Development Corporation Ltd. Industrial Estate, Bamunimaidan, Guwahati-21, Assam",1098,"Mukand infotel
+",132960,Guwahati
+8,Guwahati,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:18:06,2023-12-13 11:38:32,"NIXI C/O AMTRON, Assam Electronics Development Corporation Ltd. Industrial Estate, Bamunimaidan, Guwahati-21, Assam",1099,"NGC BROADBAND PRIVATE LIMITED
+",136323,Guwahati
+8,Guwahati,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:18:06,2023-12-13 11:38:32,"NIXI C/O AMTRON, Assam Electronics Development Corporation Ltd. Industrial Estate, Bamunimaidan, Guwahati-21, Assam",1100,"Shree Northeast Connect And Services
+",135777,Guwahati
+8,Guwahati,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:18:06,2023-12-13 11:38:32,"NIXI C/O AMTRON, Assam Electronics Development Corporation Ltd. Industrial Estate, Bamunimaidan, Guwahati-21, Assam",1101,"SHASS INFORMATION AND QUALITY ENGINEERING SERVICES PRIVATE LIMITED
+",135422,Guwahati
+9,Dehradun,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-01-20 21:20:11,2023-12-13 11:39:47,"STPI, IT-01 STPI incubation centre, Sahastradhara Rd, IT Park, Dehradun, Uttarakhand 248013",970,"Countrylink info tech pvt ltd 
+",150047,Dehradun
+9,Dehradun,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-01-20 21:20:11,2023-12-13 11:39:47,"STPI, IT-01 STPI incubation centre, Sahastradhara Rd, IT Park, Dehradun, Uttarakhand 248013",971,IGEN NETWORKS PRIVATE LIMITED,134905,Dehradun
+9,Dehradun,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-01-20 21:20:11,2023-12-13 11:39:47,"STPI, IT-01 STPI incubation centre, Sahastradhara Rd, IT Park, Dehradun, Uttarakhand 248013",972,LINKWAVE TECHNOLOGIES PRIVATE LIMITED,136377,Dehradun
+10,Chennai-STT,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-01-20 21:21:49,2023-12-13 11:40:40,"NIXI C/O. STT, Videsh Sanchar Bhavan, No.4 , Swami Sivananda Salai Chennai, Tamil Nadu 600002",1004,Airfiber Networks Private Limited,135780,Chennai-STT
+10,Chennai-STT,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-01-20 21:21:49,2023-12-13 11:40:40,"NIXI C/O. STT, Videsh Sanchar Bhavan, No.4 , Swami Sivananda Salai Chennai, Tamil Nadu 600002",1015,Asianet Satellite communications Ltd,17465,CHENNAI-STT
+10,Chennai-STT,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-01-20 21:21:49,2023-12-13 11:40:40,"NIXI C/O. STT, Videsh Sanchar Bhavan, No.4 , Swami Sivananda Salai Chennai, Tamil Nadu 600002",1016,NISS INTERNET SERVICES PVT LTD,132774,CHENNAI-STT
+10,Chennai-STT,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-01-20 21:21:49,2023-12-13 11:40:40,"NIXI C/O. STT, Videsh Sanchar Bhavan, No.4 , Swami Sivananda Salai Chennai, Tamil Nadu 600002",1017,Arjun Telecom Private Limited,133000,CHENNAI-STT
+10,Chennai-STT,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-01-20 21:21:49,2023-12-13 11:40:40,"NIXI C/O. STT, Videsh Sanchar Bhavan, No.4 , Swami Sivananda Salai Chennai, Tamil Nadu 600002",1018,DESHKAL NETWORK PRIVATE LIMITED,132559,CHENNAI-STT
+10,Chennai-STT,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-01-20 21:21:49,2023-12-13 11:40:40,"NIXI C/O. STT, Videsh Sanchar Bhavan, No.4 , Swami Sivananda Salai Chennai, Tamil Nadu 600002",1019," K Net Solutions Private Limited  
+",135247,CHENNAI-STT
+10,Chennai-STT,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-01-20 21:21:49,2023-12-13 11:40:40,"NIXI C/O. STT, Videsh Sanchar Bhavan, No.4 , Swami Sivananda Salai Chennai, Tamil Nadu 600002",1020," Skylink Fibernet Pvt Ltd  
+",135139,CHENNAI-STT
+10,Chennai-STT,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-01-20 21:21:49,2023-12-13 11:40:40,"NIXI C/O. STT, Videsh Sanchar Bhavan, No.4 , Swami Sivananda Salai Chennai, Tamil Nadu 600002",1021," Sri Vari Network Pvt.Ltd. 
+",134877,CHENNAI-STT
+10,Chennai-STT,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-01-20 21:21:49,2023-12-13 11:40:40,"NIXI C/O. STT, Videsh Sanchar Bhavan, No.4 , Swami Sivananda Salai Chennai, Tamil Nadu 600002",1022,UNIFIED VOICE COMMUNICATION PRIVATE LIMITED,137180,CHENNAI-STT
+10,Chennai-STT,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-01-20 21:21:49,2023-12-13 11:40:40,"NIXI C/O. STT, Videsh Sanchar Bhavan, No.4 , Swami Sivananda Salai Chennai, Tamil Nadu 600002",1023," Kerala Vision 
+",138754,CHENNAI-STT
+11,Prayagraj,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-01-20 21:23:43,2023-12-13 11:43:53,"Sangam Place, Clive Rd, Vivek Vihar Colony, Civil Lines, Prayagraj, Uttar Pradesh 211001",512,Green Tech Net Com Pvt. Ltd.,135818,Prayagraj
+12,Kanpur,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-01-20 21:25:23,2023-12-13 11:45:50,"NIXI C/O STPI- &nbsp;UPSIDA Complex, A-1/4 , Lakhanpur, Kanpur - 208024 Uttar Pradesh",525,RG Technosolutions Pvt. Ltd.,134922,Kanpur
+12,Kanpur,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-01-20 21:25:23,2023-12-13 11:45:50,"NIXI C/O STPI- &nbsp;UPSIDA Complex, A-1/4 , Lakhanpur, Kanpur - 208024 Uttar Pradesh",991,ENTIRE CABLE AND BROADBAND OPC Pvt Ltd,134860,Kanpur
+12,Kanpur,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-01-20 21:25:23,2023-12-13 11:45:50,"NIXI C/O STPI- &nbsp;UPSIDA Complex, A-1/4 , Lakhanpur, Kanpur - 208024 Uttar Pradesh",992,Tachyon Communications Pvt Ltd,135697,Kanpur
+14,Meerut,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-01-20 21:29:25,2023-12-13 11:46:30,"NIXI C/o SHREE BALAJI WIFI PVT LTD, J 19 Ganga Nagar Mawana Road Meerut 250001",995,"Nextia Broadband Pvt Ltd 
+",142488,Meerut
+14,Meerut,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-01-20 21:29:25,2023-12-13 11:46:30,"NIXI C/o SHREE BALAJI WIFI PVT LTD, J 19 Ganga Nagar Mawana Road Meerut 250001",996,"SHREE BALAJI WIFI PRIVATE LIMITED 
+",146925,Meerut
+15,Gorakhpur,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-01-20 21:31:18,2023-12-13 11:49:53,"NIXI C/O One Broadband, 4th Floor, RKDK Building, Phase-2, Shahi Market, Cinema road, Gorakhpur-273001",360,Saptranet India Private Limited,147231,Gorakhpur
+16,Varanasi,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-01-20 21:32:40,2023-12-13 11:50:20,"NetMatix Krishna Apartment, Dayal Tower, mahmoorganj, adarsh nagar, varanasi",1002,Netmatix Network Pvt. Ltd,141311,Varanasi
+17,Agra,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-01-20 21:34:13,2023-12-13 11:50:57,"NIXI C/O U.P. Communication Services Pvt. Ltd., S-5, Block No.32, 2nd floor, In-front of LIC Building, Sanjay Place, Agra 282002",962,ISMANTAK INTERNET SERVICES PVT LTD,149250,Agra
+17,Agra,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-01-20 21:34:13,2023-12-13 11:50:57,"NIXI C/O U.P. Communication Services Pvt. Ltd., S-5, Block No.32, 2nd floor, In-front of LIC Building, Sanjay Place, Agra 282002",963,SPARKLINE INTERNET SERVICES PVT LTD,141315,Agra
+17,Agra,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-01-20 21:34:13,2023-12-13 11:50:57,"NIXI C/O U.P. Communication Services Pvt. Ltd., S-5, Block No.32, 2nd floor, In-front of LIC Building, Sanjay Place, Agra 282002",964,"YOUNG NETWORKS INDIA PRIVATE LIMITED 
+",132977,Agra
+18,Lucknow,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-01-20 21:35:38,2023-12-13 11:53:32,"Ctrls Datacenters Ltd, Unit No: 508&amp; 509, 5th Floor Urbanac Business Park,A-1, Vibhuti Khand Gomti Nagar Lucknow. U.P",993,"SIMPLEX BROADBAND PRIVATE LIMITED 
+",137113,Lucknow
+18,Lucknow,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-01-20 21:35:38,2023-12-13 11:53:32,"Ctrls Datacenters Ltd, Unit No: 508&amp; 509, 5th Floor Urbanac Business Park,A-1, Vibhuti Khand Gomti Nagar Lucknow. U.P",994,"SKYTECH BROADBAND Pvt. Ltd 
+",151130,Lucknow
+18,Lucknow,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-01-20 21:35:38,2023-12-13 11:53:32,"Ctrls Datacenters Ltd, Unit No: 508&amp; 509, 5th Floor Urbanac Business Park,A-1, Vibhuti Khand Gomti Nagar Lucknow. U.P",1174,Pioneer Elabs Ltd.,18229,Lucknow
+19,Surat,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:37:02,2023-12-13 11:54:05,"Ishan Netsol Pvt Ltd - Office No. 330/331, International Trade Center, Majura Gate, Ring Road, Surat",1156,Ishan netsol Pvt Ltd,45117,Surat
+19,Surat,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:37:02,2023-12-13 11:54:05,"Ishan Netsol Pvt Ltd - Office No. 330/331, International Trade Center, Majura Gate, Ring Road, Surat",1157,"GTEL COMMUNICATIONS PRIVATE LIMITED
+",135218,Surat
+19,Surat,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:37:02,2023-12-13 11:54:05,"Ishan Netsol Pvt Ltd - Office No. 330/331, International Trade Center, Majura Gate, Ring Road, Surat",1158,"RTEL Internet services Pvt. Ltd
+",140201,Surat
+19,Surat,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:37:02,2023-12-13 11:54:05,"Ishan Netsol Pvt Ltd - Office No. 330/331, International Trade Center, Majura Gate, Ring Road, Surat",1159,"SOFTNET NETWORK PRIVATE LIMITED
+",133246,Surat
+19,Surat,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:37:02,2023-12-13 11:54:05,"Ishan Netsol Pvt Ltd - Office No. 330/331, International Trade Center, Majura Gate, Ring Road, Surat",1160,"AIRLINK COMMUNICATIONS PRIVATE LIMITED
+",56209,Surat
+19,Surat,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:37:02,2023-12-13 11:54:05,"Ishan Netsol Pvt Ltd - Office No. 330/331, International Trade Center, Majura Gate, Ring Road, Surat",1161,"Quest Consultancy Private Limited
+",58659,Surat
+19,Surat,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:37:02,2023-12-13 11:54:05,"Ishan Netsol Pvt Ltd - Office No. 330/331, International Trade Center, Majura Gate, Ring Road, Surat",1162,"Charotar Telelink Pvt Ltd
+",132933,Surat
+19,Surat,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:37:02,2023-12-13 11:54:05,"Ishan Netsol Pvt Ltd - Office No. 330/331, International Trade Center, Majura Gate, Ring Road, Surat",1163,"CELESTIAL LINK PRIVATE LIMITED
+",151181,Surat
+20,Rajkot,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:38:27,2023-12-13 11:54:37,"Ishan Netsol Pvt Ltd - 315-316, Shivam Complex, Dr. Yagnik Road, Opp Jagnath Temple, Rajkot – 360001",1141,"EXCOGITATE TECHNOLOGIES PRIVATE LIMITED
+",135851,Rajkot
+20,Rajkot,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:38:27,2023-12-13 11:54:37,"Ishan Netsol Pvt Ltd - 315-316, Shivam Complex, Dr. Yagnik Road, Opp Jagnath Temple, Rajkot – 360001",1142,"GREENWORLD NETCAST PRIVATE LIMITED
+",137151,Rajkot
+20,Rajkot,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:38:27,2023-12-13 11:54:37,"Ishan Netsol Pvt Ltd - 315-316, Shivam Complex, Dr. Yagnik Road, Opp Jagnath Temple, Rajkot – 360001",1143,"PLUSNET COMMUNICATION PRIVATE LIMITED
+",133234,Rajkot
+20,Rajkot,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:38:27,2023-12-13 11:54:37,"Ishan Netsol Pvt Ltd - 315-316, Shivam Complex, Dr. Yagnik Road, Opp Jagnath Temple, Rajkot – 360001",1144,Ishan netsol Pvt Ltd,45117,Rajkot
+20,Rajkot,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:38:27,2023-12-13 11:54:37,"Ishan Netsol Pvt Ltd - 315-316, Shivam Complex, Dr. Yagnik Road, Opp Jagnath Temple, Rajkot – 360001",1145,"SARVADA NET PRIVATE LIMITED
+",135802,Rajkot
+20,Rajkot,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:38:27,2023-12-13 11:54:37,"Ishan Netsol Pvt Ltd - 315-316, Shivam Complex, Dr. Yagnik Road, Opp Jagnath Temple, Rajkot – 360001",1146,"Speedobits Internet Private Limited
+",149258,Rajkot
+20,Rajkot,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:38:27,2023-12-13 11:54:37,"Ishan Netsol Pvt Ltd - 315-316, Shivam Complex, Dr. Yagnik Road, Opp Jagnath Temple, Rajkot – 360001",1147,"SKYONLINE TECHNOSYSTEM PVT LTD
+",137154,Rajkot
+21,Vadodara,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:39:34,2023-12-13 11:55:06,"Ishan Netsol Pvt Ltd - 802-Sterling Centre, R.C Dutt Road, Alkapuri, Baroda - 390007",1164,"Charotar Telelink Pvt Ltd
+",132933,Vadodara
+21,Vadodara,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:39:34,2023-12-13 11:55:06,"Ishan Netsol Pvt Ltd - 802-Sterling Centre, R.C Dutt Road, Alkapuri, Baroda - 390007",1165,"VIHAAN TELECOMMUNICATION PVT LTD 
+",132923,Vadodara
+21,Vadodara,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:39:34,2023-12-13 11:55:06,"Ishan Netsol Pvt Ltd - 802-Sterling Centre, R.C Dutt Road, Alkapuri, Baroda - 390007",1166,"Netwire Internet Solutions Private Limited
+",136682,Vadodara
+21,Vadodara,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:39:34,2023-12-13 11:55:06,"Ishan Netsol Pvt Ltd - 802-Sterling Centre, R.C Dutt Road, Alkapuri, Baroda - 390007",1167,BHORER ALO CABLE & BROADBAND PRIVATE LIMITED,141490,Vadodara
+21,Vadodara,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:39:34,2023-12-13 11:55:06,"Ishan Netsol Pvt Ltd - 802-Sterling Centre, R.C Dutt Road, Alkapuri, Baroda - 390007",1168,Ishan netsol Pvt Ltd,45117,Vadodara
+21,Vadodara,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:39:34,2023-12-13 11:55:06,"Ishan Netsol Pvt Ltd - 802-Sterling Centre, R.C Dutt Road, Alkapuri, Baroda - 390007",1169,PLUSNET COMMUNICATION PRIVATE LIMITED,133234,Vadodara
+21,Vadodara,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:39:34,2023-12-13 11:55:06,"Ishan Netsol Pvt Ltd - 802-Sterling Centre, R.C Dutt Road, Alkapuri, Baroda - 390007",1170,"Quest Consultancy Pvt. Ltd.
+",58659,Vadodara
+21,Vadodara,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:39:34,2023-12-13 11:55:06,"Ishan Netsol Pvt Ltd - 802-Sterling Centre, R.C Dutt Road, Alkapuri, Baroda - 390007",1171,"NAVKAR NETSOL PVT LTD
+",136634,Vadodara
+21,Vadodara,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:39:34,2023-12-13 11:55:06,"Ishan Netsol Pvt Ltd - 802-Sterling Centre, R.C Dutt Road, Alkapuri, Baroda - 390007",1172,"KISHAN WEALTH MANAGEMENT PVT LTD
+",150104,Vadodara
+22,Durgapur,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:40:51,2023-12-13 11:56:49,"STPI Durgapur- Address: G89W+78Q, Sahid Sukumar Banerjee Sarani, Opp to Spencers, Bidhannagar, Durgapur, West Bengal 713212",1090,Flix Broadband Services Pvt. Ltd.,134880,Durgapur
+22,Durgapur,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:40:51,2023-12-13 11:56:49,"STPI Durgapur- Address: G89W+78Q, Sahid Sukumar Banerjee Sarani, Opp to Spencers, Bidhannagar, Durgapur, West Bengal 713212",1091,"MICROTALK COMMUNICATIONS PRIVATE LIMITED
+",136374,Durgapur
+22,Durgapur,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:40:51,2023-12-13 11:56:49,"STPI Durgapur- Address: G89W+78Q, Sahid Sukumar Banerjee Sarani, Opp to Spencers, Bidhannagar, Durgapur, West Bengal 713212",1092,"GITELENET PVT. LTD. 
+",149526,Durgapur
+22,Durgapur,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:40:51,2023-12-13 11:56:49,"STPI Durgapur- Address: G89W+78Q, Sahid Sukumar Banerjee Sarani, Opp to Spencers, Bidhannagar, Durgapur, West Bengal 713212",1093,"MULTIREACH BROADBAND SERVICES PVT LTD
+",151712,Durgapur
+22,Durgapur,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:40:51,2023-12-13 11:56:49,"STPI Durgapur- Address: G89W+78Q, Sahid Sukumar Banerjee Sarani, Opp to Spencers, Bidhannagar, Durgapur, West Bengal 713212",1212,SUNDARAM BROADBAND PVT LTD,142485,Durgapur
+23,Burdwan,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:42:01,2023-12-13 12:00:35,"Burdwan Railway Station Railtel O.F.C. HUT, Burdwan, West Bengal",1083,Deco Media and communications pvt ltd,133589,Burdwan
+23,Burdwan,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:42:01,2023-12-13 12:00:35,"Burdwan Railway Station Railtel O.F.C. HUT, Burdwan, West Bengal",1084,"BBRG COMMUNICATION AND INTERNET PRIVATE LIMITED
+",13628,Burdwan
+23,Burdwan,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:42:01,2023-12-13 12:00:35,"Burdwan Railway Station Railtel O.F.C. HUT, Burdwan, West Bengal",1085,SUNDARAM BROADBAND PVT LTD,142485,Burdwan
+23,Burdwan,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:42:01,2023-12-13 12:00:35,"Burdwan Railway Station Railtel O.F.C. HUT, Burdwan, West Bengal",1086,"MULTIREACH BROADBAND SERVICES PVT LTD
+",151712,Burdwan
+23,Burdwan,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 21:42:01,2023-12-13 12:00:35,"Burdwan Railway Station Railtel O.F.C. HUT, Burdwan, West Bengal",1087,"QUICK VISION ENTERTAINMENT PVT LTD
+",141560,Burdwan
+24,Jaipur,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.in,2023-01-20 21:46:04,2023-12-13 12:04:25,"STPI, Plot No. IT – 21, IT Park, EPIP Sitapura, Jaipur, Rajasthan 302022",933,Bakliwal Telecom Services Pvt Ltd,138734,Jaipur
+24,Jaipur,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.in,2023-01-20 21:46:04,2023-12-13 12:04:25,"STPI, Plot No. IT – 21, IT Park, EPIP Sitapura, Jaipur, Rajasthan 302022",934,Royal Connect Solutions Pvt Ltd,137622,Jaipur
+25,Haldwani,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-01-20 21:48:04,2023-12-13 12:17:28,"AAA DC No.4 , Gaujjali Bichli , Nigam , Haldwani,Uttarakhand",988,DEVDARPAN BROADBAND PRIVATE LIMITED,136698,Haldwani
+25,Haldwani,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-01-20 21:48:04,2023-12-13 12:17:28,"AAA DC No.4 , Gaujjali Bichli , Nigam , Haldwani,Uttarakhand",989,EURON COMMUNICATIONS PRIVATE LIMITED,135712,Haldwani
+25,Haldwani,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-01-20 21:48:04,2023-12-13 12:17:28,"AAA DC No.4 , Gaujjali Bichli , Nigam , Haldwani,Uttarakhand",990,Infiber Broadnet Private Limited,142481,Haldwani
+27,Gurgaon,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-01-20 21:50:27,2023-12-13 12:18:28,"STPI, Electronic City, Phase IV, Udyog Vihar, Sector 18, Gurgaon, Haryana",987,delDSL Internet Pvt.Ltd.,23872,Gurgaon
+28,Indore,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:52:07,2023-12-13 12:19:27,"NIXI C/O STPI, MPSEDC, STPI Building, Electronic Complex, Atmaram Choudhary Marg, Near Readymade Complex, Opp. Sukhliya, Electronic Complex, Pardesipura, Indore, Madhya Pradesh 452010",951,Smartlink Solutions Pvt. Ltd,134331,Indore
+28,Indore,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:52:07,2023-12-13 12:19:27,"NIXI C/O STPI, MPSEDC, STPI Building, Electronic Complex, Atmaram Choudhary Marg, Near Readymade Complex, Opp. Sukhliya, Electronic Complex, Pardesipura, Indore, Madhya Pradesh 452010",952,"Skynet Internet Broadband Pvt Ltd
+",132566,Indore
+28,Indore,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:52:07,2023-12-13 12:19:27,"NIXI C/O STPI, MPSEDC, STPI Building, Electronic Complex, Atmaram Choudhary Marg, Near Readymade Complex, Opp. Sukhliya, Electronic Complex, Pardesipura, Indore, Madhya Pradesh 452010",953,Ishan Netsol Pvt Ltd,45117,Indore
+28,Indore,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:52:07,2023-12-13 12:19:27,"NIXI C/O STPI, MPSEDC, STPI Building, Electronic Complex, Atmaram Choudhary Marg, Near Readymade Complex, Opp. Sukhliya, Electronic Complex, Pardesipura, Indore, Madhya Pradesh 452010",954,Onet Digital Networks Pvt.Ltd.,135256,Indore
+28,Indore,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:52:07,2023-12-13 12:19:27,"NIXI C/O STPI, MPSEDC, STPI Building, Electronic Complex, Atmaram Choudhary Marg, Near Readymade Complex, Opp. Sukhliya, Electronic Complex, Pardesipura, Indore, Madhya Pradesh 452010",955,"Syntego Technologies India Private Limited
+",135826,Indore
+28,Indore,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:52:07,2023-12-13 12:19:27,"NIXI C/O STPI, MPSEDC, STPI Building, Electronic Complex, Atmaram Choudhary Marg, Near Readymade Complex, Opp. Sukhliya, Electronic Complex, Pardesipura, Indore, Madhya Pradesh 452010",956,Rajesh Patel Net Services Private Limited,55353,Indore
+28,Indore,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:52:07,2023-12-13 12:19:27,"NIXI C/O STPI, MPSEDC, STPI Building, Electronic Complex, Atmaram Choudhary Marg, Near Readymade Complex, Opp. Sukhliya, Electronic Complex, Pardesipura, Indore, Madhya Pradesh 452010",957,"Sharplink Wireless Solution Pvt Ltd
+",136636,Indore
+28,Indore,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:52:07,2023-12-13 12:19:27,"NIXI C/O STPI, MPSEDC, STPI Building, Electronic Complex, Atmaram Choudhary Marg, Near Readymade Complex, Opp. Sukhliya, Electronic Complex, Pardesipura, Indore, Madhya Pradesh 452010",958,"Winux Communications Pvt. Ltd.
+",136342,Indore
+28,Indore,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:52:07,2023-12-13 12:19:27,"NIXI C/O STPI, MPSEDC, STPI Building, Electronic Complex, Atmaram Choudhary Marg, Near Readymade Complex, Opp. Sukhliya, Electronic Complex, Pardesipura, Indore, Madhya Pradesh 452010",1216,Five Net Service Provider Pvt Ltd,132979,Indore
+29,Srinagar,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-01-20 21:53:19,2023-12-13 12:19:59,"STPI, Rangreth, Srinagar, Jammu and Kashmir 190005",998,CNS INFOTEL SERVICES PVT LTD,133285,Srinagar
+29,Srinagar,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-01-20 21:53:19,2023-12-13 12:19:59,"STPI, Rangreth, Srinagar, Jammu and Kashmir 190005",999,FASTHOOK NETWORKS PRIVATE LIMITED,132572,Srinagar
+29,Srinagar,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-01-20 21:53:19,2023-12-13 12:19:59,"STPI, Rangreth, Srinagar, Jammu and Kashmir 190005",1000,PEER NETWORKS PRIVATE LIMITED,138800,Srinagar
+29,Srinagar,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-01-20 21:53:19,2023-12-13 12:19:59,"STPI, Rangreth, Srinagar, Jammu and Kashmir 190005",1001,Srinagar Net Tech Private Limited,133317,Srinagar
+31,Bhopal,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:56:04,2023-12-13 12:21:45,"STPI, Plot No C-11, IT Park, Near RGPV, New Jail Rd, Gandhi Nagar, Bhopal, Madhya Pradesh 462038",941,Smartlink Solutions Pvt. Ltd,134331,Bhopal
+31,Bhopal,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:56:04,2023-12-13 12:21:45,"STPI, Plot No C-11, IT Park, Near RGPV, New Jail Rd, Gandhi Nagar, Bhopal, Madhya Pradesh 462038",942,Digiana Speed Net Private Limited,149617,Bhopal
+31,Bhopal,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:56:04,2023-12-13 12:21:45,"STPI, Plot No C-11, IT Park, Near RGPV, New Jail Rd, Gandhi Nagar, Bhopal, Madhya Pradesh 462038",943,Winux Communications Pvt. Ltd.,136342,Bhopal
+31,Bhopal,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:56:04,2023-12-13 12:21:45,"STPI, Plot No C-11, IT Park, Near RGPV, New Jail Rd, Gandhi Nagar, Bhopal, Madhya Pradesh 462038",944,Airline Internet Solutions India,132978,Bhopal
+31,Bhopal,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:56:04,2023-12-13 12:21:45,"STPI, Plot No C-11, IT Park, Near RGPV, New Jail Rd, Gandhi Nagar, Bhopal, Madhya Pradesh 462038",945,Purenet Telecom India Pvt. Ltd.,136356,Bhopal
+31,Bhopal,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 21:56:04,2023-12-13 12:21:45,"STPI, Plot No C-11, IT Park, Near RGPV, New Jail Rd, Gandhi Nagar, Bhopal, Madhya Pradesh 462038",946,Arjun Broadband Private Limited,132935,Bhopal
+32,Puducherry,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-01-20 21:57:23,2023-12-13 12:26:46,"Interjet India Private Limited, AR Plaza, 45 Feet Road, Balaji Nagar, Pondicherry - 605013",1050," CFIBER COMMUNICATIONS PRIVATE LIMITED 
+",147277,Puducherry
+34,Goa - STPI,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 22:00:34,2023-12-13 12:29:34,"STPI DC 2nd Floor, Udyog Bhawan, Panaji, Goa-403001",947,"Airnet Cable And Datacom Pvt Ltd
+",133001,Goa - STPI
+34,Goa - STPI,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 22:00:34,2023-12-13 12:29:34,"STPI DC 2nd Floor, Udyog Bhawan, Panaji, Goa-403001",948,Flashcom Network Private Limited,137594,Goa - STPI
+34,Goa - STPI,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 22:00:34,2023-12-13 12:29:34,"STPI DC 2nd Floor, Udyog Bhawan, Panaji, Goa-403001",949,FASTJET TELECOM PRIVATE LIMITED,142453,Goa - STPI
+34,Goa - STPI,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 22:00:34,2023-12-13 12:29:34,"STPI DC 2nd Floor, Udyog Bhawan, Panaji, Goa-403001",950,LINKTEL INFO TECHNOLOGY PRIVATE LIMITED,151125,Goa - STPI
+35,Gwalior,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-01-20 22:02:23,2023-12-13 12:32:15,"Airline Internet Data Centre Address:, Opp. Yadav Dharm Kanta, A.B. Road, Gwalior – 474004, Madhya Pradesh",986,AIRLINE INTERNET SOLUTIONS INDIA PRIVATE LIMITED,132978,Gwalior
+36,Shimla,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-01-20 22:03:44,2023-12-13 12:34:37,"CrystalClear Network Pvt. Ltd C/o Channel 9 Cable TV, Thakur Vatika, Near Hanuman Temple, Khalini, Shimla-171002",997,CRYSTALCLEAR NETWORK PRIVATE LIMITED,138786,Shimla
+38,Patna,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 23:03:00,2023-12-13 14:33:06,"CTRLS- 6th floor, Plot no:-18, Patliputra Industrial Area, Patliputra, Patna, Bihar 800013",1120,Ishan netsol Pvt Ltd,45117,Patna
+38,Patna,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 23:03:00,2023-12-13 14:33:06,"CTRLS- 6th floor, Plot no:-18, Patliputra Industrial Area, Patliputra, Patna, Bihar 800013",1121,"SMART PLUS MULTI SERVICES PRIVATE LIMITED
+",140205,Patna
+38,Patna,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 23:03:00,2023-12-13 14:33:06,"CTRLS- 6th floor, Plot no:-18, Patliputra Industrial Area, Patliputra, Patna, Bihar 800013",1122,"Sai Technix Pvt Ltd.
+",136722,Patna
+38,Patna,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 23:03:00,2023-12-13 14:33:06,"CTRLS- 6th floor, Plot no:-18, Patliputra Industrial Area, Patliputra, Patna, Bihar 800013",1123,"FASTNET COMMUNICATION PRIVATE LIMITED
+",133692,Patna
+38,Patna,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 23:03:00,2023-12-13 14:33:06,"CTRLS- 6th floor, Plot no:-18, Patliputra Industrial Area, Patliputra, Patna, Bihar 800013",1124,"NETCONNECT SERVICES PRIVATE LIMITED
+",140197,Patna
+38,Patna,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 23:03:00,2023-12-13 14:33:06,"CTRLS- 6th floor, Plot no:-18, Patliputra Industrial Area, Patliputra, Patna, Bihar 800013",1125,"Pioneerelabs
+",18229,Patna
+38,Patna,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 23:03:00,2023-12-13 14:33:06,"CTRLS- 6th floor, Plot no:-18, Patliputra Industrial Area, Patliputra, Patna, Bihar 800013",1126,"ORBITEDGE BROADBAND PRIVATE LIMITED
+",139572,Patna
+38,Patna,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 23:03:00,2023-12-13 14:33:06,"CTRLS- 6th floor, Plot no:-18, Patliputra Industrial Area, Patliputra, Patna, Bihar 800013",1127,"Hostaxis Network Private Limited
+",134257,Patna
+38,Patna,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 23:03:00,2023-12-13 14:33:06,"CTRLS- 6th floor, Plot no:-18, Patliputra Industrial Area, Patliputra, Patna, Bihar 800013",1128,"INDTEL INFRA PRIVATE LIMITED
+",141799,Patna
+38,Patna,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 23:03:00,2023-12-13 14:33:06,"CTRLS- 6th floor, Plot no:-18, Patliputra Industrial Area, Patliputra, Patna, Bihar 800013",1129,"Multicraft Digital Technologies Pvt. Ltd.
+",135834,Patna
+38,Patna,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 23:03:00,2023-12-13 14:33:06,"CTRLS- 6th floor, Plot no:-18, Patliputra Industrial Area, Patliputra, Patna, Bihar 800013",1130,"ONEOTT iNTERTAINMENT LTD
+",17665,Patna
+38,Patna,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 23:03:00,2023-12-13 14:33:06,"CTRLS- 6th floor, Plot no:-18, Patliputra Industrial Area, Patliputra, Patna, Bihar 800013",1131,"CYBERNET INTROTECH PRIVATE LIMITED
+",137139,Patna
+40,Coimbatore,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-01-20 23:05:30,2023-01-27 17:28:54,"ISHAN Netsol Classic Towers, 104, 5th floor, 1547, Trichy road, Coimbatore - 641018",1027,Kovai Fibernet Pvt Ltd,138731,Coimbatore
+40,Coimbatore,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-01-20 23:05:30,2023-01-27 17:28:54,"ISHAN Netsol Classic Towers, 104, 5th floor, 1547, Trichy road, Coimbatore - 641018",1028,Sefaro Networks Private Limited,136700,Coimbatore
+40,Coimbatore,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-01-20 23:05:30,2023-01-27 17:28:54,"ISHAN Netsol Classic Towers, 104, 5th floor, 1547, Trichy road, Coimbatore - 641018",1029,BLU ULTRABAND INTERNET SERVICES PRIVATE LIMITED,131459,Coimbatore
+41,Raipur,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 23:08:21,2023-01-27 17:29:16,"Ashoka Millennium, office no - 1, 6th Floor, Ring Road no-1, Near Rajendra Nagar, Chhattisgarh, 492001",1133,"Foxtel Telecommunications Pvt Ltd
+",134004,Raipur
+41,Raipur,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 23:08:21,2023-01-27 17:29:16,"Ashoka Millennium, office no - 1, 6th Floor, Ring Road no-1, Near Rajendra Nagar, Chhattisgarh, 492001",1134,"Udaan Internet Services Pvt Ltd
+",137666,Raipur
+41,Raipur,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 23:08:21,2023-01-27 17:29:16,"Ashoka Millennium, office no - 1, 6th Floor, Ring Road no-1, Near Rajendra Nagar, Chhattisgarh, 492001",1135,"Pintwire Infomatics Pvt Ltd.
+",132957,Raipur
+41,Raipur,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 23:08:21,2023-01-27 17:29:16,"Ashoka Millennium, office no - 1, 6th Floor, Ring Road no-1, Near Rajendra Nagar, Chhattisgarh, 492001",1136,Ishan netsol Pvt Ltd,45117,Raipur
+41,Raipur,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 23:08:21,2023-01-27 17:29:16,"Ashoka Millennium, office no - 1, 6th Floor, Ring Road no-1, Near Rajendra Nagar, Chhattisgarh, 492001",1137,"Smartlink Solutions Pvt. Ltd
+",134331,Raipur
+41,Raipur,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 23:08:21,2023-01-27 17:29:16,"Ashoka Millennium, office no - 1, 6th Floor, Ring Road no-1, Near Rajendra Nagar, Chhattisgarh, 492001",1138,"SUN BROADBAND AND DATA SERVICES PVT LTD
+",133684,Raipur
+41,Raipur,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 23:08:21,2023-01-27 17:29:16,"Ashoka Millennium, office no - 1, 6th Floor, Ring Road no-1, Near Rajendra Nagar, Chhattisgarh, 492001",1139,"OS VENTURES PVT LTD
+",152502,Raipur
+42,Bhubneshwar,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 23:09:25,2023-01-20 23:09:25,"Sify DC, Keshari Commercial Complex, Plot No 98 , 2nd Floor , Unit 3, Kharavela Nagar , Bhubaneswar - 751001",1077,Ishan netsol Pvt Ltd,45117,Bhubneshwar
+42,Bhubneshwar,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 23:09:25,2023-01-20 23:09:25,"Sify DC, Keshari Commercial Complex, Plot No 98 , 2nd Floor , Unit 3, Kharavela Nagar , Bhubaneswar - 751001",1078,"Wefe Technology Private Limited
+",133695,Bhubneshwar
+42,Bhubneshwar,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 23:09:25,2023-01-20 23:09:25,"Sify DC, Keshari Commercial Complex, Plot No 98 , 2nd Floor , Unit 3, Kharavela Nagar , Bhubaneswar - 751001",1079,"Smartlink Solutions Pvt. Ltd
+",134331,Bhubneshwar
+42,Bhubneshwar,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 23:09:25,2023-01-20 23:09:25,"Sify DC, Keshari Commercial Complex, Plot No 98 , 2nd Floor , Unit 3, Kharavela Nagar , Bhubaneswar - 751001",1080,"JETSPOT NETWORKS PVT LTD 
+",134325,Bhubneshwar
+42,Bhubneshwar,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 23:09:25,2023-01-20 23:09:25,"Sify DC, Keshari Commercial Complex, Plot No 98 , 2nd Floor , Unit 3, Kharavela Nagar , Bhubaneswar - 751001",1081,"State Data centre-Odisha
+",141568,Bhubneshwar
+42,Bhubneshwar,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 23:09:25,2023-01-20 23:09:25,"Sify DC, Keshari Commercial Complex, Plot No 98 , 2nd Floor , Unit 3, Kharavela Nagar , Bhubaneswar - 751001",1082,"Reisnet Broadband Pvt Ltd.
+",140171,Bhubneshwar
+43,Cuttack,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 23:11:28,2023-01-27 17:29:42,"1st Floor,Plot No-741/2309,KB Complex,Station Road,Cuttack",1088,Ishan netsol,45117,Cuttack
+43,Cuttack,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-01-20 23:11:28,2023-01-27 17:29:42,"1st Floor,Plot No-741/2309,KB Complex,Station Road,Cuttack",1089,Khatore IT Solutions Private Limited,150624,Cuttack
+44,Nagpur,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 23:18:28,2023-01-27 17:30:05,"Ishan DC, 704 A Wing Lokmat Bhavan, Lokmat Sq. Ramdaspeth Wardha Road Nagpur 44001",935,Wayar Networks,151140,Nagpur
+44,Nagpur,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 23:18:28,2023-01-27 17:30:05,"Ishan DC, 704 A Wing Lokmat Bhavan, Lokmat Sq. Ramdaspeth Wardha Road Nagpur 44001",936,Orange City Internet Services Pvt Ltd,134929,Nagpur
+45,Jabalpur,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-20 23:19:33,2023-01-27 17:30:26,"S-1, Second floor, Jain Tower, Russel Chowk, Napier Town, Jabalpur 482001.",932,Purenet Telecom India Pvt. Ltd.,136356,Jabalpur
+46,Visakhapatnam,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-01-20 23:20:54,2023-01-27 17:30:51,"Visakhapatnam (Vizag) - Sify DC, City Plaza, Dabagardens,Allipuram Ward, Block No.41, TS No.1542 Door No.30-15-158,Vishakhapatam-530001",1066,BLU ULTRABAND INTERNET SERVICES PRIVATE LIMITED,131459,Visakhapatnam
+46,Visakhapatnam,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-01-20 23:20:54,2023-01-27 17:30:51,"Visakhapatnam (Vizag) - Sify DC, City Plaza, Dabagardens,Allipuram Ward, Block No.41, TS No.1542 Door No.30-15-158,Vishakhapatam-530001",1067,SREEDEVI COMMUNICATIONS PVT LTD,142470,Visakhapatnam
+46,Visakhapatnam,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-01-20 23:20:54,2023-01-27 17:30:51,"Visakhapatnam (Vizag) - Sify DC, City Plaza, Dabagardens,Allipuram Ward, Block No.41, TS No.1542 Door No.30-15-158,Vishakhapatam-530001",1068,VIZAG BROADBAND COMMUNICATIONS PVT LTD,133678,Visakhapatnam
+47,Mumbai-Sify,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-21 19:33:01,2023-11-16 12:14:33,"NIXI C/o Sify, VAT 251, 5th & 6th Floor, International Infotech Park, Vashi, Navi Mumbai",64,Mahanagar Telephone Nigam Limited,17813,Mumbai (Vashi)
+47,Mumbai-Sify,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-21 19:33:01,2023-11-16 12:14:33,"NIXI C/o Sify, VAT 251, 5th & 6th Floor, International Infotech Park, Vashi, Navi Mumbai",938,Pioneer ELabs Ltd,18229,Mumbai (Vashi)
+47,Mumbai-Sify,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-21 19:33:01,2023-11-16 12:14:33,"NIXI C/o Sify, VAT 251, 5th & 6th Floor, International Infotech Park, Vashi, Navi Mumbai",939,"Antariksh Softtech Private Limited, ASPL",45769,Mumbai (Vashi)
+47,Mumbai-Sify,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.com,2023-01-21 19:33:01,2023-11-16 12:14:33,"NIXI C/o Sify, VAT 251, 5th & 6th Floor, International Infotech Park, Vashi, Navi Mumbai",940,AT & T Global Network Services India Private Limited,2687,Mumbai (Vashi)
+1968,Noida-Netmagic,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-05 13:17:45,2023-07-05 13:17:45,"NIXI C/O, Netmagic IT Services Private Limited Building H - 223, Sector 63 Near Ginger Hotel Noida - 201301",785,Anjani Broadband Solutions Pvt. Ltd,58965,Noida-Netmagic
+1968,Noida-Netmagic,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-05 13:17:45,2023-07-05 13:17:45,"NIXI C/O, Netmagic IT Services Private Limited Building H - 223, Sector 63 Near Ginger Hotel Noida - 201301",1181," ANI BROADBAND SERVICE PRIVATE LIMITED 
+",132116,Noida-Netmagic
+1968,Noida-Netmagic,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-05 13:17:45,2023-07-05 13:17:45,"NIXI C/O, Netmagic IT Services Private Limited Building H - 223, Sector 63 Near Ginger Hotel Noida - 201301",1182," Bharti Airtel Ltd. 
+",9498,Noida-Netmagic
+1968,Noida-Netmagic,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-05 13:17:45,2023-07-05 13:17:45,"NIXI C/O, Netmagic IT Services Private Limited Building H - 223, Sector 63 Near Ginger Hotel Noida - 201301",1183," CYFUTURE INDIA PRIVATE LIMITED 
+",55470,Noida-Netmagic
+1968,Noida-Netmagic,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-05 13:17:45,2023-07-05 13:17:45,"NIXI C/O, Netmagic IT Services Private Limited Building H - 223, Sector 63 Near Ginger Hotel Noida - 201301",1184," DE CIX Interwire Internet Services Pvt. Ltd 
+",133286,Noida-Netmagic
+1968,Noida-Netmagic,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-05 13:17:45,2023-07-05 13:17:45,"NIXI C/O, Netmagic IT Services Private Limited Building H - 223, Sector 63 Near Ginger Hotel Noida - 201301",1185," delDSL Internet Pvt.Ltd. 
+",23872,Noida-Netmagic
+1968,Noida-Netmagic,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-05 13:17:45,2023-07-05 13:17:45,"NIXI C/O, Netmagic IT Services Private Limited Building H - 223, Sector 63 Near Ginger Hotel Noida - 201301",1186," Esto Broadband Private Limited  
+",135817,Noida-Netmagic
+1968,Noida-Netmagic,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-05 13:17:45,2023-07-05 13:17:45,"NIXI C/O, Netmagic IT Services Private Limited Building H - 223, Sector 63 Near Ginger Hotel Noida - 201301",1187," EXCITEL BROADBAND PRIVATE LIMITED 
+",133982,Noida-Netmagic
+1968,Noida-Netmagic,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-05 13:17:45,2023-07-05 13:17:45,"NIXI C/O, Netmagic IT Services Private Limited Building H - 223, Sector 63 Near Ginger Hotel Noida - 201301",1188," ELXIRE DATA SERVICES PRIVATE LIMITED 
+",133647,Noida-Netmagic
+1968,Noida-Netmagic,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-05 13:17:45,2023-07-05 13:17:45,"NIXI C/O, Netmagic IT Services Private Limited Building H - 223, Sector 63 Near Ginger Hotel Noida - 201301",1189," Fusionnet web services Private Limited 
+",134375,Noida-Netmagic
+1968,Noida-Netmagic,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-05 13:17:45,2023-07-05 13:17:45,"NIXI C/O, Netmagic IT Services Private Limited Building H - 223, Sector 63 Near Ginger Hotel Noida - 201301",1190," Gigatel Infocomm Private Limited 
+",138257,Noida-Netmagic
+1968,Noida-Netmagic,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-05 13:17:45,2023-07-05 13:17:45,"NIXI C/O, Netmagic IT Services Private Limited Building H - 223, Sector 63 Near Ginger Hotel Noida - 201301",1191," GEOCITY NETWORK SOLUTIONS PRIVATE LIMITED 
+",45235,Noida-Netmagic
+1968,Noida-Netmagic,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-05 13:17:45,2023-07-05 13:17:45,"NIXI C/O, Netmagic IT Services Private Limited Building H - 223, Sector 63 Near Ginger Hotel Noida - 201301",1192," ISHAN Netsol Pvt Ltd 
+",45117,Noida-Netmagic
+1968,Noida-Netmagic,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-05 13:17:45,2023-07-05 13:17:45,"NIXI C/O, Netmagic IT Services Private Limited Building H - 223, Sector 63 Near Ginger Hotel Noida - 201301",1193," MNR BROADBAND SERVICES PRIVATE LIMITED 
+",133648,Noida-Netmagic
+1968,Noida-Netmagic,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-05 13:17:45,2023-07-05 13:17:45,"NIXI C/O, Netmagic IT Services Private Limited Building H - 223, Sector 63 Near Ginger Hotel Noida - 201301",1194," Mylink Services Private Limited 
+",134858,Noida-Netmagic
+1968,Noida-Netmagic,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-05 13:17:45,2023-07-05 13:17:45,"NIXI C/O, Netmagic IT Services Private Limited Building H - 223, Sector 63 Near Ginger Hotel Noida - 201301",1195," Netmagic Solutions Pvt. Ltd. 
+",17439,Noida-Netmagic
+1968,Noida-Netmagic,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-05 13:17:45,2023-07-05 13:17:45,"NIXI C/O, Netmagic IT Services Private Limited Building H - 223, Sector 63 Near Ginger Hotel Noida - 201301",1196," Power Grid Corporation of India 
+",132215,Noida-Netmagic
+1968,Noida-Netmagic,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-05 13:17:45,2023-07-05 13:17:45,"NIXI C/O, Netmagic IT Services Private Limited Building H - 223, Sector 63 Near Ginger Hotel Noida - 201301",1197," Reliance Communications Ltd 
+",18101,Noida-Netmagic
+1968,Noida-Netmagic,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-05 13:17:45,2023-07-05 13:17:45,"NIXI C/O, Netmagic IT Services Private Limited Building H - 223, Sector 63 Near Ginger Hotel Noida - 201301",1198," Reliance Jio Infocomm Limited 
+",55836,Noida-Netmagic
+1968,Noida-Netmagic,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-05 13:17:45,2023-07-05 13:17:45,"NIXI C/O, Netmagic IT Services Private Limited Building H - 223, Sector 63 Near Ginger Hotel Noida - 201301",1199," RI Networks Private Limited 
+",135031,Noida-Netmagic
+1968,Noida-Netmagic,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-05 13:17:45,2023-07-05 13:17:45,"NIXI C/O, Netmagic IT Services Private Limited Building H - 223, Sector 63 Near Ginger Hotel Noida - 201301",1200," RailTel Corporation of India Ltd. 
+",24186,Noida-Netmagic
+1968,Noida-Netmagic,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-05 13:17:45,2023-07-05 13:17:45,"NIXI C/O, Netmagic IT Services Private Limited Building H - 223, Sector 63 Near Ginger Hotel Noida - 201301",1201," SITI BROADBAND SERVICES PRIVATE LIMITED 
+",17747,Noida-Netmagic
+1968,Noida-Netmagic,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-05 13:17:45,2023-07-05 13:17:45,"NIXI C/O, Netmagic IT Services Private Limited Building H - 223, Sector 63 Near Ginger Hotel Noida - 201301",1202," SIFY LTD. 
+",9583,Noida-Netmagic
+1968,Noida-Netmagic,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-05 13:17:45,2023-07-05 13:17:45,"NIXI C/O, Netmagic IT Services Private Limited Building H - 223, Sector 63 Near Ginger Hotel Noida - 201301",1203," Shyam Spectra Pvt. Ltd. 
+",10029,Noida-Netmagic
+1968,Noida-Netmagic,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-05 13:17:45,2023-07-05 13:17:45,"NIXI C/O, Netmagic IT Services Private Limited Building H - 223, Sector 63 Near Ginger Hotel Noida - 201301",1204," Tejays Dynamic Ltd. 
+",55507,Noida-Netmagic
+1968,Noida-Netmagic,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-05 13:17:45,2023-07-05 13:17:45,"NIXI C/O, Netmagic IT Services Private Limited Building H - 223, Sector 63 Near Ginger Hotel Noida - 201301",1205," Triple Play Broadband Pvt. Ltd 
+",132453,Noida-Netmagic
+1968,Noida-Netmagic,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-05 13:17:45,2023-07-05 13:17:45,"NIXI C/O, Netmagic IT Services Private Limited Building H - 223, Sector 63 Near Ginger Hotel Noida - 201301",1206," Telstra Telecommunications Pvt. Ltd. 
+",1221,Noida-Netmagic
+1968,Noida-Netmagic,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-05 13:17:45,2023-07-05 13:17:45,"NIXI C/O, Netmagic IT Services Private Limited Building H - 223, Sector 63 Near Ginger Hotel Noida - 201301",1207," Vodafone Idea Ltd. 
+",55410,Noida-Netmagic
+1968,Noida-Netmagic,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-05 13:17:45,2023-07-05 13:17:45,"NIXI C/O, Netmagic IT Services Private Limited Building H - 223, Sector 63 Near Ginger Hotel Noida - 201301",1208," VMPS INTERNET PRIVATE LIMITED 
+",141529,Noida-Netmagic
+1968,Noida-Netmagic,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-05 13:17:45,2023-07-05 13:17:45,"NIXI C/O, Netmagic IT Services Private Limited Building H - 223, Sector 63 Near Ginger Hotel Noida - 201301",1209," WI Bro Solutions Private Limited  
+",133706,Noida-Netmagic
+1968,Noida-Netmagic,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-05 13:17:45,2023-07-05 13:17:45,"NIXI C/O, Netmagic IT Services Private Limited Building H - 223, Sector 63 Near Ginger Hotel Noida - 201301",1210," World Phone Internet Services Pvt. Ltd.  
+",18002,Noida-Netmagic
+1968,Noida-Netmagic,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-05 13:17:45,2023-07-05 13:17:45,"NIXI C/O, Netmagic IT Services Private Limited Building H - 223, Sector 63 Near Ginger Hotel Noida - 201301",1213,ONREMOTE TELECOM PRIVATE LIMITED,151732,Noida-Netmagic
+2021,DELHI,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-10 15:51:15,2023-07-10 15:51:15,"NIXI C/O, STT, IDC Building, Block E, Greater Kailash I, Greater Kailash New Delhi, Delhi 110048",916,AT & T Global Network Services India Private Limited,2687,DELHI
+2021,DELHI,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-10 15:51:15,2023-07-10 15:51:15,"NIXI C/O, STT, IDC Building, Block E, Greater Kailash I, Greater Kailash New Delhi, Delhi 110048",973,ABPK ODIGITEL PRIVATE LIMITED,136625,DELHI
+2021,DELHI,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-10 15:51:15,2023-07-10 15:51:15,"NIXI C/O, STT, IDC Building, Block E, Greater Kailash I, Greater Kailash New Delhi, Delhi 110048",974," Blazenet Limited 
+",17625,DELHI
+2021,DELHI,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-10 15:51:15,2023-07-10 15:51:15,"NIXI C/O, STT, IDC Building, Block E, Greater Kailash I, Greater Kailash New Delhi, Delhi 110048",975," DM LOT INFOTECH SOLUTIONS PVT LTD 
+",137095,DELHI
+2021,DELHI,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-10 15:51:15,2023-07-10 15:51:15,"NIXI C/O, STT, IDC Building, Block E, Greater Kailash I, Greater Kailash New Delhi, Delhi 110048",976," GITELENET PVT. LTD. 
+",149526,DELHI
+2021,DELHI,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-10 15:51:15,2023-07-10 15:51:15,"NIXI C/O, STT, IDC Building, Block E, Greater Kailash I, Greater Kailash New Delhi, Delhi 110048",977," ONEOTT iNTERTAINMENT LIMITED 
+",17665,DELHI
+2021,DELHI,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-10 15:51:15,2023-07-10 15:51:15,"NIXI C/O, STT, IDC Building, Block E, Greater Kailash I, Greater Kailash New Delhi, Delhi 110048",978," JDM Broadband Services Pvt. ltd 
+",134341,DELHI
+2021,DELHI,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-10 15:51:15,2023-07-10 15:51:15,"NIXI C/O, STT, IDC Building, Block E, Greater Kailash I, Greater Kailash New Delhi, Delhi 110048",979," PRACTION NETWORKS PRIVATE LIMITED 
+",136724,DELHI
+2021,DELHI,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-10 15:51:15,2023-07-10 15:51:15,"NIXI C/O, STT, IDC Building, Block E, Greater Kailash I, Greater Kailash New Delhi, Delhi 110048",980," QWISTEL NETWORK SERVICE PRIVATE LIMITED 
+",135687,DELHI
+2021,DELHI,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-10 15:51:15,2023-07-10 15:51:15,"NIXI C/O, STT, IDC Building, Block E, Greater Kailash I, Greater Kailash New Delhi, Delhi 110048",981,REALTEL COMMUNICATION INDIA PRIVATE LIMITED,132754,DELHI
+2021,DELHI,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-10 15:51:15,2023-07-10 15:51:15,"NIXI C/O, STT, IDC Building, Block E, Greater Kailash I, Greater Kailash New Delhi, Delhi 110048",982,TATA Communications Ltd.,4755,DELHI
+2021,DELHI,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-10 15:51:15,2023-07-10 15:51:15,"NIXI C/O, STT, IDC Building, Block E, Greater Kailash I, Greater Kailash New Delhi, Delhi 110048",983," Texes Connect Private Limited 
+",136306,DELHI
+2021,DELHI,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-10 15:51:15,2023-07-10 15:51:15,"NIXI C/O, STT, IDC Building, Block E, Greater Kailash I, Greater Kailash New Delhi, Delhi 110048",984,Userlinks Netcom Pvt. Ltd.,135761,DELHI
+2021,DELHI,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-10 15:51:15,2023-07-10 15:51:15,"NIXI C/O, STT, IDC Building, Block E, Greater Kailash I, Greater Kailash New Delhi, Delhi 110048",985,"WEEBO NETWORKS PRIVATE LIMITED 
+",136946,DELHI
+2022,CHANDIGARH,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-10 16:11:38,2023-07-10 16:11:38,"SIFY DC, SCO 215-216-217, Sec 34A Chandigarh-160022",967,BHR Broadband Pvt Ltd,142509,CHANDIGARH
+2022,CHANDIGARH,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-10 16:11:38,2023-07-10 16:11:38,"SIFY DC, SCO 215-216-217, Sec 34A Chandigarh-160022",968,DIGITAX INDIA COMMUNICATIONS PRIVATE LIMITED,135848,CHANDIGARH
+2022,CHANDIGARH,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-10 16:11:38,2023-07-10 16:11:38,"SIFY DC, SCO 215-216-217, Sec 34A Chandigarh-160022",969,Foxcell Communications Pvt LTD,135227,CHANDIGARH
+2023,BAREILLY,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-10 16:15:16,2023-07-10 16:15:16,"Rsbs Online Services Private limited, 214,civil lines, Bareilly, Uttar Pardesh, India.243001 MB:9258882888",965,JBJAIN Broadband,139514,BAREILLY
+2023,BAREILLY,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-10 16:15:16,2023-07-10 16:15:16,"Rsbs Online Services Private limited, 214,civil lines, Bareilly, Uttar Pardesh, India.243001 MB:9258882888",966,Rsbs Online Services private limited,58967,BAREILLY
+2024,NASHIK,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.in,2023-07-10 16:19:09,2023-07-10 16:19:09,"NIXI C/o Ishan Netsol Pvt Ltd ,The HUB, 2ND floor , Parijat Nagar b, Parijat Nagar, Nashik, Maharashtra",937,QUICKNET COMMUNICATIONS PVT LTD,150021,NASHIK
+2026,TUTICORIN,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-07-10 16:34:21,2023-07-10 16:34:21,"Ceeyem Building18 D, South Raja Street,Tuticorin-628001",1062,DHL BROADBAND NET PRIVATE LIMITED,134869,TUTICORIN
+2027,VIJAYAWADA,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-07-10 16:36:25,2023-07-10 16:36:25,"D:No 40-2-5A,5th Floor,CVR Chambers,Beside Kalanikethan,Labbipet.Vijayawada-520010",1063,FIBERX NETWORKS PRIVATE LIMITED,133685,VIJAYAWADA
+2027,VIJAYAWADA,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-07-10 16:36:25,2023-07-10 16:36:25,"D:No 40-2-5A,5th Floor,CVR Chambers,Beside Kalanikethan,Labbipet.Vijayawada-520010",1064," MYGURU ONLINE INDIA PRIVATE LIMITED 
+",136364,VIJAYAWADA
+2027,VIJAYAWADA,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-07-10 16:36:25,2023-07-10 16:36:25,"D:No 40-2-5A,5th Floor,CVR Chambers,Beside Kalanikethan,Labbipet.Vijayawada-520010",1065,SREEDEVI COMMUNICATIONS PVT LTD,142470,VIJAYAWADA
+2028,RANCHI,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-07-10 16:38:47,2023-07-10 16:38:47,"Sify DC, Green Field Centrium,5th Floor,Main Road,Opposite to Big Bazar,Ranchi-834001",1148,PROTOACT DIGITAL NETWORK PVT LTD,137678,RANCHI
+2028,RANCHI,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-07-10 16:38:47,2023-07-10 16:38:47,"Sify DC, Green Field Centrium,5th Floor,Main Road,Opposite to Big Bazar,Ranchi-834001",1149,"SPEED AIRLIVE BROADBAND SERVICES PVT LTD
+",138283,RANCHI
+2028,RANCHI,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-07-10 16:38:47,2023-07-10 16:38:47,"Sify DC, Green Field Centrium,5th Floor,Main Road,Opposite to Big Bazar,Ranchi-834001",1150,"SKY TELEVENTURES SERVICES PRIVATE LIMITED
+",133972,RANCHI
+2030,COCHIN NOC,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-07-10 16:46:51,2024-02-26 11:09:24,"DC, Infopark, Thapasya, Kusumagiri, Kakkanad,Cochin-682030  ",1024,KERALA FIBER OPTIC NETWORK LIMITED,141327,Cochin NOC
+2030,COCHIN NOC,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-07-10 16:46:51,2024-02-26 11:09:24,"DC, Infopark, Thapasya, Kusumagiri, Kakkanad,Cochin-682030  ",1025,Peak Air Private Limited,135217,Cochin NOC
+2030,COCHIN NOC,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-07-10 16:46:51,2024-02-26 11:09:24,"DC, Infopark, Thapasya, Kusumagiri, Kakkanad,Cochin-682030  ",1026,IOE Communication pvt ltd,135847,Cochin NOC
+2031,THIRUVANANTHAPURAM,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-07-10 16:50:51,2025-11-06 11:00:12,"Kings Broadband, Anjanam, TC 69/1530(3) Chekkittavilakam, Attukal Road, Manacaud.P.O. Thiruvananthapuram 695009",1061,Netfirst Communications Pvt ltd,142508,THIRUVANANTHAPURAM
+2032,MADURAI,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-07-10 16:53:30,2023-07-10 16:53:30,"Sify DC, 30,Kamala 2nd St ,G P Building, Chinnachokkikulam Madurai-625002",1047,MRKR COMMUNICATIONS PRIVATE LIMITED,149533,MADURAI
+2032,MADURAI,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-07-10 16:53:30,2023-07-10 16:53:30,"Sify DC, 30,Kamala 2nd St ,G P Building, Chinnachokkikulam Madurai-625002",1048," REALWIRE EXPRESS NETWORK PVT LTD 
+",135859,MADURAI
+2032,MADURAI,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-07-10 16:53:30,2023-07-10 16:53:30,"Sify DC, 30,Kamala 2nd St ,G P Building, Chinnachokkikulam Madurai-625002",1049," WI5 Internet Services Private Limited 
+",141314,MADURAI
+2034,SILIGURI,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-07-10 16:59:37,2023-07-10 16:59:37,"Sify DC, 160/1030, 2nd Floor,Haren Mukherjee Road, Hakimpara,Siliguri-734001",1151,Bits And Bytes ISP Pvt Ltd.,137128,SILIGURI
+2034,SILIGURI,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-07-10 16:59:37,2023-07-10 16:59:37,"Sify DC, 160/1030, 2nd Floor,Haren Mukherjee Road, Hakimpara,Siliguri-734001",1152,"Galaxynet Connections Pvt Ltd
+",135852,SILIGURI
+2034,SILIGURI,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-07-10 16:59:37,2023-07-10 16:59:37,"Sify DC, 160/1030, 2nd Floor,Haren Mukherjee Road, Hakimpara,Siliguri-734001",1153,"Siliguri Internet and Cable TV Pvt Ltd
+",55814,SILIGURI
+2034,SILIGURI,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-07-10 16:59:37,2023-07-10 16:59:37,"Sify DC, 160/1030, 2nd Floor,Haren Mukherjee Road, Hakimpara,Siliguri-734001",1154,"MEGHLINKED INDIA PVT LTD
+",146855,SILIGURI
+2034,SILIGURI,Mr. Jignesh Patel,9898536464,jignesh@nixi.in,2023-07-10 16:59:37,2023-07-10 16:59:37,"Sify DC, 160/1030, 2nd Floor,Haren Mukherjee Road, Hakimpara,Siliguri-734001",1155,"DREAMLINK TECHNOLOGIES PVT LTD
+",136481,SILIGURI
+2035,SALEM,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-07-10 17:01:30,2023-07-10 17:01:30,"Sify DC, 66,5th floor,Fort Main Road,Salem-636002",1051,Blenda Internet Services India Private Limited,133008,SALEM
+2035,SALEM,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-07-10 17:01:30,2023-07-10 17:01:30,"Sify DC, 66,5th floor,Fort Main Road,Salem-636002",1052,Bluewaves Internet Services India Pvt. Ltd,135206,SALEM
+2035,SALEM,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-07-10 17:01:30,2023-07-10 17:01:30,"Sify DC, 66,5th floor,Fort Main Road,Salem-636002",1053,ERO WIDECOMM PRIVATE LIMITED,132924,SALEM
+2035,SALEM,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-07-10 17:01:30,2023-07-10 17:01:30,"Sify DC, 66,5th floor,Fort Main Road,Salem-636002",1054," PINK BROADBAND SERVICE PRIVATE LIMITED  
+",137620,SALEM
+2035,SALEM,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-07-10 17:01:30,2023-07-10 17:01:30,"Sify DC, 66,5th floor,Fort Main Road,Salem-636002",1055," RAAGAV COMMUNICATIONS PRIVATE LIMITED 
+",134054,SALEM
+2035,SALEM,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-07-10 17:01:30,2023-07-10 17:01:30,"Sify DC, 66,5th floor,Fort Main Road,Salem-636002",1056," Rainbow Communications India Pvt.Ltd  
+",58898,SALEM
+2035,SALEM,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-07-10 17:01:30,2023-07-10 17:01:30,"Sify DC, 66,5th floor,Fort Main Road,Salem-636002",1057,SOUTHNET BROADBAND PRIVATE LIMITED,136694,SALEM
+2035,SALEM,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-07-10 17:01:30,2023-07-10 17:01:30,"Sify DC, 66,5th floor,Fort Main Road,Salem-636002",1058," Unborn Networks Private Limited  
+",136644,SALEM
+2035,SALEM,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-07-10 17:01:30,2023-07-10 17:01:30,"Sify DC, 66,5th floor,Fort Main Road,Salem-636002",1059,SP Internet Technologies Pvt Ltd,134863,SALEM
+2037,NOIDA-SIFY,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-10 18:10:30,2023-07-10 18:10:30,"Sify Greenfort DC, B7, Noida-Greater Noida Expy, B Block, Block A, Sector 132, Noida, Uttar Pradesh 201304",1175,DEHRADUN E NET SOLUTIONS PRIVATE LIMITED,133278,NOIDA-SIFY
+2037,NOIDA-SIFY,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-10 18:10:30,2023-07-10 18:10:30,"Sify Greenfort DC, B7, Noida-Greater Noida Expy, B Block, Block A, Sector 132, Noida, Uttar Pradesh 201304",1176," DIGITAX INDIA COMMUNICATIONS PRIVATE LIMITED 
+",135848,NOIDA-SIFY
+2037,NOIDA-SIFY,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-10 18:10:30,2023-07-10 18:10:30,"Sify Greenfort DC, B7, Noida-Greater Noida Expy, B Block, Block A, Sector 132, Noida, Uttar Pradesh 201304",1177," Hyosec Solutions Private Limited 
+",141253,NOIDA-SIFY
+2037,NOIDA-SIFY,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-10 18:10:30,2023-07-10 18:10:30,"Sify Greenfort DC, B7, Noida-Greater Noida Expy, B Block, Block A, Sector 132, Noida, Uttar Pradesh 201304",1178," LALAT INTERNET SERVICE PRIVATE LIMITED 
+",141339,NOIDA-SIFY
+2037,NOIDA-SIFY,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-10 18:10:30,2023-07-10 18:10:30,"Sify Greenfort DC, B7, Noida-Greater Noida Expy, B Block, Block A, Sector 132, Noida, Uttar Pradesh 201304",1179," MicroNet Gigafiber Pvt Ltd 
+",146904,NOIDA-SIFY
+2037,NOIDA-SIFY,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-10 18:10:30,2023-07-10 18:10:30,"Sify Greenfort DC, B7, Noida-Greater Noida Expy, B Block, Block A, Sector 132, Noida, Uttar Pradesh 201304",1180," RG Technosolutions Pvt. Ltd. 
+",134922,NOIDA-SIFY
+2037,NOIDA-SIFY,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-10 18:10:30,2023-07-10 18:10:30,"Sify Greenfort DC, B7, Noida-Greater Noida Expy, B Block, Block A, Sector 132, Noida, Uttar Pradesh 201304",1214,Five Internet Solutions Pvt Ltd,132768,NOIDA-SIFY
+2038,NOIDA-CTRLS,Mr. Shashank Sharma,9315186621,shashank@nixi.in,2023-07-10 18:13:22,2023-07-10 18:13:22,"CtrlS Datacenter, Plot No.13, Sector 127, Noida, Uttar Pradesh 201304",1173,Texes Connect Private Limited,136306,NOIDA-CTRLS
+2040,VASAI,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.in,2023-07-10 18:20:29,2023-07-10 18:20:29,"NIXI C/O Ishan Netsol, Office no 25 1st floor Vrindavan Shopping, Evershine City Rd, Vasai East, Maharashtra 401208",959,OM SHIV SAI INTERNET SERVICE (OPC) PRIVATE LIMITED,149214,VASAI
+2040,VASAI,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.in,2023-07-10 18:20:29,2023-07-10 18:20:29,"NIXI C/O Ishan Netsol, Office no 25 1st floor Vrindavan Shopping, Evershine City Rd, Vasai East, Maharashtra 401208",960,"Karunay Internet Pvt Ltd
+",136285,VASAI
+2040,VASAI,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.in,2023-07-10 18:20:29,2023-07-10 18:20:29,"NIXI C/O Ishan Netsol, Office no 25 1st floor Vrindavan Shopping, Evershine City Rd, Vasai East, Maharashtra 401208",961,"Cityzone Infonet Pvt Ltd
+",134899,VASAI
+2045,CHENNAI-SANTHOME,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-07-10 18:41:20,2023-07-10 18:41:20,"NIXI C/O Bharti Airtel Towers, 101 Santhome High Road,Chennai, 600 028",1014,Infonetcomm enterprises Pvt. Ltd.,134032,CHENNAI-SANTHOME
+2046,AURANGABAD,Mr. Chirag Vasani,9930989877,chirag.vasani@nixi.in,2023-07-10 18:43:23,2023-07-10 18:43:23,"NIXI C/O Sify DC, IInd floor , Oberoy Chambers, Beside Hotel Amarpreet ,Jalna Road ,Aurangabad-431001",918,Kenstar Web Solutions Pvt. Ltd,138329,Aurangabad
+2049,CHENNAI-SIFY,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-07-11 11:28:51,2023-12-13 15:06:04,"NIXI C/O. SIFY , II Floor, TIDEL Park, No.4, Canal Bank Road, Taramani, Chennai, Tamil Nadu 600113 India",1005,"Cloudpath Telecom Private Limited 
+",149277,CHENNAI-SIFY
+2049,CHENNAI-SIFY,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-07-11 11:28:51,2023-12-13 15:06:04,"NIXI C/O. SIFY , II Floor, TIDEL Park, No.4, Canal Bank Road, Taramani, Chennai, Tamil Nadu 600113 India",1006,NETREXO COMMUNICATIONS PRIVATE LIMITED,135815,CHENNAI-SIFY
+2049,CHENNAI-SIFY,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-07-11 11:28:51,2023-12-13 15:06:04,"NIXI C/O. SIFY , II Floor, TIDEL Park, No.4, Canal Bank Road, Taramani, Chennai, Tamil Nadu 600113 India",1007,Netzy Internet Services Pvt. Ltd.,139575,CHENNAI-SIFY
+2049,CHENNAI-SIFY,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-07-11 11:28:51,2023-12-13 15:06:04,"NIXI C/O. SIFY , II Floor, TIDEL Park, No.4, Canal Bank Road, Taramani, Chennai, Tamil Nadu 600113 India",1008,REISNET BROADBAND PRIVATE LIMITED,140171,CHENNAI-SIFY
+2049,CHENNAI-SIFY,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-07-11 11:28:51,2023-12-13 15:06:04,"NIXI C/O. SIFY , II Floor, TIDEL Park, No.4, Canal Bank Road, Taramani, Chennai, Tamil Nadu 600113 India",1009," RMAX BROADBAND PVT LTD 
+",133971,CHENNAI-SIFY
+2049,CHENNAI-SIFY,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-07-11 11:28:51,2023-12-13 15:06:04,"NIXI C/O. SIFY , II Floor, TIDEL Park, No.4, Canal Bank Road, Taramani, Chennai, Tamil Nadu 600113 India",1010," Thamizhaga Internet Communication Pvt. Ltd. 
+",136336,CHENNAI-SIFY
+2049,CHENNAI-SIFY,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-07-11 11:28:51,2023-12-13 15:06:04,"NIXI C/O. SIFY , II Floor, TIDEL Park, No.4, Canal Bank Road, Taramani, Chennai, Tamil Nadu 600113 India",1011," Telstra 
+",4637,CHENNAI-SIFY
+2049,CHENNAI-SIFY,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-07-11 11:28:51,2023-12-13 15:06:04,"NIXI C/O. SIFY , II Floor, TIDEL Park, No.4, Canal Bank Road, Taramani, Chennai, Tamil Nadu 600113 India",1012,"VIRTEL COMMUNICATIONS PRIVATE LIMITED
+",151749,CHENNAI-SIFY
+2049,CHENNAI-SIFY,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-07-11 11:28:51,2023-12-13 15:06:04,"NIXI C/O. SIFY , II Floor, TIDEL Park, No.4, Canal Bank Road, Taramani, Chennai, Tamil Nadu 600113 India",1013,Shyam Spectra Private Limited,10029,CHENNAI-SIFY
+2049,CHENNAI-SIFY,Mr. Rajesh V,8754808858,rajesh@nixi.in,2023-07-11 11:28:51,2023-12-13 15:06:04,"NIXI C/O. SIFY , II Floor, TIDEL Park, No.4, Canal Bank Road, Taramani, Chennai, Tamil Nadu 600113 India",1060,SP Internet Technologies Pvt Ltd,134863,CHENNAI-SIFY
