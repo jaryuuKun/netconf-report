@@ -193,7 +193,44 @@ Match the prototype's look. Tokens:
 
 Krish edits this section. If it is empty, use the defaults stated in the rules above.
 
-- (none yet)
+**2026-09-25. Networks are listed on evidence, not from the occupiers table alone.**
+Every network the data shows has equipment or membership in India gets a row, whether
+the evidence is a facility row, an operational exchange port or a NIXI listing. Counts
+are real, including zeros, and every row shows which kinds of evidence it rests on. A
+network listed only by a port that is not operational keeps a searchable row with every
+count at zero, so nothing in the data becomes unfindable. This widens the tab beyond
+facility tenants, so it is named "Networks".
+
+**2026-09-25. A port marked not operational counts nowhere. This replaces rule 6.6.**
+Such a port is left out of every count, total, average and chart, including port counts,
+networks-connected counts, capacity and the match groups. The detail panels still show
+it, labelled as not counted, so nothing is hidden. Rule 6.5 stands and is extended: a
+port with speed 0 has no recorded speed, so it is a real port and is counted as one, but
+it adds nothing to any capacity total or any average.
+
+**2026-09-25. Exchange infrastructure is marked and never ranked.** A network PeeringDB
+types as Route Server or Route Collector is an exchange's own equipment rather than an
+independent organisation. It keeps its row and its counts, is marked on every row, and
+is left out of every ranking and largest list. Separately, a network whose `org_id` is
+also an exchange's `ix_org_id` is marked as run by that exchange operator; those are
+ordinary networks and are still ranked.
+
+**2026-09-25. Where two tabs report different network totals, the page shows the
+breakdown that reconciles them**, so the difference reads as a definition rather than a
+contradiction.
+
+**2026-09-25. Search matches any name a record goes by.** Name, also-known-as, long
+name and ASN with or without "AS" in front, plus acronyms and punctuation-free forms,
+so "AWS" finds Amazon.com and "decix" finds DE-CIX.
+
+These decisions change the following section 13 numbers. The build prints both values.
+
+| Check | Section 13 | Under these decisions | Why |
+|---|---|---|---|
+| Networks linked to India | 1215 | 1215 | unchanged; a non-operational port still earns a row |
+| Networks seen only at exchanges | 382 | 380 | two rested only on a non-operational port |
+| Total port capacity, Tbps | 59.4 | 59.3 | non-operational ports no longer add capacity |
+| Rows on the Networks tab | not stated | 1237 | 1215, plus 22 whose only evidence is NIXI |
 
 ## 12. How to work
 
