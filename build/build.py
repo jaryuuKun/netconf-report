@@ -3,7 +3,7 @@
 
 Reads the CSVs in data/, applies the tidying rules in CLAUDE.md section 6,
 builds every join and derived field, prints the section 13 verification
-numbers, and writes dist/india-dc-report.html from build/template.html.
+numbers, and writes dist/index.html from build/template.html.
 
 Run from the repo root:  python build/build.py
 """
@@ -224,21 +224,39 @@ def main():
         fac_ixs[f].append(i)
         ix_facs[i].append(f)
 
+    # Port rules (Krish, 2026-09-25):
+    #   - a port marked not operational counts nowhere at all;
+    #   - a port with speed 0 has no recorded speed, so it is a real port but
+    #     contributes to no capacity total and no average.
+    # "countable" means operational. "rated" means operational and speed > 0.
     ports = []
     for r in ports_raw:
+        op = key(r["operational"]) != "False"
+        mbps = as_int(r["port_speed_mbps"])
         ports.append({
             "net_id": key(r["net_id"]),
             "ix_id": key(r["ix_id"]),
-            "mbps": as_int(r["port_speed_mbps"]),
+            "mbps": mbps,
             "asn": key(r["asn"]),
             "operational": key(r["operational"]),
+            "op": op,
+            "countable": op,
+            "rated": op and mbps > 0,
             "id": key(r["netixlan_id"]),
         })
+    # every port, used only by the detail panels, which show a port and say it does not count
+    all_ports_by_net = defaultdict(list)
+    all_ports_by_ix = defaultdict(list)
+    for p in ports:
+        all_ports_by_net[p["net_id"]].append(p)
+        all_ports_by_ix[p["ix_id"]].append(p)
+    # countable ports, used by every count, total and average on the site
     ports_by_net = defaultdict(list)
     ports_by_ix = defaultdict(list)
     for p in ports:
-        ports_by_net[p["net_id"]].append(p)
-        ports_by_ix[p["ix_id"]].append(p)
+        if p["countable"]:
+            ports_by_net[p["net_id"]].append(p)
+            ports_by_ix[p["ix_id"]].append(p)
 
     # ---- facilities ------------------------------------------------------
     facilities = []
@@ -300,23 +318,81 @@ def main():
     off_map_list = sorted(off_map.items(), key=lambda kv: (-kv[1], first_seen[kv[0]]))
 
     # ---- networks --------------------------------------------------------
-    india_net_ids = set(net_facs) | set(ports_by_net)
+    # Krish, 2026-09-25: every network with evidence of equipment in India gets a
+    # row, whether the evidence is a facility, an operational exchange port or
+    # NIXI membership. Counts are real, including zeros, and each row says which
+    # kinds of evidence it rests on.
     nixi_asns_raw = {key(r["asNumber"]) for r in nixi_isps_raw if key(r["asNumber"])}
 
     all_asns = set()
-    networks = []
     net_rows_by_asn = defaultdict(list)
+    net_raw_by_id = {}
     for r in networks_raw:
         nid = key(r["net_id"])
+        net_raw_by_id[nid] = r
         asn = key(r["asn"])
         if asn:
             all_asns.add(asn)
             net_rows_by_asn[asn].append(nid)
-        keep = nid in india_net_ids or asn in nixi_asns_raw
-        if not keep:
+
+    # NIXI locations per ASN, and the net_ids those ASNs resolve to
+    nixi_locs_by_asn = defaultdict(list)
+    for r in nixi_isps_raw:
+        a, loc = key(r["asNumber"]), key(r["noc_location"])
+        if a and loc not in nixi_locs_by_asn[a]:
+            nixi_locs_by_asn[a].append(loc)
+    nixi_net_ids = set()
+    nixi_only_asns = []
+    for a in nixi_locs_by_asn:
+        ids = net_rows_by_asn.get(a, [])
+        if ids:
+            nixi_net_ids.update(ids)
+        else:
+            nixi_only_asns.append(a)
+
+    fac_evidence = set(net_facs)
+    port_evidence = set(ports_by_net)          # operational ports only: this is what counts
+    listed_evidence = set(all_ports_by_net)    # any port listing: this is what earns a row
+    universe = fac_evidence | listed_evidence | nixi_net_ids
+
+    # Exchange infrastructure (rather than an independent organisation), from the data:
+    #   infra  - PeeringDB types the network as a Route Server or Route Collector
+    #   ix_run - the network's org_id is the org_id of an exchange in exchanges.csv
+    INFRA_TYPES = {"Route Server", "Route Collector"}
+    ix_org_ids = {key(r["ix_org_id"]) for r in exchanges_raw}
+    ix_org_label = {}
+    for r in exchanges_raw:
+        ix_org_label.setdefault(key(r["ix_org_id"]), r["ix_name"].strip().split(" ")[0])
+
+    def search_extra(*names):
+        """Acronyms and punctuation-free forms, so AWS finds Amazon Web Services."""
+        out = set()
+        for nm in names:
+            nm = (nm or "").strip()
+            if not nm:
+                continue
+            words = [w for w in re.split(r"[^A-Za-z0-9]+", nm) if w]
+            if len(words) > 1:
+                ac = "".join(w[0] for w in words)
+                if len(ac) >= 2:
+                    out.add(ac.lower())
+            squashed = re.sub(r"[^A-Za-z0-9]+", "", nm).lower()
+            if squashed and squashed != nm.lower():
+                out.add(squashed)
+        return " ".join(sorted(out))
+
+    networks = []
+    for nid in sorted(universe, key=lambda x: int(x) if x.isdigit() else 0):
+        r = net_raw_by_id.get(nid)
+        if r is None:
             continue
+        asn = key(r["asn"])
         facs = net_facs.get(nid, [])
-        nports = ports_by_net.get(nid, [])
+        cports = ports_by_net.get(nid, [])
+        aports = all_ports_by_net.get(nid, [])
+        locs = nixi_locs_by_asn.get(asn, []) if asn else []
+        org = key(r["org_id"])
+        ev = ("F" if facs else "") + ("X" if cports else "") + ("N" if locs else "")
         networks.append({
             "id": nid,
             "name": r["network_name"],
@@ -336,13 +412,49 @@ def main():
             "notes": r["network_notes"],
             "policy": r["policy_general"],
             "updated": r["net_updated"],
+            "org_id": org,
             "facs": facs,
-            "nports": len(nports),
-            "india": nid in india_net_ids,
+            "nports": len(cports),
+            "nports_all": len(aports),
+            "locs": locs,
+            "ev": ev,
+            # listed on an exchange, but every one of its ports is not operational,
+            # so it earns a row and is searchable while counting towards nothing
+            "stale": bool(aports) and not cports and not facs and not locs,
+            "pdb": True,
+            "infra": r["info_type"] in INFRA_TYPES,
+            "ixrun": org in ix_org_ids,
+            "ixrun_label": ix_org_label.get(org, ""),
+            "sx": search_extra(r["network_name"], r["network_aka"], r["name_long"]),
         })
+
+    # ISPs NIXI lists whose ASN has no PeeringDB network record at all: NIXI is the
+    # only evidence they exist, so they get a row built from the NIXI data.
+    isp_name_by_asn = {}
+    isp_first_row = {}
+    for r in nixi_isps_raw:
+        a = key(r["asNumber"])
+        if a:
+            isp_first_row.setdefault(a, r)
+    for a in sorted(nixi_only_asns, key=lambda x: int(x) if x.isdigit() else 0):
+        nm = clean_nixi_name(isp_first_row[a]["companyName"])
+        networks.append({
+            "id": "nixi-" + a, "name": nm, "aka": "", "long": "", "web": "", "asn": a,
+            "type": "", "p4": "", "p6": "", "traffic": "", "ratio": "", "scope": "",
+            "ipv6": "", "ww_ix": 0, "ww_fac": 0, "notes": "", "policy": "", "updated": "",
+            "org_id": "", "facs": [], "nports": 0, "nports_all": 0,
+            "locs": nixi_locs_by_asn.get(a, []), "ev": "N", "stale": False, "pdb": False,
+            "infra": False, "ixrun": False, "ixrun_label": "",
+            "sx": search_extra(nm),
+        })
+
     net_by_id = {n["id"]: n for n in networks}
     tenant_ids = {n["id"] for n in networks if n["facs"]}
-    exchange_only_ids = {n["id"] for n in networks if n["india"] and not n["facs"]}
+    exchange_only_ids = {n["id"] for n in networks if n["nports"] and not n["facs"]}
+    evidence_mix = Counter(n["ev"] for n in networks)
+    stale_nets = [n for n in networks if n["stale"]]
+    infra_nets = [n for n in networks if n["infra"]]
+    ixrun_nets = [n for n in networks if n["ixrun"]]
 
     # ---- exchanges -------------------------------------------------------
     org_first_word = defaultdict(set)
@@ -357,7 +469,10 @@ def main():
     exchanges = []
     for r in exchanges_raw:
         xid = key(r["ix_id"])
-        xp = ports_by_ix.get(xid, [])
+        xp = ports_by_ix.get(xid, [])          # countable: operational only
+        xa = all_ports_by_ix.get(xid, [])      # every listed port
+        rated = [p for p in xp if p["mbps"] > 0]
+        rated_mbps = sum(p["mbps"] for p in rated)
         exchanges.append({
             "id": xid,
             "org_id": key(r["ix_org_id"]),
@@ -381,9 +496,14 @@ def main():
             "updated": r["ix_updated"],
             "pdb_nets": as_int(r["ix_net_count"]),
             "pdb_facs": as_int(r["ix_fac_count"]),
-            "nets": len({p["net_id"] for p in xp}),   # rule 6.4: unique net_id
-            "ports": len(xp),
-            "mbps": sum(p["mbps"] for p in xp if p["mbps"] > 0),  # rule 6.5
+            "nets": len({p["net_id"] for p in xp}),   # rule 6.4: unique net_id, countable ports
+            "ports": len(xp),                         # countable ports only
+            "ports_all": len(xa),
+            "ports_nonop": sum(1 for p in xa if not p["op"]),
+            "ports_zero": sum(1 for p in xp if p["mbps"] == 0),
+            "mbps": rated_mbps,                       # operational and speed > 0
+            "rated": len(rated),
+            "avg_mbps": round(rated_mbps / len(rated)) if rated else 0,
             "facs": ix_facs.get(xid, []),
         })
 
@@ -398,7 +518,8 @@ def main():
         isp_rows[asn].append(r)
 
     tenant_asns = {net_by_id[i]["asn"] for i in tenant_ids if net_by_id[i]["asn"]}
-    port_asns = {p["asn"] for p in ports if p["asn"]}
+    # countable ports only: a non-operational port is not evidence of anything
+    port_asns = {p["asn"] for p in ports if p["asn"] and p["countable"]}
 
     isps = []
     for asn in isp_order:
@@ -425,7 +546,7 @@ def main():
         pdb_net = ""
         if group != "none":
             cand = net_rows_by_asn.get(asn, [])
-            india_first = [c for c in cand if c in india_net_ids and c in net_by_id]
+            india_first = [c for c in cand if c in universe and c in net_by_id]
             pool = india_first or [c for c in cand if c in net_by_id]
             if pool:
                 pdb_net = pool[0]
@@ -442,6 +563,8 @@ def main():
             "nixi_ids": nixi_ids,
             "created": created[0] if created else "",
             "updated": updated[-1] if updated else "",
+            "infra": bool(pdb_net) and net_by_id[pdb_net]["infra"],
+            "sx": search_extra(best, *others),
         })
 
     isps_by_loc = defaultdict(list)
@@ -491,9 +614,78 @@ def main():
     orgs = sorted({f["org"] for f in facilities})
     org_facs = Counter(f["org"] for f in facilities)
     group_counts = Counter(r["group"] for r in isps)
-    cap_tbps = sum(p["mbps"] for p in ports if p["mbps"] > 0) / 1_000_000
+
+    countable = [p for p in ports if p["countable"]]
+    rated = [p for p in countable if p["mbps"] > 0]
+    nonop = [p for p in ports if not p["op"]]
+    zero = [p for p in ports if p["mbps"] == 0]
+    cap_tbps = sum(p["mbps"] for p in rated) / 1_000_000
+    avg_mbps = round(sum(p["mbps"] for p in rated) / len(rated)) if rated else 0
     equinix = next((f for f in facilities if f["name"] == "Equinix MB1 - Mumbai (GPX Mumbai 1)"), None)
 
+    # numbers straight from the CSVs, in the order Krish asked for them
+    def line(label, value):
+        return (label, value)
+
+    ev_rows = [
+        ("In a facility", sum(1 for n in networks if "F" in n["ev"])),
+        ("On an exchange (operational port)", sum(1 for n in networks if "X" in n["ev"])),
+        ("At NIXI", sum(1 for n in networks if "N" in n["ev"])),
+    ]
+    mix_labels = [
+        ("F", "facility only"), ("X", "exchange only"), ("N", "NIXI only"),
+        ("FX", "facility and exchange"), ("FN", "facility and NIXI"),
+        ("XN", "exchange and NIXI"), ("FXN", "all three"),
+        ("", "listed only by a port that is not operational"),
+    ]
+
+    print("COUNTS TAKEN STRAIGHT FROM THE CSVs")
+    print("=" * 62)
+    print("Facilities and operators")
+    print(f"  facilities                                {len(facilities):>7}")
+    print(f"  operators (unique org_name)               {len(orgs):>7}")
+    print(f"  operators running more than one facility  {sum(1 for v in org_facs.values() if v > 1):>7}")
+    print(f"  cities after the city rules               {len(cities):>7}")
+    print(f"  facilities with at least one network       {sum(1 for f in facilities if f['n'] > 0):>6}")
+    print(f"  networks installed (sum of linked rows)   {total_installed:>7}")
+    print()
+    print("Networks by evidence  (a network can rest on more than one)")
+    for label, v in ev_rows:
+        print(f"  {label:<41}{v:>7}")
+    print("  " + "-" * 48)
+    for k, label in mix_labels:
+        print(f"  {label:<41}{evidence_mix.get(k, 0):>7}")
+    print(f"  {'NIXI only, no PeeringDB record':<41}{sum(1 for n in networks if not n['pdb']):>7}")
+    print("  " + "-" * 48)
+    print(f"  {'TOTAL networks with evidence':<41}{len(networks):>7}")
+    print(f"  {'of which exchange infrastructure':<41}{len(infra_nets):>7}")
+    print(f"  {'of which run by an exchange operator':<41}{len(ixrun_nets):>7}")
+    print()
+    print("Exchanges and ports")
+    print(f"  exchanges                                 {len(exchanges):>7}")
+    print(f"  exchange operators (unique ix_org_id)     {len({x['org_id'] for x in exchanges}):>7}")
+    print(f"  ports listed in the CSV                   {len(ports):>7}")
+    print(f"    not operational (count nowhere)         {len(nonop):>7}")
+    print(f"    speed 0 (real ports, no recorded speed) {len(zero):>7}")
+    print(f"    both not operational and speed 0        {sum(1 for p in ports if not p['op'] and p['mbps'] == 0):>7}")
+    print(f"  countable ports (operational)             {len(countable):>7}")
+    print(f"  rated ports (operational and speed > 0)   {len(rated):>7}")
+    print(f"  total capacity, Tbps                      {cap_tbps:>7.1f}")
+    print(f"  average rated port speed, Mbps            {avg_mbps:>7}")
+    print()
+    print("NIXI")
+    print(f"  NIXI locations                            {len(nixi_locs):>7}")
+    print(f"  locations with at least one ISP row       {sum(1 for l in nixi_locs if l['isps']):>7}")
+    print(f"  unique ISPs (by ASN)                      {len(isps):>7}")
+    for k, name, _ in MATCH_GROUPS:
+        print(f"    {name:<39}{group_counts[k]:>7}")
+    print(f"  ISPs with no PeeringDB record             {sum(1 for n in networks if not n['pdb']):>7}")
+    print("=" * 62)
+    print()
+
+    # ---- checks against CLAUDE.md section 13 ------------------------------
+    # Krish's rules of 2026-09-25 change how some of these are counted. Those
+    # entries are listed as "changed", with the old value and the reason.
     checks = [
         ("Rows in facilities.csv", len(facilities_raw), 246),
         ("Rows in facility_networks.csv", len(facnets_raw), 2521),
@@ -518,45 +710,106 @@ def main():
         ("Major hub share of networks installed", hub_share, "49.9%"),
         ("Facilities hosting at least one exchange (linked)", sum(1 for f in facilities if f["nix"] > 0), 107),
         ("Exchange operators (unique ix_org_id)", len({x["org_id"] for x in exchanges}), 20),
-        ("Networks linked to India (facility or exchange port)", len(india_net_ids), 1215),
-        ("Networks seen only at exchanges", len(exchange_only_ids), 382),
-        ("Exchange ports with speed 0", sum(1 for p in ports if p["mbps"] == 0), 17),
-        ("Exchange ports marked not operational", sum(1 for p in ports if p["operational"] == "False"), 11),
-        ("Total port capacity, Tbps (speed > 0)", f"{cap_tbps:.1f}", "59.4"),
+        ("Exchange ports with speed 0", len(zero), 17),
+        ("Exchange ports marked not operational", len(nonop), 11),
         ("NIXI locations with at least one ISP row", sum(1 for l in nixi_locs if l["isps"]), 60),
         ("Unique NIXI ISPs (by ASN)", len(isps), 273),
-        ("NIXI ISPs: Already in facility data", group_counts["fac"], 175),
-        ("NIXI ISPs: Seen only at exchanges", group_counts["port"], 76),
-        ("NIXI ISPs: In PeeringDB, not linked to India", group_counts["pdb"], 13),
-        ("NIXI ISPs: Only known through NIXI", group_counts["none"], 9),
         ("Linked networks at Equinix MB1 - Mumbai (GPX Mumbai 1)", equinix["n"] if equinix else "facility not found", 255),
         ("Facilities run by Sify Technologies Limited", org_facs.get("Sify Technologies Limited", 0), 30),
     ]
+    changed = [
+        ("Networks linked to India (facility or exchange port)", len(fac_evidence | listed_evidence), 1215,
+         "unchanged: a non-operational port still earns a searchable row, it just counts nowhere"),
+        ("Networks seen only at exchanges", len(exchange_only_ids), 382,
+         f"{len(stale_nets)} of these had only non-operational ports, which now count towards nothing"),
+        ("Total port capacity, Tbps", f"{cap_tbps:.1f}", "59.4",
+         "non-operational ports no longer add capacity"),
+        ("NIXI ISPs: Already in facility data", group_counts["fac"], 175, "unchanged in value"),
+        ("NIXI ISPs: Seen only at exchanges", group_counts["port"], 76, "countable ports only"),
+        ("NIXI ISPs: In PeeringDB, not linked to India", group_counts["pdb"], 13, "countable ports only"),
+        ("NIXI ISPs: Only known through NIXI", group_counts["none"], 9, "countable ports only"),
+    ]
 
-    width = max(len(c[0]) for c in checks)
+    width = max(len(c[0]) for c in checks + [(c[0],) for c in changed])
     failed = 0
-    print("Verification numbers (CLAUDE.md section 13)")
-    print("-" * (width + 26))
+    print("CLAUDE.md section 13 checks that the new rules do not touch")
+    print("-" * (width + 30))
     for label, got, expected in checks:
         ok = str(got) == str(expected)
         if not ok:
             failed += 1
         print(f"{label.ljust(width)}  {str(got).rjust(7)}  expected {str(expected).rjust(7)}  {'ok' if ok else 'MISMATCH'}")
-    print("-" * (width + 26))
+    print()
+    print("Section 13 numbers the new rules change")
+    print("-" * (width + 30))
+    for label, got, was, why in changed:
+        same = str(got) == str(was)
+        print(f"{label.ljust(width)}  {str(got).rjust(7)}  was {str(was).rjust(7)}  {'(same)' if same else 'CHANGED'}  {why}")
+    print("-" * (width + 30))
 
     expected_off_map = "Cochin (2), Mohali (2), Siliguri (1), Amritsar (1), Salem (1), Tuticorin (1), Jetpur (1), Yamuna Nagar (1)"
     got_off_map = ", ".join(f"{c} ({n})" for c, n in off_map_list)
-    off_ok = got_off_map == expected_off_map
-    if not off_ok:
+    if got_off_map != expected_off_map:
         failed += 1
-    print(f"Not on the map (rule 6.7): {got_off_map}")
-    print(f"{'  matches rule 6.7' if off_ok else '  MISMATCH, rule 6.7 expects: ' + expected_off_map}")
+        print(f"MISMATCH on rule 6.7. Got: {got_off_map}")
+    print()
+
+    # ---- where the port rules were not holding before --------------------
+    print("WHERE THE PORT RULES WERE NOT HOLDING BEFORE")
+    print("-" * 62)
+    only_nonop = sorted(
+        {p["net_id"] for p in ports if not p["op"]} - {p["net_id"] for p in countable},
+        key=lambda x: int(x) if x.isdigit() else 0)
+    audit = [
+        ("Exchange 'ports' column and the ports card",
+         f"counted all {len(ports)} listed ports; now counts the {len(countable)} operational ones"),
+        ("Exchange 'networks connected' and the bubble chart",
+         f"counted networks reached only by a non-operational port; {len(only_nonop)} network(s) affected"),
+        ("Network 'Indian exchange ports' column",
+         "counted non-operational ports in each network's total"),
+        ("Total port capacity",
+         f"included non-operational ports, giving 59.4 Tbps; now {cap_tbps:.1f} Tbps"),
+        ("Port speed chart",
+         "already left out speed 0, but still counted non-operational ports"),
+        ("'Networks linked to India'",
+         f"{len(only_nonop)} network(s) have ports but every port is non-operational: "
+         + "; ".join(
+             f"{net_raw_by_id[i]['network_name']} (AS{net_raw_by_id[i]['asn']}), "
+             + (f"kept, it has {len(net_facs[i])} facilities" if net_facs.get(i) else "dropped, it had no other evidence")
+             for i in only_nonop if i in net_raw_by_id)),
+        ("NIXI match groups",
+         "'Seen only at exchanges' could rest on a non-operational port"),
+        ("Averages",
+         f"no average port speed was shown anywhere; the exchange panel now shows one, over rated ports only ({avg_mbps} Mbps overall)"),
+    ]
+    if stale_nets:
+        audit.append(("Rows that exist but count towards nothing",
+                      "; ".join(f"{n['name']} (AS{n['asn']}) keeps a searchable row with every count at zero" for n in stale_nets)))
+    for where, what in audit:
+        print(f"  {where}\n      {what}")
+    print("-" * 62)
+    print()
+
+    # ---- what was flagged as exchange infrastructure ---------------------
+    print(f"FLAGGED AS EXCHANGE INFRASTRUCTURE: {len(infra_nets)} networks")
+    print("  (PeeringDB types them Route Server or Route Collector; kept in the")
+    print("   data and on the page, marked, and left out of every ranking)")
+    print("-" * 62)
+    for n in sorted(infra_nets, key=lambda x: (-len(x["facs"]), -x["nports"], x["name"])):
+        print(f"  AS{n['asn']:<9} {n['name'][:44]:<44} {n['type']:<16} facilities={len(n['facs'])} ports={n['nports']}")
+    extra = [n for n in ixrun_nets if not n["infra"]]
+    print()
+    print(f"ALSO MARKED, run by an exchange operator but not typed as infrastructure: {len(extra)}")
+    print("  (marked on the row only; still counted and still ranked)")
+    print("-" * 62)
+    for n in sorted(extra, key=lambda x: x["name"]):
+        print(f"  AS{n['asn']:<9} {n['name'][:44]:<44} {n['type']:<22} operator={n['ixrun_label']}")
+    print("-" * 62)
     print()
 
     if failed:
         print(f"STOP. {failed} check(s) do not match CLAUDE.md. Tell Krish before going further.")
         sys.exit(1)
-    print("All checks match.\n")
 
     # ---- payload ---------------------------------------------------------
     geo = json.loads((ROOT / "reference" / "india_states.json").read_text(encoding="utf-8"))
@@ -585,11 +838,21 @@ def main():
                 "cities": len(cities),
                 "tenants": len(tenant_ids),
                 "exchange_only": len(exchange_only_ids),
-                "india_networks": len(india_net_ids),
+                "networks": len(networks),
+                "ev_fac": sum(1 for n in networks if "F" in n["ev"]),
+                "ev_ix": sum(1 for n in networks if "X" in n["ev"]),
+                "ev_nixi": sum(1 for n in networks if "N" in n["ev"]),
+                "no_pdb": sum(1 for n in networks if not n["pdb"]),
+                "infra": len(infra_nets),
+                "stale": len(stale_nets),
+                "ixrun": len([n for n in ixrun_nets if not n["infra"]]),
                 "exchanges": len(exchanges),
                 "exchange_operators": len({x["org_id"] for x in exchanges}),
-                "ports": len(ports),
+                "ports_listed": len(ports),
+                "ports": len(countable),
+                "ports_rated": len(rated),
                 "capacity_tbps": f"{cap_tbps:.1f}",
+                "avg_mbps": avg_mbps,
                 "nixi_locs": len(nixi_locs),
                 "nixi_locs_with_isps": sum(1 for l in nixi_locs if l["isps"]),
                 "nixi_isps": len(isps),
@@ -597,9 +860,10 @@ def main():
                 "installed": total_installed,
                 "with_coords": sum(1 for f in facilities if f["lat"] is not None),
                 "off_map": sum(off_map.values()),
-                "ports_zero": sum(1 for p in ports if p["mbps"] == 0),
-                "ports_down": sum(1 for p in ports if p["operational"] == "False"),
+                "ports_zero": len(zero),
+                "ports_down": len(nonop),
             },
+            "evidence_mix": [{"k": k, "label": lab, "n": evidence_mix.get(k, 0)} for k, lab in mix_labels],
             "off_map": [{"city": c, "n": n} for c, n in off_map_list],
             "city_replacements": [{"from": k, "to": v} for k, v in CITY_REPLACEMENTS.items()],
         },
@@ -608,7 +872,7 @@ def main():
         "networks": networks,
         "exchanges": exchanges,
         "ixfac": [[key(r["ix_id"]), key(r["fac_id"])] for r in ixfac_raw],
-        "ports": [[p["net_id"], p["ix_id"], p["mbps"], p["operational"], p["asn"]] for p in ports],
+        "ports": [[p["net_id"], p["ix_id"], p["mbps"], 1 if p["op"] else 0, p["asn"]] for p in ports],
         "nixi_locs": nixi_locs,
         "nixi_isps": isps,
         "cities": city_points,
@@ -623,7 +887,7 @@ def main():
         sys.exit(1)
     out = template.replace("/*__DATA__*/", blob)
     DIST.mkdir(exist_ok=True)
-    target = DIST / "india-dc-report.html"
+    target = DIST / "index.html"
     target.write_text(out, encoding="utf-8")
     print(f"Wrote {target.relative_to(ROOT)}  ({len(out) / 1024:.0f} KB)")
 

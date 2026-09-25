@@ -179,6 +179,7 @@ td.ck,th.ck{width:36px;text-align:center}
 .tag::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--c);margin-right:6px;vertical-align:1px}
 .selinfo{font-size:13.5px;color:var(--net);font-weight:600}
 .clear{background:none;border:0;color:var(--fac);cursor:pointer;font-weight:600;font-size:13.5px}
+.linkish{background:none;border:0;padding:0;color:var(--fac);cursor:pointer;font:inherit;text-decoration:underline}
 
 /* tooltip */
 #tip{position:fixed;z-index:80;pointer-events:none;background:var(--ink);color:#fff;font-size:12.5px;line-height:1.45;padding:7px 10px;border-radius:8px;max-width:300px;display:none}
@@ -203,6 +204,18 @@ td.ck,th.ck{width:36px;text-align:center}
 .act{margin-top:12px;background:var(--ink);color:#fff;border:0;border-radius:9px;padding:8px 14px;cursor:pointer;font-weight:600}
 .empty{color:var(--faint);font-size:14px}
 
+/* evidence tags and reconciliation */
+.ev{display:inline-flex;gap:4px;flex-wrap:nowrap}
+.evt{display:inline-block;padding:0 7px;border-radius:11px;font-size:11.5px;font-weight:600;line-height:17px;color:#fff;background:var(--c)}
+.evt.off{background:none;color:var(--faint);box-shadow:inset 0 0 0 1px var(--line)}
+.infra{display:inline-block;padding:0 8px;border-radius:11px;font-size:11.5px;font-weight:600;line-height:17px;border:1.5px solid var(--faint);color:var(--muted)}
+.recon{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:start;margin-top:12px}
+.mini-tbl{width:100%;font-size:13.5px;border-collapse:collapse}
+.mini-tbl td{padding:5px 6px;border-bottom:1px solid var(--line);white-space:normal}
+.mini-tbl td:last-child{text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+.mini-tbl tr.sum td{border-top:2px solid var(--ink);border-bottom:0;font-weight:700}
+.mini-tbl tr.head td{color:var(--muted);font-weight:600;border-bottom:1px solid var(--ink)}
+
 /* sources */
 .srcs td,.srcs th{white-space:normal}
 .defs{display:grid;grid-template-columns:240px 1fr;gap:10px 20px;margin:0}
@@ -212,7 +225,7 @@ td.ck,th.ck{width:36px;text-align:center}
 .rules b{color:var(--ink)}
 
 @media (max-width:980px){
-  .g2,.mapgrid,.tiercards{grid-template-columns:1fr}
+  .g2,.mapgrid,.tiercards,.recon{grid-template-columns:1fr}
   .layers,.slegend{grid-template-columns:repeat(2,minmax(0,1fr))}
   .defs{grid-template-columns:1fr;gap:2px 0}
   .defs dd{margin-bottom:10px}
@@ -245,7 +258,7 @@ td.ck,th.ck{width:36px;text-align:center}
     <button role="tab" data-v="overview" aria-selected="true" style="--c:var(--ink)">Overview</button>
     <button role="tab" data-v="facilities" style="--c:var(--fac)">Facilities</button>
     <button role="tab" data-v="operators" style="--c:var(--fac)">Operators</button>
-    <button role="tab" data-v="networks" style="--c:var(--net)">Tenant networks</button>
+    <button role="tab" data-v="networks" style="--c:var(--net)">Networks</button>
     <button role="tab" data-v="exchanges" style="--c:var(--ix)">Internet exchanges</button>
     <button role="tab" data-v="nixi" style="--c:var(--nixi)">NIXI</button>
     <button role="tab" data-v="sources" style="--c:var(--ink)">Sources and method</button>
@@ -306,14 +319,21 @@ td.ck,th.ck{width:36px;text-align:center}
 </section>
 
 <!-- ================= NETWORKS ================= -->
-<section class="view" id="v-networks" role="tabpanel" aria-label="Tenant networks">
-  <h1>Tenant networks</h1>
-  <p class="lede">A tenant network is a company, such as an internet service provider, a content provider or a carrier, that has its own routers and switches installed inside a facility. Each one is a potential buyer in its own right, separate from the facility operator. Every network has an ASN, the unique number it uses to identify itself on the internet. <span id="net-lede2"></span></p>
+<section class="view" id="v-networks" role="tabpanel" aria-label="Networks">
+  <h1>Networks</h1>
+  <p class="lede">A network is a company, such as an internet service provider, a content provider or a carrier, that runs its own routers and switches. Each one is a potential buyer in its own right, separate from the facility operator. Every network has an ASN, the unique number it uses to identify itself on the internet. <span id="net-lede2"></span></p>
   <div class="panel" id="p-networks"></div>
   <div class="kpis" id="k-networks"></div>
+
+  <div class="card" style="margin-bottom:22px">
+    <h3>What the evidence is<i class="info" tabindex="0" data-tip="A network appears here if the data shows it has equipment or membership in India. The three kinds of evidence are independent, and a network can rest on more than one.">i</i></h3>
+    <p class="q" id="net-reconQ"></p>
+    <div class="recon"><div class="bars" id="net-evbars"></div><div><table class="mini-tbl" id="net-recon"></table></div></div>
+  </div>
+
   <div class="g2">
-    <div class="card"><div class="chead"><div><h3>What kind of networks are they?</h3><p class="q" style="margin:4px 0 0">The number of networks of each kind, as recorded on PeeringDB. Click a type to filter everything on this page.</p></div><select class="mini" data-topn="net-types" aria-label="How many network types to show"></select></div><div class="scroll" style="margin-top:12px"><div class="bars" id="net-types"></div></div></div>
-    <div class="card"><div class="chead"><div><h3>Which networks are in the most facilities?<i class="info" tabindex="0" data-tip="A network installed in 20 facilities runs equipment in 20 separate locations, so it has more devices to configure and keep consistent. These are the tenants worth approaching directly.">i</i></h3><p class="q">Networks ranked by how many Indian facilities they are installed in. More facilities means more locations with equipment to configure.</p></div><select class="mini" data-topn="net-wide" aria-label="How many networks to show"></select></div><div class="scroll"><div class="bars" id="net-wide"></div></div></div>
+    <div class="card"><div class="chead"><div><h3>What kind of networks are they?</h3><p class="q" style="margin:4px 0 0">The number of networks of each kind, as recorded on PeeringDB. Networks with nothing recorded, including those known only through NIXI, show as Not stated. Click a type to filter everything on this page.</p></div><select class="mini" data-topn="net-types" aria-label="How many network types to show"></select></div><div class="scroll" style="margin-top:12px"><div class="bars" id="net-types"></div></div></div>
+    <div class="card"><div class="chead"><div><h3>Which networks are in the most facilities?<i class="info" tabindex="0" data-tip="A network installed in 20 facilities runs equipment in 20 separate locations, so it has more devices to configure and keep consistent. These are the tenants worth approaching directly.">i</i></h3><p class="q">Networks ranked by how many Indian facilities they are installed in. More facilities means more locations with equipment to configure. Exchange infrastructure is left out of this ranking.</p></div><select class="mini" data-topn="net-wide" aria-label="How many networks to show"></select></div><div class="scroll"><div class="bars" id="net-wide"></div></div></div>
   </div>
   <h2>Where these networks are installed</h2>
   <p class="q" id="net-whereQ"></p>
@@ -321,7 +341,7 @@ td.ck,th.ck{width:36px;text-align:center}
     <div class="card mapbox"><div id="net-map"></div></div>
     <div class="card"><div class="chead"><h3>Facilities hosting them</h3><select class="mini" data-topn="net-facs" aria-label="How many facilities to show"></select></div><p class="q" style="margin:4px 0 12px">Each bar counts how many of the selected networks are installed in that facility.</p><div class="scroll"><div class="bars" id="net-facs"></div></div></div>
   </div>
-  <div class="tblwrap"><h3>Network list</h3><p class="q">Tick the box on any row to focus the map and the bars above on those networks. Click elsewhere on a row to open its details.</p><div id="t-networks"></div></div>
+  <div class="tblwrap"><h3>Network list</h3><p class="q">Every network the data shows in India, with its real counts including zeros. Tick the box on any row to focus the map and the bars above on those networks. Click elsewhere on a row to open its details.</p><div id="t-networks"></div></div>
 </section>
 
 <!-- ================= EXCHANGES ================= -->
@@ -330,9 +350,10 @@ td.ck,th.ck{width:36px;text-align:center}
   <p class="lede">An internet exchange is a shared switch where many networks connect directly to swap traffic with each other, an arrangement called peering. Each connected network plugs into a port on that switch, and port speed is measured in megabits or gigabits per second. Exchange operators set up and change those connections constantly, so they carry a heavy configuration workload.</p>
   <div class="panel" id="p-exchanges"></div>
   <div class="kpis" id="k-exchanges"></div>
+  <p class="q" id="ix-reconQ" style="max-width:none"></p>
   <div class="g2">
     <div class="card scatter"><h3>Which exchanges are largest?<i class="info" tabindex="0" data-tip="Across: how many different networks have a port on the exchange. Up: the speeds of all its ports added together, in gigabits per second. Colour shows the exchange operator.">i</i></h3><p class="q">Each bubble is one exchange: networks connected against total port capacity. Click a bubble to open the exchange.</p><div id="ix-scatter"></div><div class="legend" id="ix-legend"></div></div>
-    <div class="card"><div class="chead"><div><h3>What port speeds do networks buy?</h3><p class="q" style="margin:4px 0 0">The number of ports at each speed. 10G means 10 gigabits per second. Ports listed at speed 0 are left out of this chart.</p></div><select class="mini" data-topn="ix-speed" aria-label="How many port speeds to show"></select></div><div class="scroll" style="margin-top:12px"><div class="bars" id="ix-speed"></div></div>
+    <div class="card"><div class="chead"><div><h3>What port speeds do networks buy?</h3><p class="q" style="margin:4px 0 0">The number of operational ports at each speed. 10G means 10 gigabits per second. Ports with no recorded speed, and ports marked not operational, are left out.</p></div><select class="mini" data-topn="ix-speed" aria-label="How many port speeds to show"></select></div><div class="scroll" style="margin-top:12px"><div class="bars" id="ix-speed"></div></div>
       <div class="chead" style="margin-top:26px"><div><h3>Exchanges by city</h3><p class="q" style="margin:4px 0 0">The number of exchanges in each city. Click a city to filter the page.</p></div><select class="mini" data-topn="ix-city" aria-label="How many cities to show"></select></div><div class="scroll" style="margin-top:12px"><div class="bars" id="ix-city"></div></div></div>
   </div>
   <div class="tblwrap"><h3>Exchange list</h3><p class="q">Click any row for the exchange's contacts, the facilities it sits in and the networks with ports on it.</p><div id="t-exchanges"></div></div>
@@ -349,7 +370,7 @@ td.ck,th.ck{width:36px;text-align:center}
     <div class="sbar" id="nx-sbar"></div><div class="slegend" id="nx-slegend"></div></div>
   <div class="g2" style="margin-top:20px">
     <div class="card"><div class="chead"><h3>Which NIXI locations have the most ISPs?</h3><select class="mini" data-topn="nx-locs" aria-label="How many locations to show"></select></div><p class="q">The number of ISPs listed at each NIXI location. Click a location to filter.</p><div class="scroll"><div class="bars" id="nx-locs"></div></div></div>
-    <div class="card"><div class="chead"><h3>Which ISPs connect at several locations?</h3><select class="mini" data-topn="nx-multi" aria-label="How many ISPs to show"></select></div><p class="q">The number of NIXI locations each ISP connects at. An ISP present in several cities runs a wider network.</p><div class="scroll"><div class="bars" id="nx-multi"></div></div></div>
+    <div class="card"><div class="chead"><h3>Which ISPs connect at several locations?</h3><select class="mini" data-topn="nx-multi" aria-label="How many ISPs to show"></select></div><p class="q">The number of NIXI locations each ISP connects at. An ISP present in several cities runs a wider network. Exchange infrastructure is left out of this ranking.</p><div class="scroll"><div class="bars" id="nx-multi"></div></div></div>
   </div>
   <div class="tblwrap"><h3>ISPs connected at NIXI</h3><p class="q">One row per ASN. Click a row for the ISP's locations, other name spellings and its PeeringDB record where one exists.</p><div id="t-nixiIsps"></div></div>
   <div class="tblwrap"><h3>NIXI locations and contacts</h3><p class="q">All NIXI locations, including those with no ISP list. Click a row for the full contact details and the ISPs there.</p><div id="t-nixiNocs"></div></div>
@@ -412,24 +433,29 @@ D.netfac.forEach(p => { push(facNets, p[0], p[1]); push(netFacs, p[1], p[0]); })
 const ixFacs = {}, facIxs = {};
 D.ixfac.forEach(p => { push(ixFacs, p[0], p[1]); push(facIxs, p[1], p[0]); });
 
-const PORTS = D.ports.map(p => ({net_id:p[0], ix_id:p[1], mbps:p[2], operational:p[3], asn:p[4]}));
-const portsByNet = {}, portsByIx = {};
-PORTS.forEach(p => { push(portsByNet, p.net_id, p); push(portsByIx, p.ix_id, p); });
+/* A port marked not operational counts nowhere. A port with speed 0 is a real
+   port but has no recorded speed, so it adds nothing to capacity or averages. */
+const PORTS = D.ports.map(p => ({net_id:p[0], ix_id:p[1], mbps:p[2], op:p[3] === 1, asn:p[4]}));
+const portsByNet = {}, portsByIx = {}, allPortsByNet = {}, allPortsByIx = {};
+PORTS.forEach(p => {
+  push(allPortsByNet, p.net_id, p); push(allPortsByIx, p.ix_id, p);
+  if (p.op){ push(portsByNet, p.net_id, p); push(portsByIx, p.ix_id, p); }
+});
+const rated = ps => ps.filter(p => p.op && p.mbps > 0);
+const capMbps = ps => rated(ps).reduce((t,p) => t + p.mbps, 0);
 
 const NET = D.networks.map(n => Object.assign({}, n, {
   typeL: n.type || 'Not stated',
   scopeL: n.scope || 'Not stated',
   policyL: n.policy || 'Not stated',
   nf: n.facs.length,
-  ports: portsByNet[n.id] || [],
+  ports: portsByNet[n.id] || [],          /* countable */
+  allPorts: allPortsByNet[n.id] || [],    /* including the ones that count nowhere */
   cities: [...new Set(n.facs.map(f => facById[f].city))]
 }));
 const netById = {};
 NET.forEach(n => { netById[n.id] = n; });
 const TENANTS = NET.filter(n => n.nf > 0);
-const EXCHANGE_ONLY = NET.filter(n => n.india && n.nf === 0);
-const INDIA_NETS = NET.filter(n => n.india);
-NET.forEach(n => { n.peers = n.ports.length > 0; });
 
 const IXS = D.exchanges.map(x => Object.assign({}, x, {gbps:Math.round(x.mbps/1000)}));
 const ixById = {};
@@ -757,7 +783,11 @@ function renderTable(key){
   host.querySelector('.count').textContent = `Showing ${fmt(rows.length)} of ${fmt(total)}` + (T.q ? ` (${fmt(matched)} match the search)` : '');
   if (T.select) host.querySelector('.selinfo').innerHTML = SEL.size ? `${fmt(SEL.size)} ticked <button class="clear" data-clearsel>Clear ticks</button>` : '';
 }
-document.addEventListener('click', e => { if (e.target.matches('[data-clearsel]')){ SEL.clear(); refresh('networks'); } });
+document.addEventListener('click', e => {
+  if (e.target.matches('[data-clearsel]')){ SEL.clear(); refresh('networks'); }
+  const go = e.target.closest('button.linkish[data-go]');
+  if (go) show(go.dataset.go);
+});
 
 /* =========================================================
    5. PAGES
@@ -790,8 +820,8 @@ const offMapFor = facs => {
   const T = M.totals;
   $('#layers').innerHTML = [
     ['facilities','--fac', T.facilities, 'Facilities', `Data centre buildings, run by ${fmt(T.operators)} operators in ${fmt(T.cities)} cities.`, 'facilities'],
-    ['networks','--net', T.tenants, 'Tenant networks', 'Companies with their own equipment installed inside those facilities.', 'tenant networks'],
-    ['exchanges','--ix', T.exchanges, 'Internet exchanges', `Shared switches where networks connect to each other, with ${fmt(T.ports)} ports in use.`, 'internet exchanges'],
+    ['networks','--net', T.networks, 'Networks', `Companies with equipment or membership in India: ${fmt(T.ev_fac)} in a facility, ${fmt(T.ev_ix)} on an exchange, ${fmt(T.ev_nixi)} at NIXI.`, 'networks'],
+    ['exchanges','--ix', T.exchanges, 'Internet exchanges', `Shared switches where networks connect to each other, with ${fmt(T.ports)} operational ports in use.`, 'internet exchanges'],
     ['nixi','--nixi', T.nixi_locs, 'NIXI locations', `Government exchange points, with ${fmt(T.nixi_isps)} ISPs connected across them.`, 'NIXI locations']
   ].map(r => `<button class="layer" style="--c:${V(r[1])}" data-go="${r[0]}"><b>${fmt(r[2])}</b><strong>${esc(r[3])}</strong><span>${esc(r[4])}</span><span class="open">Open ${esc(r[5])}</span></button>`).join('');
   $('#layers').onclick = e => { const b = e.target.closest('[data-go]'); if (b) show(b.dataset.go); };
@@ -893,49 +923,83 @@ RENDER.operators = () => {
   renderTable('operators');
 };
 
-/* ---------- Tenant networks ---------- */
-$('#net-lede2').textContent = `${fmt(M.totals.india_networks)} networks are linked to India: ${fmt(M.totals.tenants)} are installed in a facility, and the other ${fmt(M.totals.exchange_only)} are seen only at an exchange, which the last filter below adds in.`;
-defineFilter('networks','type','Network type', optionsFrom(INDIA_NETS.map(n => n.typeL)));
-defineFilter('networks','city','Installed in city', optionsFrom(TENANTS.map(n => n.cities)));
-defineFilter('networks','scope','Geographic scope', optionsFrom(INDIA_NETS.map(n => n.scopeL)));
-defineFilter('networks','policy','Peering policy', optionsFrom(INDIA_NETS.map(n => n.policyL)));
-panel('networks', [{type:'pick', key:'type', tip:'The kind of network, as recorded on PeeringDB. Networks with nothing recorded are shown as Not stated.'},
-  {type:'pick', key:'city', tip:'Keeps networks installed in at least one facility in the chosen cities. Networks seen only at exchanges have no facility, so narrowing this drops them.'},
+/* ---------- Networks ---------- */
+/* Krish, 2026-09-25: one row per network with evidence of equipment in India,
+   whether that evidence is a facility, an operational exchange port or NIXI. */
+$('#net-lede2').textContent = `${fmt(M.totals.networks)} networks appear in the Indian data: ${fmt(M.totals.ev_fac)} are installed in a facility, ${fmt(M.totals.ev_ix)} have an operational port on an exchange and ${fmt(M.totals.ev_nixi)} are listed at NIXI. Many rest on more than one kind of evidence, which the panel below sets out. ${fmt(M.totals.stale)} keep a row only so they can still be found: their one exchange port is marked not operational, so they count towards nothing.`;
+
+const EVK = [
+  {k:'F', label:'Facility',  c:'--fac',  desc:'Installed in at least one Indian facility.'},
+  {k:'X', label:'Exchange',  c:'--ix',   desc:'Has at least one operational port on an Indian internet exchange.'},
+  {k:'N', label:'NIXI',      c:'--nixi', desc:'Listed as an ISP at a NIXI location.'}
+];
+const evTags = n => `<span class="ev">${EVK.map(e => `<i class="evt ${n.ev.includes(e.k) ? '' : 'off'}" style="--c:${V(e.c)}" title="${esc(e.label)}: ${n.ev.includes(e.k) ? 'yes' : 'no'}">${e.label[0]}</i>`).join('')}</span>`
+  + (n.stale ? ` <span class="infra" title="Its only exchange port is marked not operational, so it counts towards nothing. The row is kept so the network can still be found.">Port not operational</span>` : '')
+  + (n.infra ? ` <span class="infra" title="Run by an exchange as part of the exchange itself, not an independent organisation. Left out of rankings.">Infrastructure</span>` : '');
+const evWords = n => EVK.filter(e => n.ev.includes(e.k)).map(e => e.label).join(' + ')
+  || (n.stale ? 'Listed on an exchange, but the port is not operational' : 'None');
+
+defineFilter('networks','ev','Evidence', EVK.map(e => ({v:e.k, label:e.label, n:NET.filter(n => n.ev.includes(e.k)).length})));
+defineFilter('networks','type','Network type', optionsFrom(NET.map(n => n.typeL)));
+defineFilter('networks','city','Installed in city', optionsFrom(NET.map(n => n.cities)));
+defineFilter('networks','scope','Geographic scope', optionsFrom(NET.map(n => n.scopeL)));
+defineFilter('networks','policy','Peering policy', optionsFrom(NET.map(n => n.policyL)));
+panel('networks', [
+  {type:'chips', key:'ev', dot:v => V(EVK.find(e => e.k === v).c), tip:'What the data shows for this network in India. A network can rest on more than one kind of evidence; a row is kept if it matches any evidence you leave on.'},
+  {type:'pick', key:'type', tip:'The kind of network, as recorded on PeeringDB. Networks with nothing recorded are shown as Not stated.'},
+  {type:'pick', key:'city', tip:'Keeps networks installed in at least one facility in the chosen cities. A network with no facility has no city, so narrowing this drops it.'},
   {type:'pick', key:'scope', tip:'How far the network reaches, as recorded on PeeringDB.'},
   {type:'pick', key:'policy', tip:'Peering is the arrangement where two networks connect directly to swap traffic. The policy is how openly the network agrees to do that, as stated on PeeringDB.'},
-  {type:'toggle', key:'peers', label:'Also connects at an Indian exchange'},
-  {type:'toggle', key:'exonly', label:'Include networks seen only at exchanges', tip:`${fmt(M.totals.exchange_only)} networks have a port on an Indian exchange but no facility listing. Turn this on to add them to the table, the cards and the type chart, making ${fmt(M.totals.india_networks)} networks linked to India in all. They have no facility, so they never appear on the map or in the facility bars.`}]);
-const netPool = () => tog('networks','exonly') ? INDIA_NETS : TENANTS;
-const netFiltered = () => netPool().filter(n => pass('networks','type',n.typeL) && pass('networks','scope',n.scopeL) && pass('networks','policy',n.policyL)
-  && (n.nf === 0 ? isAll('networks','city') : passAny('networks','city',n.cities)) && (!tog('networks','peers') || n.peers));
-makeTable('networks', {view:'networks', kind:'net', sort:4, select:true, rows:netFiltered, tick:n => n.name,
-  text:n => [n.name, n.aka, n.long, n.asn, 'as'+n.asn].join(' ').toLowerCase(),
+  {type:'toggle', key:'infra', label:'Hide exchange infrastructure', tip:`${fmt(M.totals.infra)} networks are an exchange's own route servers or route collectors rather than independent organisations. They are always left out of the rankings; turn this on to drop them from the table and cards too.`}]);
+const netFiltered = () => NET.filter(n =>
+  (n.ev ? passAny('networks','ev', n.ev.split('')) : isAll('networks','ev')) &&
+  pass('networks','type',n.typeL) && pass('networks','scope',n.scopeL) && pass('networks','policy',n.policyL) &&
+  (n.nf === 0 ? isAll('networks','city') : passAny('networks','city',n.cities)) &&
+  (!tog('networks','infra') || !n.infra));
+const rankable = ns => ns.filter(n => !n.infra);   /* infrastructure is never ranked */
+makeTable('networks', {view:'networks', kind:'net', sort:5, select:true, rows:netFiltered, tick:n => n.name,
+  text:n => [n.name, n.aka, n.long, n.asn, 'as'+n.asn, n.sx, evWords(n)].join(' ').toLowerCase(),
   cols:[
     {h:'Network', v:n => n.name},
     {h:'ASN', v:n => num(n.asn), num:1, html:n => esc(n.asn), tip:'The autonomous system number: the unique number this network uses to identify itself on the internet.'},
+    {h:'Evidence', v:n => n.ev.length * 10 + (n.ev.includes('F') ? 3 : 0), num:1, html:n => evTags(n), fkey:'ev',
+     tip:'F: installed in a facility. X: has an operational port on an exchange. N: listed at NIXI. A filled tag means yes.'},
     {h:'Type', v:n => n.typeL, fkey:'type'},
     {h:'Scope', v:n => n.scopeL, fkey:'scope'},
-    {h:'Indian facilities', v:n => n.nf, num:1, tip:'How many Indian facilities this network is listed in.'},
-    {h:'Indian exchange ports', v:n => n.ports.length, num:1, tip:'How many ports this network has on Indian internet exchanges.'},
+    {h:'Facilities', v:n => n.nf, num:1, tip:'Indian facilities this network is listed in. Zero is a real answer.'},
+    {h:'Exchange ports', v:n => n.nports, num:1, tip:'Operational ports on Indian internet exchanges. Ports marked not operational are not counted anywhere.'},
+    {h:'NIXI locations', v:n => n.locs.length, num:1, tip:'NIXI locations listing this ASN.'},
     {h:'Peering policy', v:n => n.policyL, fkey:'policy'},
-    {h:'Traffic', v:n => n.traffic || '—'}
+    {h:'Traffic', v:n => n.traffic || '\u2014'}
   ]});
 RENDER.networks = () => {
   const ns = netFiltered();
   kpis('#k-networks', [
     [ns.length, 'networks match', V('--net')],
-    [ns.filter(n => n.nf >= 5).length, 'installed in 5 or more facilities', V('--net')],
-    [ns.filter(n => n.peers).length, 'also connect at an exchange', V('--ix')],
+    [ns.filter(n => n.nf > 0).length, 'installed in a facility', V('--fac')],
+    [ns.filter(n => n.nports > 0).length, 'have an operational exchange port', V('--ix')],
+    [ns.filter(n => n.locs.length > 0).length, 'listed at NIXI', V('--nixi')],
     [new Set(ns.flatMap(n => n.facs)).size, 'facilities host them', V('--fac')]
   ]);
+  /* reconciliation: why the tabs report different totals */
+  const mix = {};
+  ns.forEach(n => { mix[n.ev] = (mix[n.ev] || 0) + 1; });
+  const each = EVK.map(e => ({e, n:ns.filter(x => x.ev.includes(e.k)).length}));
+  $('#net-reconQ').innerHTML = `Each kind of evidence is counted on its own tab, so the tabs report different totals on purpose. The three counts below overlap; the rows on the right split the same ${fmt(ns.length)} networks into groups that do not overlap, so they add up to the total.`;
+  bars('#net-evbars', each.map(x => ({label:x.e.label, v:x.n, id:x.e.k, c:V(x.e.c),
+    tip:`${x.e.desc} ${fmt(x.n)} of the ${fmt(ns.length)} networks shown.`})),
+    {onClick:it => setOnly('networks','ev',it.id), dimFn:it => !isAll('networks','ev') && !S.networks.ev.has(it.id)});
+  $('#net-recon').innerHTML = `<tr class="head"><td>Evidence this network rests on</td><td>Networks</td></tr>`
+    + M.evidence_mix.map(r => `<tr><td>${esc(r.label)}</td><td>${fmt(mix[r.k] || 0)}</td></tr>`).join('')
+    + `<tr class="sum"><td>Total networks shown</td><td>${fmt(ns.length)}</td></tr>`;
   bars('#net-types', topN('net-types', optionsFrom(ns.map(n => n.typeL))).map(o => ({label:o.label, v:o.n, id:o.v, c:V('--net'), tip:`${o.label}: ${fmt(o.n)} networks`})),
     {onClick:it => setOnly('networks','type',it.id), dimFn:it => !isAll('networks','type') && !S.networks.type.has(it.id)});
-  bars('#net-wide', topN('net-wide', [...ns].sort((a,b) => b.nf - a.nf || a.name.localeCompare(b.name))).map(n => ({label:n.name, v:n.nf, id:n.id, c:V('--net'),
+  bars('#net-wide', topN('net-wide', rankable(ns).filter(n => n.nf > 0).sort((a,b) => b.nf - a.nf || a.name.localeCompare(b.name))).map(n => ({label:n.name, v:n.nf, id:n.id, c:V('--net'),
     tip:`${n.name} (AS${n.asn}): installed in ${fmt(n.nf)} Indian facilities`})), {onClick:it => openRec('net', it.id)});
   const focus = (SEL.size ? ns.filter(n => SEL.has(n.id)) : ns).filter(n => n.nf > 0);
   $('#net-whereQ').innerHTML = SEL.size
     ? `Showing where the <b>${fmt(SEL.size)} ticked network${SEL.size > 1 ? 's are' : ' is'}</b> installed. <button class="clear" data-clearsel>Clear ticks</button>`
-    : 'Each bubble is a city, sized by how many of the matching networks are installed there. Tick rows in the table below to narrow this to those networks. Networks seen only at exchanges are never shown here, because they have no facility.';
+    : 'Each bubble is a city, sized by how many of the matching networks are installed there. Tick rows in the table below to narrow this to those networks. A network with no facility has nothing to place, so it never appears here.';
   const perFac = {};
   focus.forEach(n => n.facs.forEach(f => { perFac[f] = (perFac[f]||0) + 1; }));
   const perCity = {};
@@ -964,25 +1028,29 @@ makeTable('exchanges', {view:'exchanges', kind:'ix', sort:3, rows:ixFiltered,
     {h:'City', v:x => x.city, fkey:'city'},
     {h:'Networks connected', v:x => x.nets, num:1, tip:'Different networks with at least one port on this exchange. A network with two ports here counts once.'},
     {h:'Facilities', v:x => x.facs.length, num:1, tip:'Facilities this exchange is listed as present in.'},
-    {h:'Ports', v:x => x.ports, num:1, tip:'Every port listed on this exchange, including the ones listed at speed 0.'},
-    {h:'Capacity (Gbps)', v:x => x.gbps, num:1, tip:'The speeds of all its ports added together, in gigabits per second. Ports listed at speed 0 add nothing.'},
+    {h:'Ports', v:x => x.ports, num:1, tip:'Operational ports on this exchange. Ports marked not operational are counted nowhere.'},
+    {h:'Capacity (Gbps)', v:x => x.gbps, num:1, tip:'The speeds of its operational ports added together, in gigabits per second. A port with no recorded speed adds nothing.'},
     {h:'Tech email', v:x => x.tech_email || '—'}
   ]});
 RENDER.exchanges = () => {
-  const xs = ixFiltered(), ids = new Set(xs.map(x => x.id)), ps = PORTS.filter(p => ids.has(p.ix_id));
+  const xs = ixFiltered(), ids = new Set(xs.map(x => x.id));
+  const ps = PORTS.filter(p => ids.has(p.ix_id) && p.op);   /* countable ports only */
+  const rp = rated(ps);
+  const conn = new Set(ps.map(p => p.net_id));
   kpis('#k-exchanges', [
     [xs.length, 'exchanges match', V('--ix')],
-    [new Set(ps.map(p => p.net_id)).size, 'networks connected', V('--ix'), 'Counted once each, however many of these exchanges they connect at.'],
-    [ps.length, 'ports in use', V('--ix'), `Every listed port, including the ${fmt(M.totals.ports_zero)} across all exchanges listed at speed 0.`],
-    [(ps.reduce((s,p) => s + (p.mbps > 0 ? p.mbps : 0), 0) / 1e6).toFixed(1), 'Tbps of port capacity', V('--ix'), 'Port speeds added together. One Tbps is a thousand gigabits per second. Ports listed at speed 0 add nothing.']
+    [conn.size, 'networks connected', V('--ix'), `Counted once each, however many of these exchanges they connect at. These are the ${fmt(M.totals.ev_ix)} networks the Networks tab marks with exchange evidence, narrowed to the exchanges shown here.`],
+    [ps.length, 'ports in use', V('--ix'), `Operational ports only. ${fmt(M.totals.ports_down)} ports across all exchanges are marked not operational and are counted nowhere. Included here are the ${fmt(M.totals.ports_zero)} operational ports with no recorded speed.`],
+    [(capMbps(ps) / 1e6).toFixed(1), 'Tbps of port capacity', V('--ix'), `Port speeds added together, over the ${fmt(rp.length)} ports shown that are operational and have a recorded speed. One Tbps is a thousand gigabits per second.`]
   ]);
+  $('#ix-reconQ').innerHTML = `These ${fmt(xs.length)} exchanges carry ${fmt(ps.length)} operational ports belonging to ${fmt(conn.size)} different networks. That figure counts networks by their exchange ports alone, which is why it differs from the ${fmt(M.totals.ev_fac)} networks installed in a facility. The <button class="linkish" data-go="networks">Networks tab</button> lists all ${fmt(M.totals.networks)} and shows how the three groups overlap.`;
   scatter('#ix-scatter', xs.map(x => ({x:x.nets, y:x.gbps, r:7, label:x.name, c:opColor(x.operator), kind:'ix', id:x.id,
     tip:`${x.name}: ${fmt(x.nets)} networks connected, ${fmt(x.gbps)} Gbps across ${fmt(x.ports)} ports`})),
     {xl:'Networks connected', yl:'Total port capacity (Gbps)'});
   $('#ix-legend').innerHTML = ixOpMulti.map(e => `<span><i class="sw" style="background:${opColor(e[0])}"></i>${esc(e[0])}</span>`).join('')
     + `<span><i class="sw" style="background:${V('--small')}"></i>Operators with one exchange</span>`;
   const sp = {};
-  ps.filter(p => p.mbps > 0).forEach(p => { sp[p.mbps] = (sp[p.mbps]||0) + 1; });
+  rp.forEach(p => { sp[p.mbps] = (sp[p.mbps]||0) + 1; });
   bars('#ix-speed', topN('ix-speed', Object.entries(sp).sort((a,b) => b[1]-a[1] || b[0]-a[0])).map(e => ({label:speedLabel(+e[0]), v:e[1], c:V('--ix'), tip:`${fmt(e[1])} ports at ${speedLabel(+e[0])}`})));
   bars('#ix-city', topN('ix-city', optionsFrom(xs.map(x => x.city))).map(o => ({label:o.label, v:o.n, id:o.v, c:V('--ix'), tip:`${o.label}: ${fmt(o.n)} exchanges`})),
     {onClick:it => setOnly('exchanges','city',it.id), dimFn:it => !isAll('exchanges','city') && !S.exchanges.city.has(it.id)});
@@ -1033,7 +1101,7 @@ RENDER.nixi = () => {
   bars('#nx-locs', topN('nx-locs', Object.entries(locs).sort((a,b) => b[1]-a[1] || a[0].localeCompare(b[0]))).map(e => ({
     label:nocLabel[e[0]] || e[0], v:e[1], id:e[0], c:V('--nixi'), tip:`${nocLabel[e[0]] || e[0]}: ${fmt(e[1])} ISPs listed`})),
     {onClick:it => setOnly('nixi','loc',it.id)});
-  bars('#nx-multi', topN('nx-multi', rs.filter(r => r.nlocs > 1).sort((a,b) => b.nlocs - a.nlocs || a.name.localeCompare(b.name))).map(r => ({
+  bars('#nx-multi', topN('nx-multi', rs.filter(r => r.nlocs > 1 && !r.infra).sort((a,b) => b.nlocs - a.nlocs || a.name.localeCompare(b.name))).map(r => ({
     label:r.name, v:r.nlocs, id:r.id, c:V('--nixi'), tip:`${r.name} (AS${r.asn}): ${r.locs.map(l => nocLabel[l] || l).join(', ')}`})),
     {onClick:it => openRec('isp', it.id)});
   renderTable('nixiIsps'); renderTable('nixiNocs');
@@ -1059,7 +1127,11 @@ RENDER.nixi = () => {
     ['Facility size', `Set by the number of networks listed inside: ${TIER[1].name.toLowerCase()} is ${tierRule(1)}, ${TIER[2].name.toLowerCase()} is ${tierRule(2)}, ${TIER[3].name.toLowerCase()} is ${tierRule(3)}.`],
     ['Networks installed', INSTALLED_TIP],
     ['Tenant network', 'A network listed as installed in at least one Indian facility.'],
-    ['Network seen only at exchanges', 'A network with a port on an Indian exchange but no facility listing.'],
+    ['Evidence in India', 'Why a network appears in this report at all. There are three kinds, and a network can rest on more than one: it is installed in a facility, it has an operational port on an Indian exchange, or it is listed as an ISP at a NIXI location. Every network with any of the three gets a row, with its real counts including zeros.'],
+    ['Exchange infrastructure', 'A network PeeringDB types as a Route Server or Route Collector. These are the machines an exchange runs to make peering work, not independent organisations, so they are marked and left out of every ranking, but kept in the data and still counted in the totals.'],
+    ['Run by an exchange operator', 'A network whose organisation ID in the data is also the organisation ID of an exchange. Marked on the record; these are real networks, so they are counted and ranked normally.'],
+    ['Countable port', 'A port not marked as not operational. Every port count, total and average on this site uses countable ports only.'],
+    ['Rated port', 'A countable port with a speed above 0. A port with speed 0 has no recorded speed, so it is a real port but adds nothing to a capacity total or an average.'],
     ['Internet exchange', 'A shared switch where many networks connect directly to swap traffic with each other.'],
     ['Exchange operator', 'All exchanges sharing a company ID in the data. The data has no operator name, so each group is labelled with the first word of its exchanges’ names.'],
     ['Port', 'One connection a network has to an exchange. Its speed is given in megabits or gigabits per second.'],
@@ -1073,8 +1145,10 @@ RENDER.nixi = () => {
     '<b>NIXI ISP names.</b> Spaces and line breaks are trimmed. Where one ASN is listed under several names, the most common spelling is shown and the others appear under "Also listed as" in the ISP panel.',
     '<b>NIXI location and zone names.</b> A name written entirely in capitals is put into title case, which merges the one zone written in two cases. Spellings are not corrected.',
     '<b>Counts come from linked rows.</b> How many networks are in a facility, how many exchanges a facility hosts and how many networks are on an exchange are all counted from the linked records themselves, so every number opens to exactly that many records. Where the source data carries its own summary count and it differs, the panel shows it as the PeeringDB count.',
-    `<b>Ports listed at speed 0.</b> ${fmt(M.totals.ports_zero)} ports are listed at speed 0. They are counted as ports, and left out of the speed chart and the capacity totals.`,
-    `<b>Ports marked not operational.</b> ${fmt(M.totals.ports_down)} ports are marked as not operational. They are counted like any other port, and the status is shown in the detail panels.`,
+    `<b>Ports listed at speed 0.</b> ${fmt(M.totals.ports_zero)} ports have no recorded speed. They are real ports and are counted as ports, but they add nothing to any capacity total or average, and they are left out of the speed chart. ${fmt(M.totals.ports_rated)} of the ${fmt(M.totals.ports_listed)} listed ports are both operational and have a recorded speed.`,
+    `<b>Ports marked not operational.</b> ${fmt(M.totals.ports_down)} ports are marked as not operational. They count nowhere at all: not in a port count, a network count, a capacity total, an average or a chart. The detail panels still show them, labelled as not counted, so nothing is hidden. This leaves ${fmt(M.totals.ports)} countable ports.`,
+    `<b>Networks are listed on evidence.</b> A network gets a row if the data shows it has equipment or membership in India, whether that is a facility, an operational exchange port or a NIXI listing. ${fmt(M.totals.networks)} networks qualify, of which ${fmt(M.totals.no_pdb)} appear only in NIXI\u2019s lists and so have no PeeringDB record to draw the other fields from.`,
+    `<b>Exchange infrastructure.</b> ${fmt(M.totals.infra)} networks are typed by PeeringDB as a Route Server or Route Collector, which makes them an exchange\u2019s own equipment rather than an independent organisation. They keep their rows and their counts, are marked on every row, and are left out of every ranking. A further ${fmt(M.totals.ixrun)} networks share an organisation ID with an exchange operator; those are marked too, but they are ordinary networks and are ranked normally.`,
     `<b>Map positions.</b> A city bubble sits at the average position of that city’s facilities that have coordinates. ${fmt(M.totals.with_coords)} of ${fmt(M.totals.facilities)} facilities have coordinates. The ${fmt(M.totals.off_map)} facilities in cities with none stay in every chart, table and count, and are listed under each map.`,
     '<b>Contact details.</b> Shown exactly as the data writes them. No email address or phone number is corrected.'
   ].map(t => `<li>${t}</li>`).join('');
@@ -1109,7 +1183,8 @@ const dl = pairs => {
 const links = items => items.length
   ? `<ul class="links">${items.map(x => `<li><button data-k="${x[0]}" data-id="${esc(x[1])}">${esc(x[2])}</button></li>`).join('')}</ul>`
   : '<p class="empty">None listed in the data</p>';
-const portLabel = p => `${p.mbps >= 1000 ? (p.mbps/1000) + ' Gbps' : p.mbps + ' Mbps'}${p.operational === 'False' ? ', marked not operational' : ''}`;
+const portLabel = p => `${p.mbps > 0 ? (p.mbps >= 1000 ? (p.mbps/1000) + ' Gbps' : p.mbps + ' Mbps') : 'no speed recorded'}`
+  + (p.op ? (p.mbps > 0 ? '' : ', so it adds no capacity') : ', marked not operational, counted nowhere');
 drawer.onclick = e => {
   const b = e.target.closest('button[data-k]'); if (b) openRec(b.dataset.k, b.dataset.id);
   if (e.target.closest('.x')) closeDrawer();
@@ -1153,14 +1228,25 @@ function openRec(kind, id){
   }
   if (kind === 'net'){
     const n = netById[id]; if (!n) return;
-    c = '--net'; label = n.nf > 0 ? 'Tenant network' : n.india ? 'Network seen only at exchanges' : 'PeeringDB network, not linked to India';
-    h = `<h2>${esc(n.name)}</h2>
+    c = '--net'; label = n.infra ? 'Exchange infrastructure' : 'Network';
+    const excluded = n.allPorts.filter(x => !x.op);
+    h = `<h2>${esc(n.name)}</h2>${evTags(n)}
+      <h4>Evidence in India</h4>${dl([
+        ['Rests on', evWords(n)],
+        ['Indian facilities', fmt(n.nf)],
+        ['Operational exchange ports', fmt(n.nports)],
+        ['NIXI locations', fmt(n.locs.length)],
+        ['Ports not counted', excluded.length ? `${fmt(excluded.length)} marked not operational, so counted nowhere` : ''],
+        ['Exchange infrastructure', n.infra ? `Yes, PeeringDB types this as ${n.type}. Kept in the data and marked, but left out of every ranking.` : ''],
+        ['Run by an exchange operator', n.ixrun ? `Yes, the same organisation as the ${n.ixrun_label} exchanges` : ''],
+        ['PeeringDB record', n.pdb ? '' : 'None. This ASN appears only in NIXI\u2019s lists, so the fields below are not available.']])}
       <h4>Details</h4>${dl([['ASN',n.asn],['Also known as',n.aka],['Full name',n.long],['Type',n.type],['Geographic scope',n.scope],
         ['Traffic',n.traffic],['Traffic ratio',n.ratio],['IPv4 prefixes',n.p4],['IPv6 prefixes',n.p6],['IPv6 enabled',n.ipv6],
         ['Peering policy',n.policy],['Facilities worldwide',fmt(n.ww_fac)],['Exchanges worldwide',fmt(n.ww_ix)],
         ['Website',n.web],['Notes',n.notes],['Last updated',n.updated],['PeeringDB network ID',n.id]])}
       <h4>Indian facilities (${fmt(n.facs.length)})</h4>${links(n.facs.map(f => ['fac',f,`${facById[f].name}, ${facById[f].city}`]))}
-      <h4>Indian exchange ports (${fmt(n.ports.length)})</h4>${links(n.ports.map(p => ['ix',p.ix_id,`${(ixById[p.ix_id]||{}).name || p.ix_id}, ${portLabel(p)}`]))}`;
+      <h4>Indian exchange ports (${fmt(n.nports)})</h4>${links(n.allPorts.map(p => ['ix',p.ix_id,`${(ixById[p.ix_id]||{}).name || p.ix_id}, ${portLabel(p)}`]))}
+      <h4>NIXI locations (${fmt(n.locs.length)})</h4>${links(n.locs.filter(l => nocById[l]).map(l => ['noc',l,nocLabel[l]]))}`;
   }
   if (kind === 'ix'){
     const x = ixById[id]; if (!x) return;
@@ -1173,7 +1259,11 @@ function openRec(kind, id){
       <h4>Details</h4>${dl([['Full name',x.long],['Also known as',x.aka],['Exchange operator',x.operator],
         ['City',x.city],['City in the data', x.city !== x.city_raw ? x.city_raw : ''],
         ['Networks connected',fmt(x.nets)],['PeeringDB member count', x.pdb_nets !== x.nets ? fmt(x.pdb_nets) : ''],
-        ['Ports listed',fmt(x.ports)],['Port capacity',`${fmt(x.gbps)} Gbps`],
+        ['Operational ports',fmt(x.ports)],
+        ['Ports not counted', x.ports_nonop ? `${fmt(x.ports_nonop)} marked not operational, counted nowhere` : ''],
+        ['Ports with no recorded speed', x.ports_zero ? `${fmt(x.ports_zero)}, counted as ports but adding no capacity` : ''],
+        ['Port capacity',`${fmt(x.gbps)} Gbps`],
+        ['Average port speed', x.avg_mbps ? `${fmt(x.avg_mbps)} Mbps over ${fmt(x.rated)} ports with a recorded speed` : ''],
         ['Facilities hosting it',fmt(x.facs.length)],['PeeringDB facility count', x.pdb_facs !== x.facs.length ? fmt(x.pdb_facs) : ''],
         ['Service level',x.service],['Terms',x.terms],['Traffic statistics',x.stats],['Notes',x.notes],
         ['Last updated',x.updated],['PeeringDB exchange ID',x.id],['Company ID in the data',x.org_id]])}
@@ -1193,7 +1283,7 @@ function openRec(kind, id){
   if (kind === 'isp'){
     const r = ispById[id]; if (!r) return;
     c = '--nixi'; label = 'ISP connected at NIXI';
-    h = `<h2>${esc(r.name)}</h2><span class="tag" style="--c:${V(GROUPS[r.group].c)}">${esc(GROUPS[r.group].name)}</span>
+    h = `<h2>${esc(r.name)}</h2><span class="tag" style="--c:${V(GROUPS[r.group].c)}">${esc(GROUPS[r.group].name)}</span>${r.infra ? ' <span class="infra">Exchange infrastructure</span>' : ''}
       <p class="q" style="margin:10px 0 0">${esc(GROUPS[r.group].desc)}</p>
       <h4>Details</h4>${dl([['ASN',r.asn],['Also listed as', r.also.join('; ')],['NIXI locations',fmt(r.nlocs)],
         ['Zones',r.zones.join(', ')],['NIXI network ID',r.nixi_ids.join(', ')],['First listed by NIXI',r.created],['Last updated by NIXI',r.updated]])}
@@ -1215,17 +1305,24 @@ function openRec(kind, id){
 const IDX = [
   ...FAC.map(f => ({k:'fac', id:f.id, t:f.name, s:`${f.org}, ${f.city}`, x:[f.name,f.org,f.city,f.city_raw,f.aka,f.zip,f.address1].join(' ')})),
   ...OPS_ALL.map(o => ({k:'op', id:o.org, t:o.org, s:`${fmt(o.facilities)} ${o.facilities === 1 ? 'facility' : 'facilities'}`, x:o.org})),
-  ...INDIA_NETS.map(n => ({k:'net', id:n.id, t:n.name, s:`AS${n.asn}, ${n.typeL}`, x:[n.name,n.aka,n.long,n.asn,'as'+n.asn].join(' ')})),
+  ...NET.map(n => ({k:'net', id:n.id, t:n.name, s:`AS${n.asn}, ${evWords(n)}${n.infra ? ', exchange infrastructure' : ''}`,
+    x:[n.name,n.aka,n.long,n.asn,'as'+n.asn,n.sx].join(' ')})),
   ...IXS.map(x => ({k:'ix', id:x.id, t:x.name, s:`${x.city}, ${fmt(x.nets)} networks connected`, x:[x.name,x.long,x.aka,x.city].join(' ')})),
   ...NOCS.map(n => ({k:'noc', id:n.id, t:n.name, s:[n.contact, n.phone].filter(Boolean).join(', ') || 'NIXI location', x:[n.name,n.name_raw,n.contact,n.email,n.address,n.phone,n.mobile].join(' ')})),
-  ...ISPS.map(r => ({k:'isp', id:r.id, t:r.name, s:`AS${r.asn}, ${GROUPS[r.group].name}`, x:[r.name,r.also.join(' '),r.asn,'as'+r.asn,r.locs.map(l => nocLabel[l]||l).join(' ')].join(' ')}))
-].map(r => Object.assign(r, {x:r.x.toLowerCase()}));
-const GROUP_NAMES = {fac:'Facilities', op:'Operators', net:'Networks linked to India', ix:'Internet exchanges', noc:'NIXI locations', isp:'ISPs at NIXI'};
+  ...ISPS.map(r => ({k:'isp', id:r.id, t:r.name, s:`AS${r.asn}, ${GROUPS[r.group].name}`, x:[r.name,r.also.join(' '),r.sx,r.asn,'as'+r.asn,r.locs.map(l => nocLabel[l]||l).join(' ')].join(' ')}))
+].map(r => {
+  const low = r.x.toLowerCase();
+  /* index the text twice: as written, and with punctuation and spaces removed,
+     so "decix", "de-cix" and "DE CIX" all match, and so do acronyms like AWS */
+  return Object.assign(r, {x:low + ' ' + low.replace(/[^a-z0-9]+/g, '')});
+});
+const GROUP_NAMES = {fac:'Facilities', op:'Operators', net:'Networks', ix:'Internet exchanges', noc:'NIXI locations', isp:'ISPs at NIXI'};
 const res = $('#results');
 $('#q').oninput = e => {
   const q = e.target.value.trim().toLowerCase();
   if (q.length < 2){ res.classList.remove('open'); return; }
-  const terms = q.split(/\s+/), hits = IDX.filter(r => terms.every(t => r.x.includes(t)));
+  const terms = q.split(/\s+/).map(t => t.replace(/[^a-z0-9]+/g, '')).filter(Boolean);
+  const hits = terms.length ? IDX.filter(r => terms.every(t => r.x.includes(t))) : [];
   res.innerHTML = hits.length
     ? Object.keys(GROUP_NAMES).map(k => {
         const g = hits.filter(h => h.k === k);
